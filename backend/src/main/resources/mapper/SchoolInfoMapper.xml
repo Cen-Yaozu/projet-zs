@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.SchoolInfoMapper">
+    <resultMap id="BaseResultMap" type="com.zs.entity.SchoolInfo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="address" property="address" />
+        <result column="type" property="type" />
+        <result column="description" property="description" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, province, city, address, type, description
+    </sql>
+
+    <insert id="insert" parameterType="com.zs.entity.SchoolInfo">
+        insert into school_info (name, province, city, address, type, description)
+        values (#{name}, #{province}, #{city}, #{address}, #{type}, #{description})
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from school_info where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.zs.entity.SchoolInfo">
+        update school_info
+        set name = #{name},
+            province = #{province},
+            city = #{city},
+            address = #{address},
+            type = #{type},
+            description = #{description}
+        where id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from school_info
+        where id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from school_info
+    </select>
+
+    <select id="selectByName" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from school_info
+        where name like concat('%', #{name}, '%')
+    </select>
+
+    <select id="selectByProvince" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from school_info
+        where province = #{province}
+    </select>
+
+    <select id="selectByType" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from school_info
+        where type = #{type}
+    </select>
+</mapper>

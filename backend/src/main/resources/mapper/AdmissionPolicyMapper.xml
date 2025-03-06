@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.AdmissionPolicyMapper">
+    <!-- 基础字段映射 -->
+    <resultMap id="BaseResultMap" type="com.zs.entity.AdmissionPolicy">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="school_id" property="schoolId" jdbcType="BIGINT"/>
+        <result column="year" property="year" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 基础字段 -->
+    <sql id="Base_Column_List">
+        id, school_id, year, content, create_time, update_time
+    </sql>
+
+    <!-- 插入招生政策 -->
+    <insert id="insert" parameterType="com.zs.entity.AdmissionPolicy">
+        insert into admission_policy (school_id, year, content, create_time, update_time)
+        values (#{schoolId,jdbcType=BIGINT}, #{year,jdbcType=INTEGER}, 
+                #{content,jdbcType=VARCHAR}, now(), now())
+    </insert>
+
+    <!-- 根据ID删除招生政策 -->
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from admission_policy where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <!-- 更新招生政策 -->
+    <update id="update" parameterType="com.zs.entity.AdmissionPolicy">
+        update admission_policy
+        set school_id = #{schoolId,jdbcType=BIGINT},
+            year = #{year,jdbcType=INTEGER},
+            content = #{content,jdbcType=VARCHAR},
+            update_time = now()
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!-- 根据ID查询招生政策 -->
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admission_policy
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <!-- 查询所有招生政策 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admission_policy
+    </select>
+
+    <!-- 根据学校ID查询招生政策 -->
+    <select id="selectBySchoolId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admission_policy
+        where school_id = #{schoolId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 根据年份和学校ID查询招生政策 -->
+    <select id="selectByYearAndSchoolId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admission_policy
+        where year = #{year,jdbcType=INTEGER}
+        and school_id = #{schoolId,jdbcType=BIGINT}
+    </select>
+</mapper>
