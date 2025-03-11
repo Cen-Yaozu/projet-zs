@@ -1,0 +1,81 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/ai/index",
+      "style": {
+        "navigationBarTitleText": "智能咨询",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/login",
+      "style": {
+        "navigationBarTitleText": "用户登录",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/register",
+      "style": {
+        "navigationBarTitleText": "用户注册",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "广州航海学院",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4aa3ff",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/tabbar/home.png",
+        "selectedIconPath": "/static/tabbar/home.png"
+      },
+      {
+        "pagePath": "pages/ai/index",
+        "text": "AI咨询",
+        "iconPath": "/static/tabbar/ai.png",
+        "selectedIconPath": "/static/tabbar/ai.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/static/tabbar/user.png",
+        "selectedIconPath": "/static/tabbar/user.png"
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  }
+} 

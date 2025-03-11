@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `nickname` VARCHAR(50) COMMENT '昵称',
     `phone` VARCHAR(20) COMMENT '手机号',
     `email` VARCHAR(100) COMMENT '邮箱',
+    `role` VARCHAR(20) NOT NULL DEFAULT 'ROLE_USER' COMMENT '用户角色：ROLE_ADMIN-管理员，ROLE_USER-普通用户',
     `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态：0-禁用，1-正常',
     `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -68,10 +69,9 @@ CREATE TABLE IF NOT EXISTS `admission_policy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='招生政策表';
 
 -- 插入测试用户数据
-INSERT INTO `user` (`username`, `password`, `nickname`, `phone`, `email`, `status`) VALUES
-('admin', '$2a$10$X/hxGJ8wZH.jB5sFHxzqPeYwLQv4ZyQvG7HB.1WqWzYFPVJQzQUxu', '管理员', '13800138000', 'admin@example.com', 1),
-('teacher1', '$2a$10$X/hxGJ8wZH.jB5sFHxzqPeYwLQv4ZyQvG7HB.1WqWzYFPVJQzQUxu', '招生老师1', '13800138001', 'teacher1@example.com', 1),
-('student1', '$2a$10$X/hxGJ8wZH.jB5sFHxzqPeYwLQv4ZyQvG7HB.1WqWzYFPVJQzQUxu', '学生1', '13800138002', 'student1@example.com', 1);
+INSERT INTO `user` (`username`, `password`, `nickname`, `phone`, `email`, `role`, `status`) VALUES
+('admin', '$2a$10$X/hxGJ8wZH.jB5sFHxzqPeYwLQv4ZyQvG7HB.1WqWzYFPVJQzQUxu', '管理员', '13800138000', 'admin@example.com', 'ROLE_ADMIN', 1),
+('user1', '$2a$10$X/hxGJ8wZH.jB5sFHxzqPeYwLQv4ZyQvG7HB.1WqWzYFPVJQzQUxu', '用户1', '13800138001', 'user1@example.com', 'ROLE_USER', 1);
 
 -- 插入测试学校数据
 INSERT INTO `school_info` (`name`, `code`, `type`, `level`, `province`, `city`, `address`, `description`, `website`) VALUES
@@ -85,104 +85,6 @@ INSERT INTO `major_info` (`school_id`, `name`, `code`, `degree`, `duration`, `de
 (1, '人工智能', '080910', '工学学士', '4年', '人工智能专业培养具备机器学习、深度学习、计算机视觉等方面知识和能力的高级人才。', '可在AI企业、研究所、互联网公司等从事算法研发、AI应用开发等工作。'),
 (2, '金融学', '020301', '经济学学士', '4年', '金融学专业培养具备金融理论、金融市场、投资管理等方面知识和能力的高级人才。', '可在银行、证券公司、基金公司等金融机构从事投资、理财、风控等工作。'),
 (3, '医学', '100201', '医学学士', '5年', '医学专业培养具备基础医学、临床医学等方面知识和能力的医疗人才。', '可在医院、医疗机构、医药企业等从事医疗、研究、管理等工作。');
-
--- 角色表
-CREATE TABLE IF NOT EXISTS `role` (
-    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    `name` VARCHAR(50) NOT NULL COMMENT '角色名称',
-    `code` VARCHAR(50) NOT NULL COMMENT '角色编码',
-    `description` VARCHAR(200) COMMENT '角色描述',
-    `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态：0-禁用，1-正常',
-    `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uk_code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
-
--- 用户角色关联表
-CREATE TABLE IF NOT EXISTS `user_role` (
-    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    `user_id` BIGINT NOT NULL COMMENT '用户ID',
-    `role_id` BIGINT NOT NULL COMMENT '角色ID',
-    `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uk_user_role` (`user_id`, `role_id`),
-    CONSTRAINT `fk_ur_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-    CONSTRAINT `fk_ur_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户角色关联表';
-
--- 权限表
-CREATE TABLE IF NOT EXISTS `permission` (
-    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    `name` VARCHAR(100) NOT NULL COMMENT '权限名称',
-    `code` VARCHAR(100) NOT NULL COMMENT '权限编码',
-    `type` TINYINT NOT NULL COMMENT '权限类型：1-菜单，2-按钮，3-接口',
-    `parent_id` BIGINT COMMENT '父权限ID',
-    `path` VARCHAR(200) COMMENT '路径',
-    `icon` VARCHAR(100) COMMENT '图标',
-    `sort` INT DEFAULT 0 COMMENT '排序',
-    `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态：0-禁用，1-正常',
-    `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uk_code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='权限表';
-
--- 角色权限关联表
-CREATE TABLE IF NOT EXISTS `role_permission` (
-    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    `role_id` BIGINT NOT NULL COMMENT '角色ID',
-    `permission_id` BIGINT NOT NULL COMMENT '权限ID',
-    `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uk_role_permission` (`role_id`, `permission_id`),
-    CONSTRAINT `fk_rp_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
-    CONSTRAINT `fk_rp_permission` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色权限关联表';
-
--- 插入基础角色数据
-INSERT INTO `role` (`name`, `code`, `description`, `status`) VALUES
-('超级管理员', 'SUPER_ADMIN', '系统超级管理员，拥有所有权限', 1),
-('招生老师', 'TEACHER', '负责招生咨询和答疑的教师', 1),
-('学生', 'STUDENT', '普通学生用户', 1);
-
--- 插入基础权限数据
-INSERT INTO `permission` (`name`, `code`, `type`, `parent_id`, `path`, `icon`, `sort`, `status`) VALUES
--- 系统管理
-(1, '系统管理', 'system', 1, NULL, '/system', 'setting', 1, 1),
-(2, '用户管理', 'system:user', 1, 1, '/system/user', 'user', 1, 1),
-(3, '角色管理', 'system:role', 1, 1, '/system/role', 'team', 2, 1),
-(4, '权限管理', 'system:permission', 1, 1, '/system/permission', 'safety', 3, 1),
--- 招生管理
-(5, '招生管理', 'admission', 1, NULL, '/admission', 'solution', 2, 1),
-(6, '学校管理', 'admission:school', 1, 5, '/admission/school', 'bank', 1, 1),
-(7, '专业管理', 'admission:major', 1, 5, '/admission/major', 'profile', 2, 1),
-(8, '政策管理', 'admission:policy', 1, 5, '/admission/policy', 'file-text', 3, 1),
--- 咨询管理
-(9, '咨询管理', 'consultation', 1, NULL, '/consultation', 'message', 3, 1),
-(10, '咨询列表', 'consultation:list', 1, 9, '/consultation/list', 'ordered-list', 1, 1),
-(11, '咨询回复', 'consultation:reply', 1, 9, '/consultation/reply', 'comment', 2, 1);
-
--- 插入角色权限关联数据
--- 超级管理员拥有所有权限
-INSERT INTO `role_permission` (`role_id`, `permission_id`)
-SELECT 1, id FROM `permission`;
-
--- 招生老师权限
-INSERT INTO `role_permission` (`role_id`, `permission_id`)
-SELECT 2, id FROM `permission` WHERE `code` LIKE 'admission%' OR `code` LIKE 'consultation%';
-
--- 学生权限
-INSERT INTO `role_permission` (`role_id`, `permission_id`)
-SELECT 3, id FROM `permission` WHERE `code` IN ('consultation:list');
-
--- 插入用户角色关联数据
-INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
-(1, 1),  -- admin -> 超级管理员
-(2, 2),  -- teacher1 -> 招生老师
-(3, 3);  -- student1 -> 学生
 
 -- 插入测试招生政策数据
 INSERT INTO `admission_policy` (`school_id`, `year`, `province`, `plan_number`, `min_score`, `category`, `policy_content`) VALUES

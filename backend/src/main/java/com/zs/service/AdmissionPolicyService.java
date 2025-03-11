@@ -1,27 +1,22 @@
 package com.zs.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.zs.entity.AdmissionPolicy;
 import java.util.List;
 
-public interface AdmissionPolicyService {
-    // 添加招生政策
-    boolean addAdmissionPolicy(AdmissionPolicy admissionPolicy);
+public interface AdmissionPolicyService extends IService<AdmissionPolicy> {
+    // 根据学校ID查询招生政策
+    List<AdmissionPolicy> getBySchoolId(Long schoolId);
 
-    // 删除招生政策
-    boolean deleteAdmissionPolicy(Long id);
+    // 根据年份和学校ID查询招生政策
+    List<AdmissionPolicy> getByYearAndSchoolId(Integer year, Long schoolId);
 
-    // 更新招生政策
-    boolean updateAdmissionPolicy(AdmissionPolicy admissionPolicy);
+    // 根据省份查询招生政策
+    List<AdmissionPolicy> getByProvince(String province);
 
-    // 根据ID获取招生政策
-    AdmissionPolicy getAdmissionPolicyById(Long id);
+    // 根据年份、学校ID和省份查询招生政策
+    List<AdmissionPolicy> getByYearAndSchoolIdAndProvince(Integer year, Long schoolId, String province);
 
-    // 获取所有招生政策
-    List<AdmissionPolicy> getAllAdmissionPolicies();
-
-    // 根据学校ID获取招生政策
-    List<AdmissionPolicy> getAdmissionPoliciesBySchoolId(Long schoolId);
-
-    // 根据年份和学校ID获取招生政策
-    List<AdmissionPolicy> getAdmissionPoliciesByYearAndSchoolId(Integer year, Long schoolId);
+    // 根据分数范围查询招生政策
+    List<AdmissionPolicy> getByScoreRange(Integer minScore, Integer maxScore);
 }

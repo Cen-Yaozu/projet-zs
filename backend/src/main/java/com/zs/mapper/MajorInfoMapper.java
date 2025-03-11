@@ -1,11 +1,12 @@
 package com.zs.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zs.entity.MajorInfo;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface MajorInfoMapper {
+public interface MajorInfoMapper extends BaseMapper<MajorInfo> {
     // 插入专业信息
     int insert(MajorInfo majorInfo);
 

@@ -1,5 +1,8 @@
 package com.zs.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -8,11 +11,18 @@ import java.time.LocalDateTime;
  * 专业信息实体类
  */
 @Data
+@TableName("major_info")
 public class MajorInfo implements Serializable {
     /**
      * 主键ID
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
+
+    /**
+     * 所属学校ID
+     */
+    private Long schoolId;
 
     /**
      * 专业名称
@@ -25,29 +35,14 @@ public class MajorInfo implements Serializable {
     private String code;
 
     /**
-     * 所属学校ID
-     */
-    private Long schoolId;
-
-    /**
-     * 学科门类
-     */
-    private String category;
-
-    /**
-     * 专业类别
-     */
-    private String type;
-
-    /**
-     * 学制年限
-     */
-    private String duration;
-
-    /**
-     * 学位授予
+     * 学位类型
      */
     private String degree;
+
+    /**
+     * 学制
+     */
+    private String duration;
 
     /**
      * 专业介绍
@@ -55,7 +50,7 @@ public class MajorInfo implements Serializable {
     private String description;
 
     /**
-     * 就业方向
+     * 就业前景
      */
     private String careerProspects;
 

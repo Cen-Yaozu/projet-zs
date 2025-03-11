@@ -1,50 +1,48 @@
 package com.zs.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zs.entity.AdmissionPolicy;
 import com.zs.mapper.AdmissionPolicyMapper;
 import com.zs.service.AdmissionPolicyService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
-public class AdmissionPolicyServiceImpl implements AdmissionPolicyService {
-
-    @Autowired
-    private AdmissionPolicyMapper admissionPolicyMapper;
+public class AdmissionPolicyServiceImpl extends ServiceImpl<AdmissionPolicyMapper, AdmissionPolicy> implements AdmissionPolicyService {
 
     @Override
-    public boolean addAdmissionPolicy(AdmissionPolicy admissionPolicy) {
-        return admissionPolicyMapper.insert(admissionPolicy) > 0;
+    public List<AdmissionPolicy> getBySchoolId(Long schoolId) {
+        return list(new LambdaQueryWrapper<AdmissionPolicy>()
+                .eq(AdmissionPolicy::getSchoolId, schoolId));
     }
 
     @Override
-    public boolean deleteAdmissionPolicy(Long id) {
-        return admissionPolicyMapper.deleteById(id) > 0;
+    public List<AdmissionPolicy> getByYearAndSchoolId(Integer year, Long schoolId) {
+        return list(new LambdaQueryWrapper<AdmissionPolicy>()
+                .eq(AdmissionPolicy::getYear, year)
+                .eq(AdmissionPolicy::getSchoolId, schoolId));
     }
 
     @Override
-    public boolean updateAdmissionPolicy(AdmissionPolicy admissionPolicy) {
-        return admissionPolicyMapper.update(admissionPolicy) > 0;
+    public List<AdmissionPolicy> getByProvince(String province) {
+        return list(new LambdaQueryWrapper<AdmissionPolicy>()
+                .eq(AdmissionPolicy::getProvince, province));
     }
 
     @Override
-    public AdmissionPolicy getAdmissionPolicyById(Long id) {
-        return admissionPolicyMapper.selectById(id);
+    public List<AdmissionPolicy> getByYearAndSchoolIdAndProvince(Integer year, Long schoolId, String province) {
+        return list(new LambdaQueryWrapper<AdmissionPolicy>()
+                .eq(AdmissionPolicy::getYear, year)
+                .eq(AdmissionPolicy::getSchoolId, schoolId)
+                .eq(AdmissionPolicy::getProvince, province));
     }
 
     @Override
-    public List<AdmissionPolicy> getAllAdmissionPolicies() {
-        return admissionPolicyMapper.selectAll();
-    }
-
-    @Override
-    public List<AdmissionPolicy> getAdmissionPoliciesBySchoolId(Long schoolId) {
-        return admissionPolicyMapper.selectBySchoolId(schoolId);
-    }
-
-    @Override
-    public List<AdmissionPolicy> getAdmissionPoliciesByYearAndSchoolId(Integer year, Long schoolId) {
-        return admissionPolicyMapper.selectByYearAndSchoolId(year, schoolId);
+    public List<AdmissionPolicy> getByScoreRange(Integer minScore, Integer maxScore) {
+        return list(new LambdaQueryWrapper<AdmissionPolicy>()
+                .ge(AdmissionPolicy::getMinScore, minScore)
+                .le(AdmissionPolicy::getMinScore, maxScore));
     }
 }

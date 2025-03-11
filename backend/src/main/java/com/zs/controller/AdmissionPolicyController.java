@@ -18,54 +18,71 @@ public class AdmissionPolicyController {
     @Autowired
     private AdmissionPolicyService admissionPolicyService;
 
-    @PostMapping
-    @Operation(summary = "添加招生政策", description = "添加新的招生政策信息")
-    public ResponseEntity<?> addAdmissionPolicy(@Parameter(description = "招生政策信息", required = true) @RequestBody AdmissionPolicy admissionPolicy) {
-        boolean success = admissionPolicyService.addAdmissionPolicy(admissionPolicy);
-        return success ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    @PostMapping("/create")
+    @Operation(summary = "添加招生政策", description = "添加新的招生政策")
+    public ResponseEntity<?> addAdmissionPolicy(@Parameter(description = "招生政策", required = true) @RequestBody AdmissionPolicy admissionPolicy) {
+        return admissionPolicyService.save(admissionPolicy) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "删除招生政策", description = "根据招生政策ID删除招生政策")
-    public ResponseEntity<?> deleteAdmissionPolicy(@Parameter(description = "招生政策ID", required = true) @PathVariable Long id) {
-        boolean success = admissionPolicyService.deleteAdmissionPolicy(id);
-        return success ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    @Operation(summary = "删除招生政策", description = "根据ID删除招生政策")
+    public ResponseEntity<?> deleteAdmissionPolicy(@Parameter(description = "政策ID", required = true) @PathVariable Long id) {
+        return admissionPolicyService.removeById(id) ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    @PutMapping
-    @Operation(summary = "更新招生政策", description = "更新招生政策信息")
-    public ResponseEntity<?> updateAdmissionPolicy(@Parameter(description = "招生政策信息", required = true) @RequestBody AdmissionPolicy admissionPolicy) {
-        boolean success = admissionPolicyService.updateAdmissionPolicy(admissionPolicy);
-        return success ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    @PutMapping("/update")
+    @Operation(summary = "更新招生政策", description = "更新招生政策")
+    public ResponseEntity<?> updateAdmissionPolicy(@Parameter(description = "招生政策", required = true) @RequestBody AdmissionPolicy admissionPolicy) {
+        return admissionPolicyService.updateById(admissionPolicy) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "获取招生政策", description = "根据招生政策ID获取招生政策信息")
-    public ResponseEntity<AdmissionPolicy> getAdmissionPolicyById(@Parameter(description = "招生政策ID", required = true) @PathVariable Long id) {
-        AdmissionPolicy policy = admissionPolicyService.getAdmissionPolicyById(id);
+    @Operation(summary = "获取招生政策", description = "根据ID获取招生政策")
+    public ResponseEntity<AdmissionPolicy> getAdmissionPolicyById(@Parameter(description = "政策ID", required = true) @PathVariable Long id) {
+        AdmissionPolicy policy = admissionPolicyService.getById(id);
         return policy != null ? ResponseEntity.ok(policy) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping
-    @Operation(summary = "获取所有招生政策", description = "获取系统中所有招生政策信息")
+    @GetMapping("/list")
+    @Operation(summary = "获取所有招生政策", description = "获取系统中所有招生政策")
     public ResponseEntity<List<AdmissionPolicy>> getAllAdmissionPolicies() {
-        List<AdmissionPolicy> policies = admissionPolicyService.getAllAdmissionPolicies();
-        return ResponseEntity.ok(policies);
+        return ResponseEntity.ok(admissionPolicyService.list());
     }
 
     @GetMapping("/school/{schoolId}")
-    @Operation(summary = "根据学校ID查询招生政策", description = "根据学校ID查询相关招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getAdmissionPoliciesBySchoolId(@Parameter(description = "学校ID", required = true) @PathVariable Long schoolId) {
-        List<AdmissionPolicy> policies = admissionPolicyService.getAdmissionPoliciesBySchoolId(schoolId);
-        return ResponseEntity.ok(policies);
+    @Operation(summary = "根据学校ID查询招生政策", description = "查询指定学校的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getBySchoolId(@Parameter(description = "学校ID", required = true) @PathVariable Long schoolId) {
+        return ResponseEntity.ok(admissionPolicyService.getBySchoolId(schoolId));
     }
 
-    @GetMapping("/school/{schoolId}/year/{year}")
-    @Operation(summary = "根据年份和学校ID查询招生政策", description = "根据年份和学校ID查询相关招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getAdmissionPoliciesByYearAndSchoolId(
-            @Parameter(description = "年份", required = true) @PathVariable Integer year,
-            @Parameter(description = "学校ID", required = true) @PathVariable Long schoolId) {
-        List<AdmissionPolicy> policies = admissionPolicyService.getAdmissionPoliciesByYearAndSchoolId(year, schoolId);
-        return ResponseEntity.ok(policies);
+    @GetMapping("/search/year-school")
+    @Operation(summary = "根据年份和学校ID查询招生政策", description = "查询指定年份和学校的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByYearAndSchoolId(
+            @Parameter(description = "年份", required = true) @RequestParam Integer year,
+            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId) {
+        return ResponseEntity.ok(admissionPolicyService.getByYearAndSchoolId(year, schoolId));
+    }
+
+    @GetMapping("/search/province/{province}")
+    @Operation(summary = "根据省份查询招生政策", description = "查询指定省份的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByProvince(@Parameter(description = "省份", required = true) @PathVariable String province) {
+        return ResponseEntity.ok(admissionPolicyService.getByProvince(province));
+    }
+
+    @GetMapping("/search/year-school-province")
+    @Operation(summary = "根据年份、学校ID和省份查询招生政策", description = "查询指定年份、学校和省份的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByYearAndSchoolIdAndProvince(
+            @Parameter(description = "年份", required = true) @RequestParam Integer year,
+            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId,
+            @Parameter(description = "省份", required = true) @RequestParam String province) {
+        return ResponseEntity.ok(admissionPolicyService.getByYearAndSchoolIdAndProvince(year, schoolId, province));
+    }
+
+    @GetMapping("/search/score-range")
+    @Operation(summary = "根据分数范围查询招生政策", description = "查询指定分数范围内的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByScoreRange(
+            @Parameter(description = "最低分数", required = true) @RequestParam Integer minScore,
+            @Parameter(description = "最高分数", required = true) @RequestParam Integer maxScore) {
+        return ResponseEntity.ok(admissionPolicyService.getByScoreRange(minScore, maxScore));
     }
 }

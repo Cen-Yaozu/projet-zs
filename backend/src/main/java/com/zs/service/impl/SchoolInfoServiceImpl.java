@@ -1,55 +1,44 @@
 package com.zs.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zs.entity.SchoolInfo;
 import com.zs.mapper.SchoolInfoMapper;
 import com.zs.service.SchoolInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SchoolInfoServiceImpl implements SchoolInfoService {
-
-    @Autowired
-    private SchoolInfoMapper schoolInfoMapper;
+public class SchoolInfoServiceImpl extends ServiceImpl<SchoolInfoMapper, SchoolInfo> implements SchoolInfoService {
 
     @Override
-    public boolean addSchoolInfo(SchoolInfo schoolInfo) {
-        return schoolInfoMapper.insert(schoolInfo) > 0;
+    public List<SchoolInfo> searchByName(String name) {
+        return list(new LambdaQueryWrapper<SchoolInfo>()
+                .like(SchoolInfo::getName, name));
     }
 
     @Override
-    public boolean deleteSchoolInfo(Long id) {
-        return schoolInfoMapper.deleteById(id) > 0;
+    public List<SchoolInfo> getByProvince(String province) {
+        return list(new LambdaQueryWrapper<SchoolInfo>()
+                .eq(SchoolInfo::getProvince, province));
     }
 
     @Override
-    public boolean updateSchoolInfo(SchoolInfo schoolInfo) {
-        return schoolInfoMapper.update(schoolInfo) > 0;
+    public List<SchoolInfo> getByType(String type) {
+        return list(new LambdaQueryWrapper<SchoolInfo>()
+                .eq(SchoolInfo::getType, type));
     }
 
     @Override
-    public SchoolInfo getSchoolInfoById(Long id) {
-        return schoolInfoMapper.selectById(id);
+    public List<SchoolInfo> getByProvinceAndCity(String province, String city) {
+        return list(new LambdaQueryWrapper<SchoolInfo>()
+                .eq(SchoolInfo::getProvince, province)
+                .eq(SchoolInfo::getCity, city));
     }
 
     @Override
-    public List<SchoolInfo> getAllSchoolInfos() {
-        return schoolInfoMapper.selectAll();
-    }
-
-    @Override
-    public List<SchoolInfo> getSchoolInfosByName(String name) {
-        return schoolInfoMapper.selectByName(name);
-    }
-
-    @Override
-    public List<SchoolInfo> getSchoolInfosByProvince(String province) {
-        return schoolInfoMapper.selectByProvince(province);
-    }
-
-    @Override
-    public List<SchoolInfo> getSchoolInfosByType(String type) {
-        return schoolInfoMapper.selectByType(type);
+    public List<SchoolInfo> getByLevel(String level) {
+        return list(new LambdaQueryWrapper<SchoolInfo>()
+                .like(SchoolInfo::getLevel, level));
     }
 }

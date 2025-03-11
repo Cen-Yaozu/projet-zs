@@ -1,11 +1,12 @@
 package com.zs.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zs.entity.SchoolInfo;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface SchoolInfoMapper {
+public interface SchoolInfoMapper extends BaseMapper<SchoolInfo> {
     // 插入学校信息
     int insert(SchoolInfo schoolInfo);
 

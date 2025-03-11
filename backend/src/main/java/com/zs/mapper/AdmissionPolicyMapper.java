@@ -1,11 +1,12 @@
 package com.zs.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zs.entity.AdmissionPolicy;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface AdmissionPolicyMapper {
+public interface AdmissionPolicyMapper extends BaseMapper<AdmissionPolicy> {
     // 插入招生政策
     int insert(AdmissionPolicy admissionPolicy);
 

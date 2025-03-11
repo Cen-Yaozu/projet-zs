@@ -1,5 +1,8 @@
 package com.zs.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -8,14 +11,16 @@ import java.time.LocalDateTime;
  * 招生政策实体类
  */
 @Data
+@TableName("admission_policy")
 public class AdmissionPolicy implements Serializable {
     /**
      * 主键ID
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 所属学校ID
+     * 学校ID
      */
     private Long schoolId;
 
@@ -25,19 +30,14 @@ public class AdmissionPolicy implements Serializable {
     private Integer year;
 
     /**
-     * 招生类型（统招、自主招生等）
+     * 招生省份
      */
-    private String admissionType;
-
-    /**
-     * 招生批次
-     */
-    private String batch;
+    private String province;
 
     /**
      * 计划招生人数
      */
-    private Integer planCount;
+    private Integer planNumber;
 
     /**
      * 最低录取分数
@@ -45,14 +45,14 @@ public class AdmissionPolicy implements Serializable {
     private Integer minScore;
 
     /**
-     * 平均分
+     * 科类（理科、文科等）
      */
-    private Integer avgScore;
+    private String category;
 
     /**
-     * 政策说明
+     * 政策详细内容
      */
-    private String description;
+    private String policyContent;
 
     /**
      * 创建时间

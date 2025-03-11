@@ -30,7 +30,7 @@
           <view class="chat-item ai" v-else>
             <view class="avatar">
               <view class="avatar-placeholder ai-avatar-placeholder">
-                <uni-icons type="chatboxes-filled" size="24" color="#FFFFFF"></uni-icons>
+                <text class="chat-icon">💬</text>
               </view>
             </view>
             <view class="message">{{ item.content }}</view>
@@ -41,7 +41,7 @@
         <view class="chat-item ai" v-if="aiTyping">
           <view class="avatar">
             <view class="avatar-placeholder ai-avatar-placeholder">
-              <uni-icons type="chatboxes-filled" size="24" color="#FFFFFF"></uni-icons>
+              <text class="chat-icon">💬</text>
             </view>
           </view>
           <view class="message typing">
@@ -401,5 +401,10 @@ export default {
 
 .send-btn.active {
   color: #007AFF;
+}
+
+.chat-icon {
+  font-size: 32rpx;
+  color: #FFFFFF;
 }
 </style>

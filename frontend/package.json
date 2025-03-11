@@ -1,7 +1,7 @@
 {
-  "name": "project-zs-frontend",
+  "name": "guangzhou-maritime-university",
   "version": "1.0.0",
-  "description": "招生咨询小程序前端项目",
+  "description": "广州航海学院招生咨询小程序",
   "main": "main.js",
   "scripts": {
     "dev:mp-weixin": "uni -p mp-weixin",
@@ -16,17 +16,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dcloudio/uni-app": "^2.0.1",
+    "@dcloudio/uni-app": "latest",
     "@dcloudio/uni-app-plus": "^2.0.1",
     "@dcloudio/uni-h5": "^2.0.1",
     "@dcloudio/uni-mp-weixin": "^2.0.1",
     "@vue/shared": "^3.0.0",
     "vue": "^2.6.11",
-    "vuex": "^3.2.0"
+    "vuex": "^3.2.0",
+    "@dcloudio/uni-ui": "^1.4.28",
+    "dayjs": "^1.11.10"
   },
   "devDependencies": {
-    "@dcloudio/types": "^3.0.7",
-    "@dcloudio/uni-cli-shared": "^2.0.1",
+    "@dcloudio/types": "latest",
+    "@dcloudio/uni-automator": "latest",
+    "@dcloudio/uni-cli-shared": "latest",
+    "@dcloudio/vite-plugin-uni": "latest",
     "@dcloudio/uni-helper-json": "^1.0.13",
     "@dcloudio/uni-migration": "^2.0.1",
     "@dcloudio/uni-template-compiler": "^2.0.1",
@@ -42,7 +46,9 @@
     "mini-types": "^0.1.7",
     "miniprogram-api-typings": "^3.4.6",
     "postcss-comment": "^2.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "sass": "^1.69.7",
+    "typescript": "^5.3.3"
   },
   "browserslist": [
     "last 3 versions",
