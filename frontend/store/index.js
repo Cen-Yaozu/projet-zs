@@ -9,6 +9,8 @@ const store = new Vuex.Store({
     userInfo: null,
     // 是否已登录
     hasLogin: false,
+    // token
+    token: '',
     // 系统信息
     systemInfo: null
   },
@@ -17,6 +19,7 @@ const store = new Vuex.Store({
     login(state, userInfo) {
       state.userInfo = userInfo
       state.hasLogin = true
+      state.token = userInfo.token
       // 保存登录状态到本地
       uni.setStorageSync('userInfo', userInfo)
       uni.setStorageSync('token', userInfo.token)
@@ -25,6 +28,7 @@ const store = new Vuex.Store({
     logout(state) {
       state.userInfo = null
       state.hasLogin = false
+      state.token = ''
       // 移除本地登录状态
       uni.removeStorageSync('userInfo')
       uni.removeStorageSync('token')
@@ -37,10 +41,22 @@ const store = new Vuex.Store({
   actions: {
     // 初始化用户信息
     initUser({ commit }) {
-      // 尝试从本地获取用户信息
-      const userInfo = uni.getStorageSync('userInfo')
-      if (userInfo) {
-        commit('login', userInfo)
+      try {
+        // 尝试从本地获取用户信息
+        const userInfo = uni.getStorageSync('userInfo')
+        const token = uni.getStorageSync('token')
+        if (userInfo && token) {
+          // 添加token到userInfo对象
+          if (!userInfo.token) {
+            userInfo.token = token
+          }
+          commit('login', userInfo)
+          return true
+        }
+        return false
+      } catch (e) {
+        console.error('初始化用户信息失败:', e)
+        return false
       }
     },
     // 获取系统信息

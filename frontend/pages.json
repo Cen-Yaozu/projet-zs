@@ -38,6 +38,14 @@
         "navigationBarBackgroundColor": "#4aa3ff",
         "navigationBarTextStyle": "white"
       }
+    },
+    {
+      "path": "pages/my/forgot-password",
+      "style": {
+        "navigationBarTitleText": "忘记密码",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
     }
   ],
   "globalStyle": {

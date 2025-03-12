@@ -203,17 +203,26 @@ var _default = {
       }]
     };
   },
+  onLoad: function onLoad() {
+    // 页面加载时检查登录状态
+    this.checkLoginStatus();
+  },
   onShow: function onShow() {
     // 每次显示页面时检查登录状态
     this.checkLoginStatus();
   },
   methods: {
     checkLoginStatus: function checkLoginStatus() {
-      var userInfo = uni.getStorageSync('userInfo');
-      var token = uni.getStorageSync('token');
-      if (userInfo && token) {
-        this.userInfo = userInfo;
-      } else {
+      try {
+        var userInfo = uni.getStorageSync('userInfo');
+        var token = uni.getStorageSync('token');
+        if (userInfo && token) {
+          this.userInfo = userInfo;
+        } else {
+          this.userInfo = null;
+        }
+      } catch (e) {
+        console.error('获取登录状态失败:', e);
         this.userInfo = null;
       }
     },
@@ -231,8 +240,14 @@ var _default = {
         content: '确定要退出登录吗？',
         success: function success(res) {
           if (res.confirm) {
-            uni.removeStorageSync('token');
+            // 清除本地存储的用户信息和token
             uni.removeStorageSync('userInfo');
+            uni.removeStorageSync('token');
+
+            // 清除Vuex中的用户状态
+            _this.$store.commit('logout');
+
+            // 更新页面状态
             _this.userInfo = null;
             uni.showToast({
               title: '已退出登录',
@@ -243,6 +258,22 @@ var _default = {
       });
     },
     navigateTo: function navigateTo(path) {
+      // 如果需要登录权限的页面，先检查登录状态
+      if (path.includes('feedback') && !this.userInfo) {
+        uni.showModal({
+          title: '提示',
+          content: '请先登录后再操作',
+          confirmText: '去登录',
+          success: function success(res) {
+            if (res.confirm) {
+              uni.navigateTo({
+                url: '/pages/my/login'
+              });
+            }
+          }
+        });
+        return;
+      }
       uni.navigateTo({
         url: path
       });

@@ -46,14 +46,22 @@
 
     <button class="login-btn" @tap="handleLogin">登录</button>
     
-    <view class="register-link" @tap="goToRegister">
-      <text>还没有账号？</text>
-      <text class="link">立即注册</text>
+    <view class="action-links">
+      <view class="register-link" @tap="goToRegister">
+        <text>还没有账号？</text>
+        <text class="link">立即注册</text>
+      </view>
+      
+      <view class="forgot-password-link" @tap="goToForgotPassword">
+        <text class="link">忘记密码</text>
+      </view>
     </view>
   </view>
 </template>
 
 <script>
+import userAPI from '@/api/user.js';
+
 export default {
   data() {
     return {
@@ -75,21 +83,29 @@ export default {
       }
 
       try {
-        const response = await uni.request({
-          url: 'http://localhost:8080/api/user/login',
-          method: 'POST',
-          data: this.loginForm,
-          header: {
-            'Content-Type': 'application/json'
-          }
+        // 显示加载中
+        uni.showLoading({
+          title: '登录中...'
         })
-
-        if (response.statusCode === 200 && response.data.code === 200) {
+        
+        const res = await userAPI.login(this.loginForm)
+        
+        // 隐藏加载
+        uni.hideLoading()
+        
+        if (res.code === 200) {
           // 保存token和用户信息
-          uni.setStorageSync('token', response.data.data.token)
+          uni.setStorageSync('token', res.data.token)
           uni.setStorageSync('userInfo', {
-            ...response.data.data.userInfo,
+            ...res.data.user,
             role: this.loginForm.role // 确保保存角色信息
+          })
+          
+          // 更新Vuex中的用户状态
+          this.$store.commit('login', {
+            ...res.data.user,
+            token: res.data.token,
+            role: this.loginForm.role
           })
           
           uni.showToast({
@@ -103,21 +119,29 @@ export default {
           }, 1500)
         } else {
           uni.showToast({
-            title: response.data.message || '登录失败',
+            title: res.message || '登录失败',
             icon: 'none'
           })
         }
       } catch (error) {
+        uni.hideLoading()
         uni.showToast({
           title: '网络错误，请稍后重试',
           icon: 'none'
         })
+        console.error('登录错误:', error)
       }
     },
     
     goToRegister() {
       uni.navigateTo({
         url: '/pages/my/register'
+      })
+    },
+    
+    goToForgotPassword() {
+      uni.navigateTo({
+        url: '/pages/my/forgot-password'
       })
     }
   }
@@ -216,15 +240,20 @@ export default {
   border: none;
 }
 
-.register-link {
-  text-align: center;
+.action-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-link, .forgot-password-link {
   font-size: 28rpx;
   color: rgba(255, 255, 255, 0.8);
+}
 
-  .link {
-    color: #fff;
-    margin-left: 10rpx;
-    font-weight: bold;
-  }
+.link {
+  color: #fff;
+  margin-left: 10rpx;
+  font-weight: bold;
 }
 </style> 

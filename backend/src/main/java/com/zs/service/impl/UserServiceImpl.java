@@ -106,4 +106,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .eq(User::getUsername, username)
                 .one();
     }
+
+    @Override
+    public boolean updatePassword(String username, String oldPassword, String newPassword) {
+        // 首先查找用户
+        User user = getUserByUsername(username);
+        
+        // 如果用户不存在或者状态为禁用，返回false
+        if (user == null || user.getStatus() == 0) {
+            return false;
+        }
+        
+        // 验证旧密码
+        if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
+            return false;
+        }
+        
+        // 更新为新密码
+        user.setPassword(passwordEncoder.encode(newPassword));
+        
+        // 保存更新
+        return updateById(user);
+    }
 }

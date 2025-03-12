@@ -9,6 +9,7 @@ import com.zs.service.UserService;
 import com.zs.common.response.LoginResponse;
 import java.util.List;
 import com.zs.common.request.*;
+import com.zs.common.request.PasswordUpdateRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -73,5 +74,21 @@ public class UserController {
             @Parameter(description = "用户名", required = true) @PathVariable String username) {
         User user = userService.getUserByUsername(username);
         return user != null ? ResponseEntity.ok(user) : ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/update-password")
+    @Operation(summary = "更新密码", description = "根据用户名、旧密码验证并更新新密码")
+    public ResponseEntity<?> updatePassword(
+            @Parameter(description = "密码更新信息", required = true) @RequestBody PasswordUpdateRequest request) {
+        boolean success = userService.updatePassword(
+                request.getUsername(), 
+                request.getOldPassword(),
+                request.getNewPassword());
+        
+        if (success) {
+            return ResponseEntity.ok(ApiResponse.success("密码更新成功"));
+        } else {
+            return ResponseEntity.badRequest().body(ApiResponse.error("密码更新失败，请检查用户名和旧密码"));
+        }
     }
 }

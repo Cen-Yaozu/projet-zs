@@ -25,4 +25,7 @@ public interface UserService {
 
     // 根据用户名查询用户
     User getUserByUsername(String username);
+
+    // 更新密码
+    boolean updatePassword(String username, String oldPassword, String newPassword);
 }

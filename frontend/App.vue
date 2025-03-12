@@ -2,6 +2,12 @@
 export default {
   onLaunch: function() {
     console.log('App Launch');
+    
+    // 初始化用户状态
+    this.$store.dispatch('initUser');
+    
+    // 初始化系统信息
+    this.$store.dispatch('getSystemInfo');
   },
   onShow: function() {
     console.log('App Show');

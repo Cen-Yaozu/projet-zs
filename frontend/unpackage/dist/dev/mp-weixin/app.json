@@ -4,7 +4,8 @@
     "pages/ai/index",
     "pages/my/index",
     "pages/my/login",
-    "pages/my/register"
+    "pages/my/register",
+    "pages/my/forgot-password"
   ],
   "subPackages": [],
   "window": {

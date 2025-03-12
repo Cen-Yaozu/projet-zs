@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view class="title">用户注册</view>
+    <view class="title">忘记密码</view>
     
     <view class="form-group">
       <view class="form-item">
@@ -8,58 +8,46 @@
         <input 
           class="input" 
           type="text" 
-          v-model="registerForm.username" 
+          v-model="resetForm.username" 
           placeholder="请输入用户名"
         />
       </view>
       
       <view class="form-item">
-        <text class="label">密码</text>
+        <text class="label">旧密码</text>
         <input 
           class="input" 
           type="password" 
-          v-model="registerForm.password" 
-          placeholder="请输入密码"
-        />
-      </view>
-
-      <view class="form-item">
-        <text class="label">确认密码</text>
-        <input 
-          class="input" 
-          type="password" 
-          v-model="confirmPassword" 
-          placeholder="请再次输入密码"
+          v-model="resetForm.oldPassword" 
+          placeholder="请输入旧密码"
         />
       </view>
       
       <view class="form-item">
-        <text class="label">手机号</text>
+        <text class="label">新密码</text>
         <input 
           class="input" 
-          type="number" 
-          v-model="registerForm.phone" 
-          placeholder="请输入手机号"
-          maxlength="11"
+          type="password" 
+          v-model="resetForm.newPassword" 
+          placeholder="请输入新密码"
         />
       </view>
-
+      
       <view class="form-item">
-        <text class="label">邮箱</text>
+        <text class="label">确认新密码</text>
         <input 
           class="input" 
-          type="text" 
-          v-model="registerForm.email" 
-          placeholder="请输入邮箱"
+          type="password" 
+          v-model="confirmPassword" 
+          placeholder="请再次输入新密码"
         />
       </view>
     </view>
 
-    <button class="register-btn" @tap="handleRegister">注册</button>
+    <button class="reset-btn" @tap="handleResetPassword">重置密码</button>
     
-    <view class="login-link" @tap="goToLogin">
-      <text>已有账号？</text>
-      <text class="link">立即登录</text>
+    <view class="back-link" @tap="goBack">
+      <text>返回登录</text>
     </view>
   </view>
 </template>
@@ -70,98 +58,112 @@ import userAPI from '@/api/user.js';
 export default {
   data() {
     return {
-      registerForm: {
+      resetForm: {
         username: '',
-        password: '',
-        phone: '',
-        email: '',
-        role: 'ROLE_USER', // 修改默认角色
-        status: 1 // 默认状态：正常
+        oldPassword: '',
+        newPassword: ''
       },
       confirmPassword: ''
     }
   },
   methods: {
     validateForm() {
-      if (!this.registerForm.username) {
+      if (!this.resetForm.username) {
         uni.showToast({
           title: '请输入用户名',
           icon: 'none'
         })
         return false
       }
-      if (!this.registerForm.password) {
+      
+      if (!this.resetForm.oldPassword) {
         uni.showToast({
-          title: '请输入密码',
+          title: '请输入旧密码',
           icon: 'none'
         })
         return false
       }
-      if (this.registerForm.password !== this.confirmPassword) {
+      
+      if (!this.resetForm.newPassword) {
         uni.showToast({
-          title: '两次输入的密码不一致',
+          title: '请输入新密码',
           icon: 'none'
         })
         return false
       }
-      if (this.registerForm.phone && !/^1[3-9]\d{9}$/.test(this.registerForm.phone)) {
+      
+      if (this.resetForm.newPassword.length < 6) {
         uni.showToast({
-          title: '手机号格式不正确',
+          title: '新密码不能少于6位',
           icon: 'none'
         })
         return false
       }
-      if (this.registerForm.email && !/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(this.registerForm.email)) {
+      
+      if (this.resetForm.newPassword !== this.confirmPassword) {
         uni.showToast({
-          title: '邮箱格式不正确',
+          title: '两次输入的新密码不一致',
           icon: 'none'
         })
         return false
       }
+      
       return true
     },
     
-    async handleRegister() {
+    async handleResetPassword() {
       if (!this.validateForm()) return
-
+      
       try {
         // 显示加载中
         uni.showLoading({
-          title: '注册中...'
+          title: '正在重置密码...'
         })
         
-        const res = await userAPI.register(this.registerForm)
+        console.log('发送密码重置请求:', {
+          username: this.resetForm.username,
+          oldPassword: this.resetForm.oldPassword,
+          newPassword: this.resetForm.newPassword
+        })
+        
+        const res = await userAPI.updatePassword({
+          username: this.resetForm.username,
+          oldPassword: this.resetForm.oldPassword,
+          newPassword: this.resetForm.newPassword
+        })
         
         // 隐藏加载
         uni.hideLoading()
-
-        if (res.code === 200 || res.status === 200) {
+        
+        console.log('密码重置响应:', res)
+        
+        if (res.code === 200) {
           uni.showToast({
-            title: '注册成功',
+            title: '密码重置成功',
             icon: 'success'
           })
           
-          // 延迟跳转到登录页
+          // 延迟返回登录页
           setTimeout(() => {
             uni.navigateBack()
           }, 1500)
         } else {
           uni.showToast({
-            title: res.message || '注册失败',
+            title: res.message || '密码重置失败',
             icon: 'none'
           })
         }
       } catch (error) {
         uni.hideLoading()
+        console.error('密码重置错误详情:', error)
         uni.showToast({
           title: '网络错误，请稍后重试',
           icon: 'none'
         })
-        console.error('注册错误:', error)
       }
     },
     
-    goToLogin() {
+    goBack() {
       uni.navigateBack()
     }
   }
@@ -217,7 +219,7 @@ export default {
   box-sizing: border-box;
 }
 
-.register-btn {
+.reset-btn {
   width: 100%;
   height: 88rpx;
   background-color: #fff;
@@ -232,15 +234,9 @@ export default {
   border: none;
 }
 
-.login-link {
+.back-link {
   text-align: center;
   font-size: 28rpx;
   color: rgba(255, 255, 255, 0.8);
-
-  .link {
-    color: #fff;
-    margin-left: 10rpx;
-    font-weight: bold;
-  }
 }
 </style> 
