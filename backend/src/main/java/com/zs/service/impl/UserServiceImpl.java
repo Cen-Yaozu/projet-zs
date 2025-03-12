@@ -14,18 +14,40 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.List;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.security.Keys;
+import java.nio.charset.StandardCharsets;
+import javax.crypto.SecretKey;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-
-    @Value("${jwt.secret}")
-    private String jwtSecret;
 
     @Value("${jwt.expiration}")
     private Long jwtExpiration;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private SecretKey jwtSecretKey;
+
+    // 临时方法：重置管理员密码
+    @Override
+    public boolean resetAdminPassword() {
+        User admin = lambdaQuery()
+                .eq(User::getUsername, "admin")
+                .one();
+                
+        if (admin == null) {
+            return false;
+        }
+        
+        // 重新加密 "admin123" 密码
+        String newPasswordHash = passwordEncoder.encode("admin123");
+        admin.setPassword(newPasswordHash);
+        
+        return updateById(admin);
+    }
 
     @Override
     public boolean register(User user) {
@@ -42,20 +64,54 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public LoginResponse login(String username, String password, String role) {
+        System.out.println("=== Login Debug Info ===");
+        System.out.println("Attempting login with - Username: " + username + ", Role: " + role);
+        
         // 使用 MyBatis-Plus 的 Lambda 查询
         User user = lambdaQuery()
                 .eq(User::getUsername, username)
                 .one();
                 
-        if (user == null || user.getStatus() == 0) {
+        if (user == null) {
+            System.out.println("Login failed: User not found");
             return null;
         }
+        
+        if (user.getStatus() == 0) {
+            System.out.println("Login failed: User is inactive");
+            return null;
+        }
+        
+        System.out.println("Found user in database:");
+        System.out.println("- Username: " + user.getUsername());
+        System.out.println("- Role: " + user.getRole());
+        System.out.println("- Status: " + user.getStatus());
+        System.out.println("- Stored password hash: " + user.getPassword());
 
         // 验证密码
-        if (!passwordEncoder.matches(password, user.getPassword())) {
+        boolean passwordMatch = passwordEncoder.matches(password, user.getPassword());
+        System.out.println("Password verification result: " + passwordMatch);
+        System.out.println("Input password: " + password);
+        
+        if (!passwordMatch) {
+            System.out.println("Login failed: Password does not match");
             return null;
         }
 
+        // 验证角色
+        boolean roleMatch = user.getRole().equals(role);
+        System.out.println("Role verification:");
+        System.out.println("- Expected role: " + role);
+        System.out.println("- Actual role: " + user.getRole());
+        System.out.println("- Role matches: " + roleMatch);
+        
+        if (!roleMatch) {
+            System.out.println("Login failed: Role does not match");
+            return null;
+        }
+
+        System.out.println("Login successful!");
+        
         // 生成JWT token
         String token = generateJwtToken(user);
 
@@ -72,7 +128,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .claim("role", user.getRole())
                 .setIssuedAt(new Date())
                 .setExpiration(expiration)
-                .signWith(SignatureAlgorithm.HS256, jwtSecret)
+                .signWith(jwtSecretKey)
                 .compact();
     }
 

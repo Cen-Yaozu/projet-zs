@@ -91,4 +91,16 @@ public class UserController {
             return ResponseEntity.badRequest().body(ApiResponse.error("密码更新失败，请检查用户名和旧密码"));
         }
     }
+
+    // 临时端点：重置管理员密码
+    @PostMapping("/reset-admin")
+    @Operation(summary = "重置管理员密码", description = "将管理员密码重置为默认密码")
+    public ResponseEntity<?> resetAdminPassword() {
+        boolean success = userService.resetAdminPassword();
+        if (success) {
+            return ResponseEntity.ok(ApiResponse.success("管理员密码已重置为: admin123"));
+        } else {
+            return ResponseEntity.badRequest().body(ApiResponse.error("重置密码失败"));
+        }
+    }
 }

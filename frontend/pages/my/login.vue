@@ -93,19 +93,21 @@ export default {
         // 隐藏加载
         uni.hideLoading()
         
+        // 打印调试信息
+        console.log('登录响应:', res)
+        
         if (res.code === 200) {
           // 保存token和用户信息
           uni.setStorageSync('token', res.data.token)
-          uni.setStorageSync('userInfo', {
+          uni.setStorageSync('userInfo', JSON.stringify({
             ...res.data.user,
             role: this.loginForm.role // 确保保存角色信息
-          })
+          }))
           
-          // 更新Vuex中的用户状态
-          this.$store.commit('login', {
-            ...res.data.user,
-            token: res.data.token,
-            role: this.loginForm.role
+          // 打印保存后的信息
+          console.log('保存的登录信息:', {
+            token: uni.getStorageSync('token'),
+            userInfo: uni.getStorageSync('userInfo')
           })
           
           uni.showToast({
@@ -113,9 +115,17 @@ export default {
             icon: 'success'
           })
           
-          // 返回上一页
+          // 根据角色跳转到不同页面
           setTimeout(() => {
-            uni.navigateBack()
+            if (this.loginForm.role === 'ROLE_ADMIN') {
+              uni.reLaunch({
+                url: '/pages/admin/index'
+              })
+            } else {
+              uni.reLaunch({
+                url: '/pages/my/index'
+              })
+            }
           }, 1500)
         } else {
           uni.showToast({
@@ -125,11 +135,11 @@ export default {
         }
       } catch (error) {
         uni.hideLoading()
+        console.error('登录错误:', error)
         uni.showToast({
           title: '网络错误，请稍后重试',
           icon: 'none'
         })
-        console.error('登录错误:', error)
       }
     },
     

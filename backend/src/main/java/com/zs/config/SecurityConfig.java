@@ -10,10 +10,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import io.jsonwebtoken.security.Keys;
+import javax.crypto.SecretKey;
+import org.springframework.beans.factory.annotation.Value;
+import java.nio.charset.StandardCharsets;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Value("${jwt.secret}")
+    private String jwtSecret;
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
@@ -26,6 +34,11 @@ public class SecurityConfig {
     }
 
     @Bean
+    public SecretKey jwtSecretKey() {
+        return Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .cors()
@@ -34,8 +47,8 @@ public class SecurityConfig {
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/user/login", "/api/user/register").permitAll()
-                .requestMatchers("/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs/**", "/v3/api-docs/**", "/webjars/**").permitAll()
+                .requestMatchers("/api/user/login", "/api/user/register", "/api/user/reset-admin").permitAll()
+                .requestMatchers("/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs/**", "/v3/api-docs/**", "/webjars/**", "/swagger-ui.html", "/doc.html").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/ai-chat/**").permitAll()
                 .anyRequest().authenticated()

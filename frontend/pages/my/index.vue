@@ -2,36 +2,47 @@
   <view class="container">
     <!-- 用户信息卡片 -->
     <view class="user-card">
+      <view class="avatar">
+        <image class="avatar-img" src="/static/avatar.png" mode="aspectFill" />
+      </view>
       <view class="user-info">
-        <view class="avatar-wrapper">
-          <text class="avatar-text">{{ userInfo ? userInfo.username.charAt(0).toUpperCase() : '👤' }}</text>
+        <text class="username">{{ userInfo.username || '未登录' }}</text>
+        <text class="role" v-if="isLoggedIn">{{ roleText }}</text>
+      </view>
+    </view>
+
+    <!-- 功能菜单 -->
+    <view class="menu-list" v-if="isLoggedIn">
+      <!-- 个人信息 -->
+      <view class="menu-section">
+        <view class="section-title">个人信息</view>
+        <view class="menu-item" @tap="navigateTo('/pages/my/profile')">
+          <text class="item-text">修改资料</text>
+          <text class="arrow">></text>
         </view>
-        <view class="user-detail">
-          <text class="nickname">{{ userInfo ? userInfo.username : '未登录' }}</text>
-          <text class="login-tip" @tap="handleLogin">{{ userInfo ? '' : '点击登录/注册' }}</text>
+        <view class="menu-item" @tap="navigateTo('/pages/my/change-password')">
+          <text class="item-text">修改密码</text>
+          <text class="arrow">></text>
+        </view>
+      </view>
+
+      <!-- 系统相关 -->
+      <view class="menu-section">
+        <view class="section-title">系统</view>
+        <view class="menu-item" @tap="navigateTo('/pages/my/about')">
+          <text class="item-text">关于我们</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" @tap="handleLogout">
+          <text class="item-text logout">退出登录</text>
+          <text class="arrow">></text>
         </view>
       </view>
     </view>
 
-    <!-- 菜单列表 -->
-    <view class="menu-card">
-      <view class="menu-group">
-        <view class="menu-item" v-for="(item, index) in menuList1" :key="index" @tap="navigateTo(item.path)">
-          <text class="menu-icon">{{ item.icon }}</text>
-          <text class="menu-text">{{ item.text }}</text>
-          <text class="arrow">›</text>
-        </view>
-      </view>
-    </view>
-
-    <!-- 退出登录按钮 -->
-    <view class="logout-btn" v-if="userInfo" @tap="handleLogout">
-      退出登录
-    </view>
-
-    <!-- 版本信息 -->
-    <view class="version-info">
-      <text class="version-text">当前版本 5.1.15.2</text>
+    <!-- 未登录时显示的登录按钮 -->
+    <view v-if="!isLoggedIn" class="login-btn-wrapper">
+      <button class="login-btn" @tap="goToLogin">立即登录</button>
     </view>
   </view>
 </template>
@@ -40,90 +51,101 @@
 export default {
   data() {
     return {
-      userInfo: null,
-      menuList1: [
-        { text: '意见反馈', icon: '💭', path: '/pages/my/feedback' },
-        { text: '关于我们', icon: '🏢', path: '/pages/my/about' }
-      ]
+      userInfo: {},
+      isLoggedIn: false
     }
   },
-  onLoad() {
-    // 页面加载时检查登录状态
-    this.checkLoginStatus()
+  computed: {
+    roleText() {
+      if (!this.userInfo.role) return '';
+      return this.userInfo.role === 'ROLE_ADMIN' ? '管理员' : '普通用户';
+    }
   },
   onShow() {
-    // 每次显示页面时检查登录状态
-    this.checkLoginStatus()
+    this.loadUserInfo()
+  },
+  onLoad() {
+    this.loadUserInfo()
   },
   methods: {
-    checkLoginStatus() {
+    loadUserInfo() {
       try {
-        const userInfo = uni.getStorageSync('userInfo')
         const token = uni.getStorageSync('token')
-        if (userInfo && token) {
+        const userInfoStr = uni.getStorageSync('userInfo')
+        
+        if (token && userInfoStr) {
+          const userInfo = JSON.parse(userInfoStr)
           this.userInfo = userInfo
+          this.isLoggedIn = true
+          
+          // 打印调试信息
+          console.log('当前登录状态:', {
+            token: token,
+            userInfo: this.userInfo,
+            isLoggedIn: this.isLoggedIn
+          })
         } else {
-          this.userInfo = null
+          this.userInfo = {}
+          this.isLoggedIn = false
+          console.log('未检测到登录信息')
         }
-      } catch (e) {
-        console.error('获取登录状态失败:', e)
-        this.userInfo = null
+      } catch (error) {
+        console.error('加载用户信息错误:', error)
+        this.userInfo = {}
+        this.isLoggedIn = false
       }
     },
-    
-    handleLogin() {
-      if (!this.userInfo) {
-        uni.navigateTo({
-          url: '/pages/my/login'
+    navigateTo(url) {
+      // 检查登录状态
+      if (!this.isLoggedIn) {
+        uni.showToast({
+          title: '请先登录',
+          icon: 'none'
         })
+        setTimeout(() => {
+          uni.navigateTo({
+            url: '/pages/my/login'
+          })
+        }, 1500)
+        return
       }
+      
+      // 已登录则正常跳转
+      uni.navigateTo({ url })
     },
-    
+    goToLogin() {
+      uni.navigateTo({
+        url: '/pages/my/login'
+      })
+    },
     handleLogout() {
       uni.showModal({
         title: '提示',
         content: '确定要退出登录吗？',
         success: (res) => {
           if (res.confirm) {
-            // 清除本地存储的用户信息和token
+            // 清除用户信息和token
             uni.removeStorageSync('userInfo')
             uni.removeStorageSync('token')
             
-            // 清除Vuex中的用户状态
-            this.$store.commit('logout')
+            // 更新状态
+            this.userInfo = {}
+            this.isLoggedIn = false
             
-            // 更新页面状态
-            this.userInfo = null
-            
+            // 提示
             uni.showToast({
               title: '已退出登录',
               icon: 'success'
             })
-          }
-        }
-      })
-    },
-    
-    navigateTo(path) {
-      // 如果需要登录权限的页面，先检查登录状态
-      if (path.includes('feedback') && !this.userInfo) {
-        uni.showModal({
-          title: '提示',
-          content: '请先登录后再操作',
-          confirmText: '去登录',
-          success: (res) => {
-            if (res.confirm) {
-              uni.navigateTo({
-                url: '/pages/my/login'
+            
+            // 如果当前用户是管理员，退出后返回首页
+            if (this.userInfo.role === 'ROLE_ADMIN') {
+              uni.reLaunch({
+                url: '/pages/index/index'
               })
             }
           }
-        })
-        return
-      }
-      
-      uni.navigateTo({
-        url: path
+        }
       })
     }
   }
@@ -133,112 +155,103 @@ export default {
 <style lang="scss">
 .container {
   min-height: 100vh;
-  background-color: #f7f7f7;
+  background-color: #f5f5f5;
   padding-bottom: 40rpx;
 }
 
 .user-card {
   background-color: #4aa3ff;
-  padding: 40rpx 30rpx;
-  margin-bottom: 20rpx;
-}
-
-.user-info {
+  padding: 40rpx;
   display: flex;
   align-items: center;
-}
-
-.avatar-wrapper {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
-  background-color: #fff;
-  margin-right: 30rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-text {
-  font-size: 60rpx;
-}
-
-.user-detail {
-  flex: 1;
-  color: #fff;
-}
-
-.nickname {
-  font-size: 36rpx;
-  font-weight: 500;
-  margin-bottom: 10rpx;
-  display: block;
-}
-
-.login-tip {
-  font-size: 28rpx;
-  opacity: 0.9;
-}
-
-.menu-card {
-  background-color: #fff;
-}
-
-.menu-group {
-  margin-bottom: 20rpx;
-
-  &:last-child {
-    margin-bottom: 0;
+  
+  .avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    overflow: hidden;
+    background-color: #fff;
+    margin-right: 30rpx;
+    
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .user-info {
+    flex: 1;
+    
+    .username {
+      font-size: 36rpx;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 10rpx;
+      display: block;
+    }
+    
+    .role {
+      font-size: 24rpx;
+      color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 4rpx 16rpx;
+      border-radius: 20rpx;
+    }
   }
 }
 
-.menu-item {
-  display: flex;
-  align-items: center;
-  padding: 30rpx;
-  background-color: #fff;
-  border-bottom: 1rpx solid #eee;
+.menu-list {
+  margin-top: 20rpx;
+}
 
-  &:last-child {
-    border-bottom: none;
+.menu-section {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  
+  .section-title {
+    font-size: 28rpx;
+    color: #999;
+    padding: 20rpx 30rpx;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx;
+    border-top: 1rpx solid #f5f5f5;
+    
+    .item-text {
+      font-size: 30rpx;
+      color: #333;
+      
+      &.logout {
+        color: #ff4d4f;
+      }
+    }
+    
+    .arrow {
+      font-size: 30rpx;
+      color: #999;
+    }
   }
 }
 
-.menu-icon {
-  font-size: 40rpx;
-  margin-right: 20rpx;
-}
-
-.menu-text {
-  flex: 1;
-  font-size: 30rpx;
-  color: #333;
-}
-
-.arrow {
-  font-size: 36rpx;
-  color: #ccc;
-}
-
-.logout-btn {
-  margin: 40rpx 30rpx;
-  height: 88rpx;
-  background-color: #ff4d4f;
-  color: #fff;
-  font-size: 32rpx;
-  border-radius: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.version-info {
-  text-align: center;
-  padding: 40rpx 0;
-}
-
-.version-text {
-  font-size: 24rpx;
-  color: #999;
+.login-btn-wrapper {
+  padding: 40rpx;
+  
+  .login-btn {
+    width: 100%;
+    height: 88rpx;
+    background-color: #4aa3ff;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: bold;
+    border-radius: 12rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
 }
 </style> 

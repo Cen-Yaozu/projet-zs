@@ -28,4 +28,7 @@ public interface UserService {
 
     // 更新密码
     boolean updatePassword(String username, String oldPassword, String newPassword);
+
+    // 重置管理员密码
+    boolean resetAdminPassword();
 }

@@ -134,8 +134,24 @@ export default {
         
         // 隐藏加载
         uni.hideLoading()
+        
+        // 添加日志输出
+        console.log('注册响应:', res)
 
-        if (res.code === 200 || res.status === 200) {
+        // 修改判断逻辑：如果状态码是200就认为成功，不再依赖响应体
+        if (res === '' || res === undefined || res === null) {
+          // 空响应体但状态码是200，说明注册成功
+          uni.showToast({
+            title: '注册成功',
+            icon: 'success'
+          })
+          
+          // 延迟跳转到登录页
+          setTimeout(() => {
+            uni.navigateBack()
+          }, 1500)
+        } else if (res && (res.code === 200 || res.code === 0 || res.status === 200)) {
+          // 有响应体且状态码正确
           uni.showToast({
             title: '注册成功',
             icon: 'success'
@@ -146,18 +162,20 @@ export default {
             uni.navigateBack()
           }, 1500)
         } else {
+          // 如果后端返回了具体错误信息就显示，否则显示通用错误提示
+          const errorMsg = (res && res.message) ? res.message : '注册失败，请重试'
           uni.showToast({
-            title: res.message || '注册失败',
+            title: errorMsg,
             icon: 'none'
           })
         }
       } catch (error) {
         uni.hideLoading()
+        console.error('注册错误详情:', error)
         uni.showToast({
           title: '网络错误，请稍后重试',
           icon: 'none'
         })
-        console.error('注册错误:', error)
       }
     },
     

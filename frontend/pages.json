@@ -8,6 +8,14 @@
       }
     },
     {
+      "path": "pages/admin/index",
+      "style": {
+        "navigationBarTitleText": "管理后台",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
       "path": "pages/ai/index",
       "style": {
         "navigationBarTitleText": "智能咨询",
@@ -43,6 +51,30 @@
       "path": "pages/my/forgot-password",
       "style": {
         "navigationBarTitleText": "忘记密码",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/profile",
+      "style": {
+        "navigationBarTitleText": "修改资料",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/change-password",
+      "style": {
+        "navigationBarTitleText": "修改密码",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my/about",
+      "style": {
+        "navigationBarTitleText": "关于我们",
         "navigationBarBackgroundColor": "#4aa3ff",
         "navigationBarTextStyle": "white"
       }

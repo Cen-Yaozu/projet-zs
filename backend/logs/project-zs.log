@@ -780,3 +780,737 @@ This generated password is for development use only. Your security configuration
 2025-03-12T01:10:31.268+08:00 DEBUG 3896 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
 2025-03-12T01:10:31.268+08:00 DEBUG 3896 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==> Parameters:  admin(String)
 2025-03-12T01:10:31.270+08:00 DEBUG 3896 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : <==      Total: 0
+2025-03-12T19:25:44.388+08:00  INFO 21000 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 21000 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:25:44.390+08:00 DEBUG 21000 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:25:44.391+08:00  INFO 21000 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:25:47.151+08:00  INFO 21000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:25:47.172+08:00  INFO 21000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:25:47.173+08:00  INFO 21000 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:25:47.284+08:00  INFO 21000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:25:47.286+08:00  INFO 21000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2516 ms
+2025-03-12T19:25:48.088+08:00 DEBUG 21000 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:25:48.869+08:00  WARN 21000 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 48d1ce79-0611-40bf-95a6-4fd3722467fc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:25:49.275+08:00  INFO 21000 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79ec57b8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56ba8e8c, org.springframework.security.web.context.SecurityContextHolderFilter@67784537, org.springframework.security.web.header.HeaderWriterFilter@687e561b, org.springframework.web.filter.CorsFilter@774c5e5c, org.springframework.security.web.authentication.logout.LogoutFilter@773c7147, com.zs.security.JwtAuthenticationFilter@5e24592e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52290e63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c2dd88b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cf01c41, org.springframework.security.web.session.SessionManagementFilter@173cfb01, org.springframework.security.web.access.ExceptionTranslationFilter@11f9b95a, org.springframework.security.web.access.intercept.AuthorizationFilter@b849fa6]
+2025-03-12T19:25:49.779+08:00  INFO 21000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:25:49.792+08:00  INFO 21000 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 6.01 seconds (process running for 8.103)
+2025-03-12T19:31:00.133+08:00  INFO 21000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:31:00.135+08:00  INFO 21000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:31:00.137+08:00  INFO 21000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-12T19:31:00.484+08:00  INFO 21000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:31:00.748+08:00  INFO 21000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@721005b9
+2025-03-12T19:31:00.750+08:00  INFO 21000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:31:00.760+08:00 DEBUG 21000 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:31:00.788+08:00 DEBUG 21000 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:31:00.843+08:00 DEBUG 21000 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:34:13.774+08:00 DEBUG 21000 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:34:13.775+08:00 DEBUG 21000 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:34:13.779+08:00 DEBUG 21000 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:37:44.540+08:00  INFO 21000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:37:44.552+08:00  INFO 21000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:37:51.326+08:00  INFO 18080 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 18080 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:37:51.329+08:00 DEBUG 18080 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:37:51.330+08:00  INFO 18080 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:37:53.339+08:00  INFO 18080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:37:53.356+08:00  INFO 18080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:37:53.357+08:00  INFO 18080 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:37:53.443+08:00  INFO 18080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:37:53.444+08:00  INFO 18080 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1799 ms
+2025-03-12T19:37:54.106+08:00 DEBUG 18080 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:37:54.720+08:00  WARN 18080 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 807680e8-fca1-4e35-9e81-ee6f24258318
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:37:55.223+08:00  INFO 18080 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cd5b19c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7109b603, org.springframework.security.web.context.SecurityContextHolderFilter@76f9e000, org.springframework.security.web.header.HeaderWriterFilter@651caa2e, org.springframework.web.filter.CorsFilter@76b642aa, org.springframework.security.web.authentication.logout.LogoutFilter@4780341, com.zs.security.JwtAuthenticationFilter@44864536, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c05097c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@562f6681, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29b5e7db, org.springframework.security.web.session.SessionManagementFilter@54ca9420, org.springframework.security.web.access.ExceptionTranslationFilter@4f6ff62, org.springframework.security.web.access.intercept.AuthorizationFilter@14993306]
+2025-03-12T19:37:55.693+08:00  INFO 18080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:37:55.705+08:00  INFO 18080 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.973 seconds (process running for 6.307)
+2025-03-12T19:38:01.117+08:00  INFO 18080 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:38:01.119+08:00  INFO 18080 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:38:01.123+08:00  INFO 18080 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-03-12T19:38:01.457+08:00  INFO 18080 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:38:01.698+08:00  INFO 18080 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@501cde
+2025-03-12T19:38:01.700+08:00  INFO 18080 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:38:01.711+08:00 DEBUG 18080 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:38:01.740+08:00 DEBUG 18080 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:38:01.785+08:00 DEBUG 18080 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:41:01.346+08:00  INFO 6596 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 6596 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:41:01.348+08:00 DEBUG 6596 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:41:01.349+08:00  INFO 6596 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:41:03.993+08:00  INFO 6596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:41:04.010+08:00  INFO 6596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:41:04.010+08:00  INFO 6596 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:41:04.106+08:00  INFO 6596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:41:04.107+08:00  INFO 6596 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2368 ms
+2025-03-12T19:41:04.615+08:00 DEBUG 6596 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:41:05.312+08:00  WARN 6596 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 57bd2fe9-3169-42da-b631-80d571120be1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:41:05.643+08:00  INFO 6596 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@286dfa20, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1468e880, org.springframework.security.web.context.SecurityContextHolderFilter@6f6f65a4, org.springframework.security.web.header.HeaderWriterFilter@7a34c1f6, org.springframework.web.filter.CorsFilter@508f4bb5, org.springframework.security.web.authentication.logout.LogoutFilter@4dd4965a, com.zs.security.JwtAuthenticationFilter@4243341e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dea1ecc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@105c6c9e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5602e540, org.springframework.security.web.session.SessionManagementFilter@7612116b, org.springframework.security.web.access.ExceptionTranslationFilter@70840a5a, org.springframework.security.web.access.intercept.AuthorizationFilter@7109b603]
+2025-03-12T19:41:06.114+08:00  INFO 6596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:41:06.134+08:00  INFO 6596 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.365 seconds (process running for 6.28)
+2025-03-12T19:41:17.606+08:00  INFO 6596 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:41:17.607+08:00  INFO 6596 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:41:17.608+08:00  INFO 6596 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-12T19:41:18.038+08:00  INFO 6596 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:41:18.419+08:00  INFO 6596 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bc3117f
+2025-03-12T19:41:18.426+08:00  INFO 6596 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:41:18.473+08:00 DEBUG 6596 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:41:18.582+08:00 DEBUG 6596 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:41:18.672+08:00 DEBUG 6596 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:43:11.965+08:00 DEBUG 6596 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:43:11.966+08:00 DEBUG 6596 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:43:11.969+08:00 DEBUG 6596 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:43:43.256+08:00  INFO 6596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:43:43.265+08:00  INFO 6596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:43:50.902+08:00  INFO 16612 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 16612 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:43:50.904+08:00 DEBUG 16612 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:43:50.905+08:00  INFO 16612 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:43:53.256+08:00  INFO 16612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:43:53.273+08:00  INFO 16612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:43:53.274+08:00  INFO 16612 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:43:53.378+08:00  INFO 16612 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:43:53.379+08:00  INFO 16612 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2075 ms
+2025-03-12T19:43:54.289+08:00 DEBUG 16612 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:43:55.316+08:00  WARN 16612 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a15e6ce8-574b-4cc1-a2b0-1f2ff04ba91b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:43:55.721+08:00  INFO 16612 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cd5b19c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7109b603, org.springframework.security.web.context.SecurityContextHolderFilter@76f9e000, org.springframework.security.web.header.HeaderWriterFilter@651caa2e, org.springframework.web.filter.CorsFilter@76b642aa, org.springframework.security.web.authentication.logout.LogoutFilter@4780341, com.zs.security.JwtAuthenticationFilter@1657b017, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c05097c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@562f6681, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29b5e7db, org.springframework.security.web.session.SessionManagementFilter@54ca9420, org.springframework.security.web.access.ExceptionTranslationFilter@4f6ff62, org.springframework.security.web.access.intercept.AuthorizationFilter@14993306]
+2025-03-12T19:43:56.272+08:00  INFO 16612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:43:56.287+08:00  INFO 16612 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 6.021 seconds (process running for 7.223)
+2025-03-12T19:44:39.932+08:00  INFO 16612 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:44:39.932+08:00  INFO 16612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:44:39.934+08:00  INFO 16612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-12T19:44:40.376+08:00  INFO 16612 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:44:40.718+08:00  INFO 16612 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@614fe0f1
+2025-03-12T19:44:40.721+08:00  INFO 16612 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:44:40.739+08:00 DEBUG 16612 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:44:40.794+08:00 DEBUG 16612 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:44:40.876+08:00 DEBUG 16612 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:44:41.084+08:00 ERROR 16612 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed: java.lang.NoClassDefFoundError: com/zs/common/response/ApiResponse] with root cause
+
+java.lang.ClassNotFoundException: com.zs.common.response.ApiResponse
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
+	at com.zs.controller.UserController.login(UserController.java:40) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at com.zs.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:56) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-03-12T19:47:18.599+08:00  INFO 16612 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:47:18.609+08:00  INFO 16612 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:48:13.006+08:00  INFO 12472 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 12472 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:48:13.009+08:00 DEBUG 12472 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:48:13.010+08:00  INFO 12472 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:48:15.539+08:00  INFO 12472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:48:15.563+08:00  INFO 12472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:48:15.563+08:00  INFO 12472 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:48:15.656+08:00  INFO 12472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:48:15.657+08:00  INFO 12472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2314 ms
+2025-03-12T19:48:16.123+08:00 DEBUG 12472 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:48:16.726+08:00  WARN 12472 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 879de26b-228c-4096-8f15-d30e26758db5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:48:17.065+08:00  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c3007d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66b40dd3, org.springframework.security.web.context.SecurityContextHolderFilter@687e561b, org.springframework.security.web.header.HeaderWriterFilter@13d10057, org.springframework.web.filter.CorsFilter@7296fe0b, org.springframework.security.web.authentication.logout.LogoutFilter@7f1ad846, com.zs.security.JwtAuthenticationFilter@b94703b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75f8d9b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f7ae05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a5066f5, org.springframework.security.web.session.SessionManagementFilter@5602e540, org.springframework.security.web.access.ExceptionTranslationFilter@31e3c34, org.springframework.security.web.access.intercept.AuthorizationFilter@1c610f]
+2025-03-12T19:48:17.780+08:00  INFO 12472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:48:17.799+08:00  INFO 12472 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.439 seconds (process running for 7.734)
+2025-03-12T19:48:21.042+08:00  INFO 12472 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:48:21.042+08:00  INFO 12472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:48:21.045+08:00  INFO 12472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-12T19:48:21.523+08:00  INFO 12472 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:48:21.846+08:00  INFO 12472 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1494b48
+2025-03-12T19:48:21.848+08:00  INFO 12472 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:48:21.859+08:00 DEBUG 12472 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:48:21.895+08:00 DEBUG 12472 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:48:21.936+08:00 DEBUG 12472 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:51:14.987+08:00  INFO 12472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:51:14.996+08:00  INFO 12472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:51:23.156+08:00  INFO 3504 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 3504 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:51:23.158+08:00 DEBUG 3504 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:51:23.159+08:00  INFO 3504 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:51:25.172+08:00  INFO 3504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:51:25.186+08:00  INFO 3504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:51:25.186+08:00  INFO 3504 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:51:25.301+08:00  INFO 3504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:51:25.301+08:00  INFO 3504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1849 ms
+2025-03-12T19:51:25.990+08:00 DEBUG 3504 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:51:26.656+08:00  WARN 3504 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7ff99b79-1b72-4fbe-9f93-d6f1633555da
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:51:27.160+08:00  INFO 3504 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76b642aa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29b5e7db, org.springframework.security.web.context.SecurityContextHolderFilter@1c05097c, org.springframework.security.web.header.HeaderWriterFilter@70840a5a, org.springframework.web.filter.CorsFilter@286dfa20, org.springframework.security.web.authentication.logout.LogoutFilter@612ac38b, com.zs.security.JwtAuthenticationFilter@7996d0d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f6f65a4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@990b86b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1468e880, org.springframework.security.web.session.SessionManagementFilter@72c704f1, org.springframework.security.web.access.ExceptionTranslationFilter@651caa2e, org.springframework.security.web.access.intercept.AuthorizationFilter@6866e740]
+2025-03-12T19:51:27.766+08:00  INFO 3504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:51:27.778+08:00  INFO 3504 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.197 seconds (process running for 6.252)
+2025-03-12T19:52:43.814+08:00  INFO 3504 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:52:43.815+08:00  INFO 3504 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:52:43.817+08:00  INFO 3504 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-12T19:52:44.115+08:00  INFO 3504 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:52:44.334+08:00  INFO 3504 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ef7acc3
+2025-03-12T19:52:44.337+08:00  INFO 3504 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:52:44.347+08:00 DEBUG 3504 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:52:44.376+08:00 DEBUG 3504 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:52:44.418+08:00 DEBUG 3504 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:53:53.897+08:00  INFO 3504 --- [http-nio-8080-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 658 ms
+2025-03-12T19:55:13.537+08:00  INFO 3504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:55:13.553+08:00  INFO 3504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:55:20.189+08:00  INFO 4920 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 4920 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:55:20.192+08:00 DEBUG 4920 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:55:20.193+08:00  INFO 4920 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:55:22.208+08:00  INFO 4920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:55:22.224+08:00  INFO 4920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:55:22.224+08:00  INFO 4920 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:55:22.310+08:00  INFO 4920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:55:22.310+08:00  INFO 4920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1833 ms
+2025-03-12T19:55:22.779+08:00 DEBUG 4920 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:55:23.390+08:00  WARN 4920 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: eaeef0c6-dcdc-42e4-9422-049150e72b93
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:55:23.736+08:00  INFO 4920 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e23ee0e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b144175, org.springframework.security.web.context.SecurityContextHolderFilter@2773504f, org.springframework.security.web.header.HeaderWriterFilter@72c704f1, org.springframework.web.filter.CorsFilter@38923cfe, org.springframework.security.web.authentication.logout.LogoutFilter@14993306, com.zs.security.JwtAuthenticationFilter@15d65fcf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40d10264, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6edd4fe2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ac3a6f, org.springframework.security.web.session.SessionManagementFilter@16ef1160, org.springframework.security.web.access.ExceptionTranslationFilter@54ca9420, org.springframework.security.web.access.intercept.AuthorizationFilter@299786b1]
+2025-03-12T19:55:24.168+08:00  INFO 4920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:55:24.181+08:00  INFO 4920 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.632 seconds (process running for 5.569)
+2025-03-12T19:55:49.281+08:00  INFO 4920 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:55:49.281+08:00  INFO 4920 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:55:49.283+08:00  INFO 4920 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-12T19:55:49.522+08:00  INFO 4920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:55:49.727+08:00  INFO 4920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ac1ddab
+2025-03-12T19:55:49.730+08:00  INFO 4920 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:55:49.738+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:55:49.781+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:55:49.816+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:55:49.955+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.updateById      : ==>  Preparing: UPDATE user SET username=?, password=?, nickname=?, phone=?, email=?, status=?, role=?, create_time=?, update_time=? WHERE id=?
+2025-03-12T19:55:49.956+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.updateById      : ==> Parameters: admin(String), $2a$10$Oc54fpnBqLcKwtIX79GZ1uSe/KYXjjbfIyx2FT11/KFJ1zyBN9.Ni(String), 管理员(String), 13800138000(String), admin@example.com(String), 1(Integer), ROLE_ADMIN(String), 2025-03-11T23:14:06(LocalDateTime), 2025-03-12T19:39:30(LocalDateTime), 1(Long)
+2025-03-12T19:55:49.987+08:00 DEBUG 4920 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.updateById      : <==    Updates: 1
+2025-03-12T19:55:54.072+08:00 DEBUG 4920 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:55:54.073+08:00 DEBUG 4920 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:55:54.076+08:00 DEBUG 4920 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:55:54.241+08:00 ERROR 4920 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: io.jsonwebtoken.io.DecodingException: Illegal base64 character: '-'] with root cause
+
+io.jsonwebtoken.io.DecodingException: Illegal base64 character: '-'
+	at io.jsonwebtoken.io.Base64.ctoi(Base64.java:221) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.io.Base64.decodeFast(Base64.java:270) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.io.Base64Decoder.decode(Base64Decoder.java:36) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.io.Base64Decoder.decode(Base64Decoder.java:23) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.io.ExceptionPropagatingDecoder.decode(ExceptionPropagatingDecoder.java:36) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtBuilder.signWith(DefaultJwtBuilder.java:132) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at com.zs.service.impl.UserServiceImpl.generateJwtToken(UserServiceImpl.java:127) ~[classes/:na]
+	at com.zs.service.impl.UserServiceImpl.login(UserServiceImpl.java:112) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.zs.service.impl.UserServiceImpl$$SpringCGLIB$$0.login(<generated>) ~[classes/:na]
+	at com.zs.controller.UserController.login(UserController.java:35) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at com.zs.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:56) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-03-12T19:56:49.479+08:00  INFO 4920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:56:49.489+08:00  INFO 4920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:56:53.546+08:00  INFO 3024 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 3024 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:56:53.549+08:00 DEBUG 3024 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:56:53.550+08:00  INFO 3024 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:56:55.602+08:00  INFO 3024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:56:55.616+08:00  INFO 3024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:56:55.617+08:00  INFO 3024 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:56:55.715+08:00  INFO 3024 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:56:55.715+08:00  INFO 3024 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1867 ms
+2025-03-12T19:56:56.194+08:00 DEBUG 3024 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:56:56.777+08:00  WARN 3024 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9bf78586-106e-4a76-bc42-833a78749f26
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:56:57.111+08:00  INFO 3024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e23ee0e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b144175, org.springframework.security.web.context.SecurityContextHolderFilter@2773504f, org.springframework.security.web.header.HeaderWriterFilter@72c704f1, org.springframework.web.filter.CorsFilter@38923cfe, org.springframework.security.web.authentication.logout.LogoutFilter@14993306, com.zs.security.JwtAuthenticationFilter@15d65fcf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40d10264, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6edd4fe2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ac3a6f, org.springframework.security.web.session.SessionManagementFilter@16ef1160, org.springframework.security.web.access.ExceptionTranslationFilter@54ca9420, org.springframework.security.web.access.intercept.AuthorizationFilter@299786b1]
+2025-03-12T19:56:57.549+08:00  INFO 3024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T19:56:57.561+08:00  INFO 3024 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.596 seconds (process running for 5.552)
+2025-03-12T19:57:16.813+08:00  INFO 3024 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T19:57:16.813+08:00  INFO 3024 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T19:57:16.815+08:00  INFO 3024 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-12T19:57:17.153+08:00  INFO 3024 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T19:57:17.425+08:00  INFO 3024 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a03bb69
+2025-03-12T19:57:17.427+08:00  INFO 3024 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T19:57:17.437+08:00 DEBUG 3024 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T19:57:17.467+08:00 DEBUG 3024 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T19:57:17.507+08:00 DEBUG 3024 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T19:57:17.690+08:00 ERROR 3024 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: io.jsonwebtoken.security.WeakKeyException: The signing key's size is 152 bits which is not secure enough for the HS256 algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HS256 MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys class's 'secretKeyFor(SignatureAlgorithm.HS256)' method to create a key guaranteed to be secure enough for HS256.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.] with root cause
+
+io.jsonwebtoken.security.WeakKeyException: The signing key's size is 152 bits which is not secure enough for the HS256 algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HS256 MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys class's 'secretKeyFor(SignatureAlgorithm.HS256)' method to create a key guaranteed to be secure enough for HS256.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at io.jsonwebtoken.SignatureAlgorithm.assertValid(SignatureAlgorithm.java:387) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.SignatureAlgorithm.assertValidSigningKey(SignatureAlgorithm.java:315) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtBuilder.signWith(DefaultJwtBuilder.java:112) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtBuilder.signWith(DefaultJwtBuilder.java:125) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtBuilder.signWith(DefaultJwtBuilder.java:133) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at com.zs.service.impl.UserServiceImpl.generateJwtToken(UserServiceImpl.java:127) ~[classes/:na]
+	at com.zs.service.impl.UserServiceImpl.login(UserServiceImpl.java:112) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.zs.service.impl.UserServiceImpl$$SpringCGLIB$$0.login(<generated>) ~[classes/:na]
+	at com.zs.controller.UserController.login(UserController.java:35) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.25.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at com.zs.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:56) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.2.jar:6.2.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-03-12T19:59:05.314+08:00  INFO 3024 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T19:59:05.325+08:00  INFO 3024 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T19:59:11.422+08:00  INFO 3756 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 3756 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T19:59:11.424+08:00 DEBUG 3756 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T19:59:11.424+08:00  INFO 3756 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T19:59:13.373+08:00  INFO 3756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T19:59:13.388+08:00  INFO 3756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T19:59:13.389+08:00  INFO 3756 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T19:59:13.472+08:00  INFO 3756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T19:59:13.472+08:00  INFO 3756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1761 ms
+2025-03-12T19:59:13.947+08:00 DEBUG 3756 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T19:59:14.540+08:00  WARN 3756 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 070af515-69c9-42bc-8891-020edaf3acb6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T19:59:14.879+08:00  INFO 3756 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@687e561b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299786b1, org.springframework.security.web.context.SecurityContextHolderFilter@65a4b9d6, org.springframework.security.web.header.HeaderWriterFilter@3291d9c2, org.springframework.web.filter.CorsFilter@75f8d9b0, org.springframework.security.web.authentication.logout.LogoutFilter@31e3c34, com.zs.security.JwtAuthenticationFilter@1377b1a0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41f90b10, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67593f7b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f7ae05, org.springframework.security.web.session.SessionManagementFilter@105c6c9e, org.springframework.security.web.access.ExceptionTranslationFilter@527d5e48, org.springframework.security.web.access.intercept.AuthorizationFilter@5602e540]
+2025-03-12T19:59:14.900+08:00  WARN 3756 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtSecretKey' defined in class path resource [com/zs/config/SecurityConfig.class]: Failed to instantiate [javax.crypto.SecretKey]: Factory method 'jwtSecretKey' threw exception with message: The specified key byte array is 208 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys#secretKeyFor(SignatureAlgorithm) method to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+2025-03-12T19:59:14.904+08:00  INFO 3756 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-03-12T19:59:14.924+08:00  INFO 3756 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-12T19:59:14.947+08:00 ERROR 3756 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtSecretKey' defined in class path resource [com/zs/config/SecurityConfig.class]: Failed to instantiate [javax.crypto.SecretKey]: Factory method 'jwtSecretKey' threw exception with message: The specified key byte array is 208 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys#secretKeyFor(SignatureAlgorithm) method to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.7.jar:3.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.7.jar:3.2.7]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.7.jar:3.2.7]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.7.jar:3.2.7]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.7.jar:3.2.7]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.7.jar:3.2.7]
+	at com.zs.ProjectZsApplication.main(ProjectZsApplication.java:11) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.crypto.SecretKey]: Factory method 'jwtSecretKey' threw exception with message: The specified key byte array is 208 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys#secretKeyFor(SignatureAlgorithm) method to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 19 common frames omitted
+Caused by: io.jsonwebtoken.security.WeakKeyException: The specified key byte array is 208 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys#secretKeyFor(SignatureAlgorithm) method to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at io.jsonwebtoken.security.Keys.hmacShaKeyFor(Keys.java:96) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at com.zs.config.SecurityConfig.jwtSecretKey(SecurityConfig.java:37) ~[classes/:na]
+	at com.zs.config.SecurityConfig$$SpringCGLIB$$0.CGLIB$jwtSecretKey$2(<generated>) ~[classes/:na]
+	at com.zs.config.SecurityConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258) ~[spring-core-6.1.4.jar:6.1.4]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-6.1.4.jar:6.1.4]
+	at com.zs.config.SecurityConfig$$SpringCGLIB$$0.jwtSecretKey(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 20 common frames omitted
+
+2025-03-12T20:01:41.093+08:00  INFO 24120 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 24120 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-12T20:01:41.096+08:00 DEBUG 24120 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-12T20:01:41.097+08:00  INFO 24120 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T20:01:43.084+08:00  INFO 24120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-12T20:01:43.098+08:00  INFO 24120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T20:01:43.098+08:00  INFO 24120 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-12T20:01:43.184+08:00  INFO 24120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T20:01:43.184+08:00  INFO 24120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1790 ms
+2025-03-12T20:01:43.692+08:00 DEBUG 24120 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-12T20:01:44.319+08:00  WARN 24120 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7d094a08-c6ed-4f54-b996-a600123a456f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-12T20:01:44.657+08:00  INFO 24120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c83ed77, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d271a54, org.springframework.security.web.context.SecurityContextHolderFilter@249a45fd, org.springframework.security.web.header.HeaderWriterFilter@1ac3a6f, org.springframework.web.filter.CorsFilter@6ff8e744, org.springframework.security.web.authentication.logout.LogoutFilter@1191029d, com.zs.security.JwtAuthenticationFilter@58739e5e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11978f52, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e0855b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@409395b9, org.springframework.security.web.session.SessionManagementFilter@49d979c4, org.springframework.security.web.access.ExceptionTranslationFilter@b144175, org.springframework.security.web.access.intercept.AuthorizationFilter@57bac3f0]
+2025-03-12T20:01:45.104+08:00  INFO 24120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-12T20:01:45.118+08:00  INFO 24120 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.612 seconds (process running for 5.566)
+2025-03-12T20:02:03.441+08:00  INFO 24120 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T20:02:03.441+08:00  INFO 24120 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T20:02:03.443+08:00  INFO 24120 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-12T20:02:03.766+08:00  INFO 24120 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T20:02:04.022+08:00  INFO 24120 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@128c2c4a
+2025-03-12T20:02:04.024+08:00  INFO 24120 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T20:02:04.035+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:02:04.063+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
+2025-03-12T20:02:04.103+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:11:53.566+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:11:53.567+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==> Parameters: azu(String)
+2025-03-12T20:11:53.570+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : <==      Total: 0
+2025-03-12T20:11:53.668+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.insert          : ==>  Preparing: INSERT INTO user ( username, password, phone, email, status, role ) VALUES ( ?, ?, ?, ?, ?, ? )
+2025-03-12T20:11:53.669+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.insert          : ==> Parameters: azu(String), $2a$10$ZIP9IOtjUQL.pNfUCWQ7teqwlbuFK8ItwW5Yo8KmxB2aSwtaXWZv6(String), 15217664810(String), cenyaozu@126.com(String), 1(Integer), ROLE_USER(String)
+2025-03-12T20:11:53.688+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.insert          : <==    Updates: 1
+2025-03-12T20:17:02.379+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:17:02.380+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.selectList      : ==> Parameters: azua(String)
+2025-03-12T20:17:02.383+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.selectList      : <==      Total: 0
+2025-03-12T20:17:02.477+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.insert          : ==>  Preparing: INSERT INTO user ( username, password, phone, email, status, role ) VALUES ( ?, ?, ?, ?, ?, ? )
+2025-03-12T20:17:02.478+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.insert          : ==> Parameters: azua(String), $2a$10$aH0RcT0RINrL2v8HQRJuX.5wGSSOJD3vOcFmJaNI9J9zMWkwNwlr6(String), 15217664810(String), cenyaozu@126.com(String), 1(Integer), ROLE_USER(String)
+2025-03-12T20:17:02.497+08:00 DEBUG 24120 --- [http-nio-8080-exec-6] com.zs.mapper.UserMapper.insert          : <==    Updates: 1
+2025-03-12T20:17:05.448+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:17:05.449+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==> Parameters: azua(String)
+2025-03-12T20:17:05.451+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:17:09.510+08:00 DEBUG 24120 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:17:09.511+08:00 DEBUG 24120 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==> Parameters: azua(String)
+2025-03-12T20:17:09.515+08:00 DEBUG 24120 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:17:15.861+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:17:15.862+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==> Parameters: azu321(String)
+2025-03-12T20:17:15.865+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : <==      Total: 0
+2025-03-12T20:17:15.957+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.insert          : ==>  Preparing: INSERT INTO user ( username, password, phone, email, status, role ) VALUES ( ?, ?, ?, ?, ?, ? )
+2025-03-12T20:17:15.958+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.insert          : ==> Parameters: azu321(String), $2a$10$XTP4J8eqGDjxW8cWHh/FJOs.lbqFxcM8eNwz0i3rxckOnSCjkG33C(String), 15217664810(String), cenyaozu@126.com(String), 1(Integer), ROLE_USER(String)
+2025-03-12T20:17:15.969+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.insert          : <==    Updates: 1
+2025-03-12T20:24:34.568+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:24:34.569+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:24:34.573+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 0
+2025-03-12T20:24:34.669+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.insert          : ==>  Preparing: INSERT INTO user ( username, password, phone, email, status, role ) VALUES ( ?, ?, ?, ?, ?, ? )
+2025-03-12T20:24:34.669+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.insert          : ==> Parameters: aua2313(String), $2a$10$griUORlUbs5fetKO3mGuT.CUzW80hZAf1qvjD7zLFjMsu0dRABmqS(String), 15217664810(String), cenyaozu@126.com(String), 1(Integer), ROLE_USER(String)
+2025-03-12T20:24:34.683+08:00 DEBUG 24120 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.insert          : <==    Updates: 1
+2025-03-12T20:24:39.770+08:00 DEBUG 24120 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:24:39.772+08:00 DEBUG 24120 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:24:39.775+08:00 DEBUG 24120 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:25:01.628+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:25:01.628+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:25:01.631+08:00 DEBUG 24120 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:25:11.461+08:00 DEBUG 24120 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:25:11.462+08:00 DEBUG 24120 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:25:11.471+08:00 DEBUG 24120 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:30:52.788+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:30:52.789+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:30:52.792+08:00 DEBUG 24120 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
+2025-03-12T20:34:05.320+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,status,role,create_time,update_time FROM user WHERE (username = ?)
+2025-03-12T20:34:05.321+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==> Parameters: aua2313(String)
+2025-03-12T20:34:05.327+08:00 DEBUG 24120 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
