@@ -1,0 +1,84 @@
+<template>
+  <view class="container">
+    <view class="header">
+      <text class="title">学校简介</text>
+    </view>
+    
+    <view class="content">
+      <view class="section">
+        <text class="section-title">学校概况</text>
+        <text class="text">广州航海学院创建于1964年，是一所以航海教育为特色的公办本科院校。学校坐落于广州市番禺区，占地面积1200余亩，环境优美，设施完善。</text>
+      </view>
+      
+      <view class="section">
+        <text class="section-title">办学特色</text>
+        <text class="text">学校以"明德、精业、求实、创新"为校训，以培养高素质航海人才为己任，形成了以航海类专业为特色，工学、管理学等多学科协调发展的办学格局。</text>
+      </view>
+      
+      <view class="section">
+        <text class="section-title">师资力量</text>
+        <text class="text">学校拥有一支高水平的教师队伍，其中包括教授、副教授200余人，博士、硕士研究生导师100余人，为学生提供优质的教育资源。</text>
+      </view>
+      
+      <view class="section">
+        <text class="section-title">发展愿景</text>
+        <text class="text">学校致力于建设特色鲜明的高水平航海院校，为国家航运事业发展培养高素质专业人才，为广东省海洋经济发展提供人才支撑。</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {}
+  }
+}
+</script>
+
+<style lang="scss">
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: #fff;
+  padding: 40rpx 30rpx;
+  margin-bottom: 20rpx;
+  
+  .title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.content {
+  background: #fff;
+  padding: 30rpx;
+  
+  .section {
+    margin-bottom: 40rpx;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 32rpx;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20rpx;
+      display: block;
+    }
+    
+    .text {
+      font-size: 28rpx;
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+}
+</style> 

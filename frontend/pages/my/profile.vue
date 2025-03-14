@@ -1,12 +1,22 @@
 <template>
   <view class="container">
-    <view class="form-group">
+    <view class="form">
+      <view class="avatar-section">
+        <image 
+          class="avatar" 
+          :src="form.avatar || '/static/images/logo5.png'" 
+          mode="aspectFill"
+          @tap="handleAvatarTap"
+        />
+        <text class="upload-text">点击更换头像</text>
+      </view>
+
       <view class="form-item">
         <text class="label">用户名</text>
         <input 
           class="input" 
           type="text" 
-          v-model="userForm.username" 
+          v-model="form.username" 
           placeholder="请输入用户名"
           disabled
         />
@@ -17,7 +27,7 @@
         <input 
           class="input" 
           type="text" 
-          v-model="userForm.nickname" 
+          v-model="form.nickname" 
           placeholder="请输入昵称"
         />
       </view>
@@ -27,7 +37,7 @@
         <input 
           class="input" 
           type="text" 
-          v-model="userForm.email" 
+          v-model="form.email" 
           placeholder="请输入邮箱"
         />
       </view>
@@ -36,125 +46,170 @@
         <text class="label">手机号</text>
         <input 
           class="input" 
-          type="number" 
-          v-model="userForm.phone" 
+          type="text" 
+          v-model="form.phone" 
           placeholder="请输入手机号"
         />
       </view>
+      
+      <button class="submit-btn" @tap="handleSubmit">保存修改</button>
     </view>
-
-    <button class="submit-btn" @tap="handleSubmit">保存修改</button>
   </view>
 </template>
 
 <script>
-import userAPI from '@/api/user.js'
-
 export default {
   data() {
     return {
-      userForm: {
+      form: {
         username: '',
         nickname: '',
         email: '',
-        phone: ''
+        phone: '',
+        avatar: ''
       }
     }
   },
-  onLoad() {
+  
+  onShow() {
     this.loadUserInfo()
   },
+  
   methods: {
     loadUserInfo() {
-      const userInfoStr = uni.getStorageSync('userInfo')
-      if (userInfoStr) {
-        const userInfo = JSON.parse(userInfoStr)
-        this.userForm = {
-          username: userInfo.username || '',
-          nickname: userInfo.nickname || '',
-          email: userInfo.email || '',
-          phone: userInfo.phone || ''
+      const userInfo = uni.getStorageSync('userInfo')
+      if (userInfo) {
+        this.form = typeof userInfo === 'string' ? JSON.parse(userInfo) : userInfo
+      }
+      
+      this.fetchUserInfo()
+    },
+    
+    async fetchUserInfo() {
+      try {
+        const token = uni.getStorageSync('token')
+        if (!token) {
+          uni.showToast({
+            title: '请先登录',
+            icon: 'none'
+          })
+          setTimeout(() => {
+            uni.navigateTo({
+              url: '/pages/my/login'
+            })
+          }, 1500)
+          return
         }
+
+        const [err, res] = await uni.request({
+          url: 'http://localhost:8080/api/user/search/username/' + this.form.username,
+          method: 'GET',
+          header: {
+            'Authorization': token.startsWith('Bearer ') ? token : 'Bearer ' + token
+          }
+        })
+        
+        if (!err && res.statusCode === 200) {
+          const user = res.data
+          this.form = {
+            username: user.username || '',
+            nickname: user.nickname || '',
+            email: user.email || '',
+            phone: user.phone || '',
+            avatar: user.avatar || '/static/images/logo5.png'
+          }
+          
+          uni.setStorageSync('userInfo', this.form)
+        }
+      } catch (error) {
+        console.error('获取用户信息失败:', error)
+        uni.showToast({
+          title: '获取用户信息失败',
+          icon: 'none'
+        })
       }
     },
     
     async handleSubmit() {
-      // 表单验证
-      if (!this.userForm.nickname) {
-        uni.showToast({
-          title: '请输入昵称',
-          icon: 'none'
-        })
-        return
-      }
-      
-      if (this.userForm.email && !this.validateEmail(this.userForm.email)) {
-        uni.showToast({
-          title: '邮箱格式不正确',
-          icon: 'none'
-        })
-        return
-      }
-      
-      if (this.userForm.phone && !this.validatePhone(this.userForm.phone)) {
-        uni.showToast({
-          title: '手机号格式不正确',
-          icon: 'none'
-        })
-        return
-      }
-      
       try {
-        uni.showLoading({
-          title: '保存中...'
+        const token = uni.getStorageSync('token')
+        const [err, res] = await uni.request({
+          url: 'http://localhost:8080/api/user',
+          method: 'PUT',
+          header: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          },
+          data: this.form
         })
         
-        const res = await userAPI.updateProfile(this.userForm)
-        
-        uni.hideLoading()
-        
-        if (res.code === 200) {
-          // 更新本地存储的用户信息
-          const userInfo = JSON.parse(uni.getStorageSync('userInfo'))
-          const newUserInfo = {
-            ...userInfo,
-            ...this.userForm
-          }
-          uni.setStorageSync('userInfo', JSON.stringify(newUserInfo))
-          
+        if (!err && res.statusCode === 200) {
           uni.showToast({
             title: '保存成功',
             icon: 'success'
           })
           
-          // 返回上一页
-          setTimeout(() => {
-            uni.navigateBack()
-          }, 1500)
+          uni.setStorageSync('userInfo', this.form)
         } else {
           uni.showToast({
-            title: res.message || '保存失败',
+            title: '保存失败',
             icon: 'none'
           })
         }
       } catch (error) {
-        uni.hideLoading()
+        console.error('保存用户信息失败:', error)
         uni.showToast({
-          title: '网络错误，请稍后重试',
+          title: '保存失败，请重试',
           icon: 'none'
         })
-        console.error('更新资料错误:', error)
       }
     },
-    
-    validateEmail(email) {
-      const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      return reg.test(email)
-    },
-    
-    validatePhone(phone) {
-      const reg = /^1[3-9]\d{9}$/
-      return reg.test(phone)
+
+    handleAvatarTap() {
+      uni.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['album', 'camera'],
+        success: (res) => {
+          const tempFilePath = res.tempFilePaths[0]
+          
+          uni.uploadFile({
+            url: 'http://localhost:8080/api/user/avatar',
+            filePath: tempFilePath,
+            name: 'file',
+            formData: {
+              username: this.form.username
+            },
+            header: {
+              'Authorization': 'Bearer ' + uni.getStorageSync('token')
+            },
+            success: (uploadRes) => {
+              const result = JSON.parse(uploadRes.data)
+              
+              if (result.success) {
+                this.form.avatar = result.data.avatar
+                uni.setStorageSync('userInfo', this.form)
+                
+                uni.showToast({
+                  title: '头像更新成功',
+                  icon: 'success'
+                })
+              } else {
+                uni.showToast({
+                  title: result.message || '上传失败',
+                  icon: 'none'
+                })
+              }
+            },
+            fail: () => {
+              uni.showToast({
+                title: '上传失败，请重试',
+                icon: 'none'
+              })
+            }
+          })
+        }
+      })
     }
   }
 }
@@ -167,59 +222,68 @@ export default {
   padding: 20rpx;
 }
 
-.form-group {
-  background-color: #fff;
-  border-radius: 12rpx;
-  padding: 20rpx;
-  margin-bottom: 40rpx;
-}
-
-.form-item {
-  margin-bottom: 30rpx;
+.form {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
   
-  &:last-child {
-    margin-bottom: 0;
-  }
-  
-  .label {
-    font-size: 28rpx;
-    color: #666;
-    margin-bottom: 16rpx;
-    display: block;
-  }
-  
-  .input {
-    width: 100%;
-    height: 88rpx;
-    background-color: #f8f8f8;
-    border-radius: 12rpx;
-    padding: 0 30rpx;
-    font-size: 30rpx;
-    color: #333;
-    box-sizing: border-box;
+  .avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40rpx;
     
-    &[disabled] {
-      background-color: #f5f5f5;
-      color: #999;
+    .avatar {
+      width: 160rpx;
+      height: 160rpx;
+      border-radius: 80rpx;
+      margin-bottom: 16rpx;
+    }
+    
+    .upload-text {
+      font-size: 24rpx;
+      color: #666;
     }
   }
-}
-
-.submit-btn {
-  width: 100%;
-  height: 88rpx;
-  background-color: #4aa3ff;
-  color: #fff;
-  font-size: 32rpx;
-  font-weight: bold;
-  border-radius: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
   
-  &:active {
-    opacity: 0.9;
+  .form-item {
+    margin-bottom: 30rpx;
+    
+    .label {
+      font-size: 28rpx;
+      color: #333;
+      margin-bottom: 16rpx;
+      display: block;
+    }
+    
+    .input {
+      width: 100%;
+      height: 88rpx;
+      background: #f8f8f8;
+      border-radius: 8rpx;
+      padding: 0 30rpx;
+      font-size: 28rpx;
+      color: #333;
+      
+      &:disabled {
+        background: #f0f0f0;
+        color: #999;
+      }
+    }
+  }
+  
+  .submit-btn {
+    width: 100%;
+    height: 88rpx;
+    background: #4aa3ff;
+    color: #fff;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60rpx;
+    border: none;
   }
 }
 </style> 

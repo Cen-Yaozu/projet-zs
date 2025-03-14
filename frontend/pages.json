@@ -78,6 +78,30 @@
         "navigationBarBackgroundColor": "#4aa3ff",
         "navigationBarTextStyle": "white"
       }
+    },
+    {
+      "path": "pages/school/intro",
+      "style": {
+        "navigationBarTitleText": "学校简介"
+      }
+    },
+    {
+      "path": "pages/school/major",
+      "style": {
+        "navigationBarTitleText": "院系专业"
+      }
+    },
+    {
+      "path": "pages/admission/news",
+      "style": {
+        "navigationBarTitleText": "招生动态"
+      }
+    },
+    {
+      "path": "pages/admission/score",
+      "style": {
+        "navigationBarTitleText": "历年分数"
+      }
     }
   ],
   "globalStyle": {

@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String nickname;
     private String phone;
     private String email;
+    private String avatar;  // 用户头像URL
     private Integer status;  // 0: 禁用, 1: 正常
     private String role;    // 用户角色: ROLE_USER, ROLE_ADMIN 等
     private LocalDateTime createTime;

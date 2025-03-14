@@ -4,24 +4,10 @@
     <view class="banner">
       <image 
         class="banner-bg" 
-        src="/static/images/banner1.jpg" 
-        mode="aspectFill"
+        src="../../static/images/banner1.jpg" 
+        mode="widthFix"
         @error="handleImageError('banner')" 
       />
-      <view class="school-info">
-        <view class="logo-title">
-          <image 
-            class="school-logo" 
-            src="/static/images/logo1.jpg" 
-            mode="aspectFit"
-            @error="handleImageError('logo')" 
-          />
-          <view class="title-group">
-            <text class="school-name">广州航海学院</text>
-            <text class="school-name-en">GUANGZHOU MARITIME UNIVERSITY</text>
-          </view>
-        </view>
-      </view>
     </view>
 
     <!-- 功能导航 -->
@@ -134,52 +120,10 @@ export default {
 .banner {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  min-height: 400rpx;
   
   .banner-bg {
     width: 100%;
-    height: 400rpx;
     display: block;
-    object-fit: cover;
-  }
-  
-  .school-info {
-    position: absolute;
-    left: 40rpx;
-    bottom: 40rpx;
-    right: 40rpx;
-    z-index: 1;
-    
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 20rpx;
-      
-      .school-logo {
-        width: 120rpx;
-        height: 120rpx;
-        border-radius: 60rpx;
-        background: #fff;
-      }
-      
-      .title-group {
-        .school-name {
-          font-size: 48rpx;
-          color: #fff;
-          font-weight: bold;
-          margin-bottom: 8rpx;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-          display: block;
-        }
-        
-        .school-name-en {
-          font-size: 24rpx;
-          color: rgba(255,255,255,0.9);
-          display: block;
-        }
-      }
-    }
   }
 }
 

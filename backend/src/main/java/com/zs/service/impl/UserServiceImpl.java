@@ -18,6 +18,13 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
 import javax.crypto.SecretKey;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
@@ -30,6 +37,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Autowired
     private SecretKey jwtSecretKey;
+
+    @Value("${file.upload.path}")
+    private String fileUploadPath;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Override
+    public String getFileUploadPath() {
+        return fileUploadPath;
+    }
 
     // 临时方法：重置管理员密码
     @Override
@@ -183,5 +201,51 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         
         // 保存更新
         return updateById(user);
+    }
+
+    @Override
+    public String uploadAvatar(MultipartFile file, String username) throws IOException {
+        // 创建上传目录
+        String uploadDir = fileUploadPath + "/avatars/";
+        File dir = new File(uploadDir);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        // 检查文件类型
+        String contentType = file.getContentType();
+        if (contentType == null || !contentType.startsWith("image/")) {
+            throw new IllegalArgumentException("只允许上传图片文件");
+        }
+
+        // 生成文件名
+        String originalFilename = file.getOriginalFilename();
+        String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+        String filename = UUID.randomUUID().toString() + extension;
+
+        // 保存文件
+        Path filePath = Paths.get(uploadDir + filename);
+        Files.copy(file.getInputStream(), filePath);
+
+        // 更新用户头像路径
+        User user = getUserByUsername(username);
+        if (user != null) {
+            // 删除旧头像
+            String oldAvatar = user.getAvatar();
+            if (oldAvatar != null && !oldAvatar.equals("/static/images/logo5.png")) {
+                String oldFilePath = fileUploadPath + oldAvatar.replace("/static", "");
+                try {
+                    Files.deleteIfExists(Paths.get(oldFilePath));
+                } catch (IOException e) {
+                    // 忽略删除旧文件失败的错误
+                }
+            }
+
+            // 更新新头像
+            user.setAvatar("/static/avatars/" + filename);
+            updateById(user);
+        }
+
+        return "/static/avatars/" + filename;
     }
 }

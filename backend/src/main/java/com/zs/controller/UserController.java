@@ -13,6 +13,8 @@ import com.zs.common.request.PasswordUpdateRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.multipart.MultipartFile;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/user")
@@ -101,6 +103,21 @@ public class UserController {
             return ResponseEntity.ok(ApiResponse.success("管理员密码已重置为: admin123"));
         } else {
             return ResponseEntity.badRequest().body(ApiResponse.error("重置密码失败"));
+        }
+    }
+
+    @PostMapping("/avatar")
+    @Operation(summary = "上传头像", description = "上传并更新用户头像")
+    public ResponseEntity<?> uploadAvatar(
+            @Parameter(description = "头像文件", required = true) @RequestParam("file") MultipartFile file,
+            @Parameter(description = "用户名", required = true) @RequestParam("username") String username) {
+        try {
+            String avatarUrl = userService.uploadAvatar(file, username);
+            return ResponseEntity.ok(ApiResponse.success(new HashMap<String, String>() {{
+                put("avatar", avatarUrl);
+            }}));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error("头像上传失败: " + e.getMessage()));
         }
     }
 }
