@@ -160,3 +160,37 @@ This generated password is for development use only. Your security configuration
 2025-03-13T22:01:02.494+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-03-13T22:01:02.495+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-03-13T22:01:02.498+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-14T21:46:38.907+08:00  INFO 701800 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 701800 (D:\Desktop\projet-zs\backend\target\classes started by Administrator in D:\Desktop\projet-zs\backend)
+2025-03-14T21:46:38.909+08:00 DEBUG 701800 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-14T21:46:38.909+08:00  INFO 701800 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-14T21:46:40.278+08:00  INFO 701800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-14T21:46:40.289+08:00  INFO 701800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-14T21:46:40.289+08:00  INFO 701800 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-14T21:46:40.339+08:00  INFO 701800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-14T21:46:40.339+08:00  INFO 701800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1243 ms
+2025-03-14T21:46:40.687+08:00 DEBUG 701800 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-14T21:46:41.105+08:00  WARN 701800 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2b0c542b-f8c5-42c2-8123-72667596c6d8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-14T21:46:41.331+08:00  INFO 701800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@517bdce0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c0b0bd9, org.springframework.security.web.context.SecurityContextHolderFilter@7b795db7, org.springframework.security.web.header.HeaderWriterFilter@5e7e7a7e, org.springframework.web.filter.CorsFilter@6150afc6, org.springframework.security.web.authentication.logout.LogoutFilter@4148ce43, com.zs.security.JwtAuthenticationFilter@7893c715, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b849fa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fbbdd8a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49f50c8f, org.springframework.security.web.session.SessionManagementFilter@1d1c63af, org.springframework.security.web.access.ExceptionTranslationFilter@58a8ea6f, org.springframework.security.web.access.intercept.AuthorizationFilter@64d93096]
+2025-03-14T21:46:41.619+08:00  WARN 701800 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-14T21:46:41.630+08:00  INFO 701800 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-14T21:46:41.642+08:00 ERROR 701800 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
