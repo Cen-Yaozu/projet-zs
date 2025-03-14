@@ -55,6 +55,9 @@ public class SecurityConfig {
                 .requestMatchers("/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs/**", "/v3/api-docs/**", "/webjars/**", "/swagger-ui.html", "/doc.html").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/ai-chat/**").permitAll()
+                .requestMatchers("/api/admission-policy/**").permitAll()
+                .requestMatchers("/api/school-info/**").permitAll()
+                .requestMatchers("/api/major-info/**").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

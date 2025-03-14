@@ -41,5 +41,25 @@ export default {
    */
   getAllPolicies() {
     return request.get('/api/admission-policy/list');
+  },
+  
+  /**
+   * 获取专业分数线数据
+   * @param {Number} year - 年份
+   * @param {Number} schoolId - 学校ID
+   * @param {String} province - 省份(可选)
+   * @returns {Promise} - 返回Promise对象
+   */
+  getMajorScores(year, schoolId, province) {
+    const params = {
+      year: year,
+      schoolId: schoolId
+    };
+    
+    if (province) {
+      params.province = province;
+    }
+    
+    return request.get('/api/admission-policy/search/major-scores', params);
   }
 } 

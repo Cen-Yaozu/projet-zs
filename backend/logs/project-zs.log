@@ -1,196 +1,111 @@
-2025-03-13T17:46:27.196+08:00  INFO 10232 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 10232 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T17:46:27.207+08:00 DEBUG 10232 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T17:46:27.210+08:00  INFO 10232 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T17:46:30.900+08:00  INFO 10232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T17:46:30.923+08:00  INFO 10232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T17:46:30.923+08:00  INFO 10232 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T17:46:31.139+08:00  INFO 10232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T17:46:31.140+08:00  INFO 10232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3438 ms
-2025-03-13T17:46:31.915+08:00 DEBUG 10232 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T17:46:32.711+08:00  WARN 10232 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-15T00:15:33.233+08:00  INFO 5652 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 5652 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-15T00:15:33.238+08:00 DEBUG 5652 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-15T00:15:33.241+08:00  INFO 5652 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:15:35.293+08:00  INFO 5652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:15:35.308+08:00  INFO 5652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:15:35.308+08:00  INFO 5652 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-15T00:15:35.397+08:00  INFO 5652 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:15:35.398+08:00  INFO 5652 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1839 ms
+2025-03-15T00:15:35.891+08:00 DEBUG 5652 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-15T00:15:36.475+08:00  WARN 5652 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: f3d33970-d040-4607-83ca-56a604adad4a
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-03-13T17:46:33.064+08:00  INFO 10232 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46e6458d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6297cb4b, org.springframework.security.web.context.SecurityContextHolderFilter@774c5e5c, org.springframework.security.web.header.HeaderWriterFilter@7296fe0b, org.springframework.web.filter.CorsFilter@65d6640, org.springframework.security.web.authentication.logout.LogoutFilter@2633d09c, com.zs.security.JwtAuthenticationFilter@ff03361, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57bac3f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55f6f965, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@672d8370, org.springframework.security.web.session.SessionManagementFilter@4e9ea32f, org.springframework.security.web.access.ExceptionTranslationFilter@5c3007d, org.springframework.security.web.access.intercept.AuthorizationFilter@7c0b0bd9]
-2025-03-13T17:46:33.617+08:00  INFO 10232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T17:46:33.630+08:00  INFO 10232 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 7.171 seconds (process running for 8.929)
-2025-03-13T17:52:02.043+08:00  INFO 10232 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T17:52:02.044+08:00  INFO 10232 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T17:52:02.045+08:00  INFO 10232 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-03-13T21:49:35.552+08:00  INFO 7648 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 7648 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:49:35.556+08:00 DEBUG 7648 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:49:35.558+08:00  INFO 7648 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:49:38.589+08:00  INFO 7648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:49:38.607+08:00  INFO 7648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:49:38.607+08:00  INFO 7648 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:49:38.729+08:00  INFO 7648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:49:38.733+08:00  INFO 7648 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2722 ms
-2025-03-13T21:49:39.386+08:00 DEBUG 7648 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:49:40.217+08:00  WARN 7648 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 52f09712-98bd-458b-9967-544d432ac40e
+Using generated security password: e3e7e583-09ff-4042-b7ce-21d88e353d9c
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-13T21:49:40.883+08:00  INFO 7648 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cff03cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@924f3f1, org.springframework.security.web.context.SecurityContextHolderFilter@4a2d66e, org.springframework.security.web.header.HeaderWriterFilter@7c0b0bd9, org.springframework.web.filter.CorsFilter@19e2db7c, org.springframework.security.web.authentication.logout.LogoutFilter@1e50eb3f, com.zs.security.JwtAuthenticationFilter@3611153f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2904bc56, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bb25046, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77a4bac, org.springframework.security.web.session.SessionManagementFilter@7f1fec57, org.springframework.security.web.access.ExceptionTranslationFilter@51df2a41, org.springframework.security.web.access.intercept.AuthorizationFilter@1ba7db2a]
-2025-03-13T21:49:41.485+08:00  INFO 7648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:49:41.502+08:00  INFO 7648 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 7.208 seconds (process running for 8.737)
-2025-03-13T21:49:56.432+08:00  INFO 7648 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T21:49:56.432+08:00  INFO 7648 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T21:49:56.434+08:00  INFO 7648 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-03-13T21:53:07.484+08:00  INFO 12292 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 12292 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:53:07.487+08:00 DEBUG 12292 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:53:07.488+08:00  INFO 12292 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:53:09.622+08:00  INFO 12292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:53:09.639+08:00  INFO 12292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:53:09.639+08:00  INFO 12292 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:53:09.732+08:00  INFO 12292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:53:09.735+08:00  INFO 12292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1889 ms
-2025-03-13T21:53:10.279+08:00 DEBUG 12292 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:53:10.986+08:00  WARN 12292 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-15T00:15:36.838+08:00  INFO 5652 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@29bd056a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21e702b8, org.springframework.security.web.context.SecurityContextHolderFilter@40ddf339, org.springframework.security.web.header.HeaderWriterFilter@54b2d002, org.springframework.web.filter.CorsFilter@7f1fec57, org.springframework.security.web.authentication.logout.LogoutFilter@451af781, com.zs.security.JwtAuthenticationFilter@ff03361, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d271a54, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ff8e744, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c9e3d01, org.springframework.security.web.session.SessionManagementFilter@4cf01c41, org.springframework.security.web.access.ExceptionTranslationFilter@578d472a, org.springframework.security.web.access.intercept.AuthorizationFilter@13137835]
+2025-03-15T00:15:37.307+08:00  INFO 5652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-15T00:15:37.320+08:00  INFO 5652 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.665 seconds (process running for 5.809)
+2025-03-15T00:16:04.410+08:00  INFO 5652 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:16:04.411+08:00  INFO 5652 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:16:04.411+08:00  INFO 5652 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-03-15T00:20:47.444+08:00  INFO 23068 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 23068 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-15T00:20:47.446+08:00 DEBUG 23068 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-15T00:20:47.447+08:00  INFO 23068 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:20:49.563+08:00  INFO 23068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:20:49.577+08:00  INFO 23068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:20:49.577+08:00  INFO 23068 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-15T00:20:49.668+08:00  INFO 23068 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:20:49.668+08:00  INFO 23068 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1932 ms
+2025-03-15T00:20:50.188+08:00 DEBUG 23068 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-15T00:20:50.838+08:00  WARN 23068 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 37714a80-c1f9-4538-87de-2337c0112d1a
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-03-13T21:53:11.416+08:00  INFO 12292 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54f25b42, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@521c67f0, org.springframework.security.web.context.SecurityContextHolderFilter@578d472a, org.springframework.security.web.header.HeaderWriterFilter@3d7b3b18, org.springframework.web.filter.CorsFilter@7d156f8f, org.springframework.security.web.authentication.logout.LogoutFilter@2a259f6f, com.zs.security.JwtAuthenticationFilter@7c4d1c7b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54b2d002, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d1c63af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@451af781, org.springframework.security.web.session.SessionManagementFilter@66b40dd3, org.springframework.security.web.access.ExceptionTranslationFilter@be1c08a, org.springframework.security.web.access.intercept.AuthorizationFilter@5c9b5e62]
-2025-03-13T21:53:11.876+08:00  INFO 12292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:53:11.888+08:00  INFO 12292 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.326 seconds (process running for 7.061)
-2025-03-13T21:53:22.268+08:00  INFO 12292 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T21:53:22.269+08:00  INFO 12292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T21:53:22.269+08:00  INFO 12292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-03-13T21:55:14.986+08:00  INFO 22268 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 22268 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:55:14.988+08:00 DEBUG 22268 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:55:14.989+08:00  INFO 22268 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:55:17.175+08:00  INFO 22268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:55:17.190+08:00  INFO 22268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:55:17.191+08:00  INFO 22268 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:55:17.286+08:00  INFO 22268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:55:17.287+08:00  INFO 22268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1993 ms
-2025-03-13T21:55:17.794+08:00 DEBUG 22268 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:55:18.417+08:00  WARN 22268 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 8b0d87d0-3203-4de6-8c1e-99fa2149b5ae
+Using generated security password: 29d6b6c9-c968-405f-8701-d986e6b54a6e
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-13T21:55:18.774+08:00  INFO 22268 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@521c67f0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d156f8f, org.springframework.security.web.context.SecurityContextHolderFilter@1191029d, org.springframework.security.web.header.HeaderWriterFilter@186dcb05, org.springframework.web.filter.CorsFilter@451af781, org.springframework.security.web.authentication.logout.LogoutFilter@7ccf6114, com.zs.security.JwtAuthenticationFilter@4d20616a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d1c63af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2095c331, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3749c2b, org.springframework.security.web.session.SessionManagementFilter@7296fe0b, org.springframework.security.web.access.ExceptionTranslationFilter@10408ea, org.springframework.security.web.access.intercept.AuthorizationFilter@3c826498]
-2025-03-13T21:55:19.242+08:00  INFO 22268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:55:19.254+08:00  INFO 22268 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.907 seconds (process running for 5.971)
-2025-03-13T21:55:39.865+08:00  INFO 6444 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 6444 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:55:39.867+08:00 DEBUG 6444 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:55:39.868+08:00  INFO 6444 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:55:42.149+08:00  INFO 6444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:55:42.165+08:00  INFO 6444 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:55:42.166+08:00  INFO 6444 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:55:42.258+08:00  INFO 6444 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:55:42.259+08:00  INFO 6444 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2082 ms
-2025-03-13T21:55:42.777+08:00 DEBUG 6444 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:55:43.404+08:00  WARN 6444 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-15T00:20:51.243+08:00  INFO 23068 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c02899, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b895e76, org.springframework.security.web.context.SecurityContextHolderFilter@3cb49121, org.springframework.security.web.header.HeaderWriterFilter@66abb2fa, org.springframework.web.filter.CorsFilter@74231642, org.springframework.security.web.authentication.logout.LogoutFilter@61bd0845, com.zs.security.JwtAuthenticationFilter@65753724, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c4215d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b56d8a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a6facb0, org.springframework.security.web.session.SessionManagementFilter@55397d15, org.springframework.security.web.access.ExceptionTranslationFilter@60b553f, org.springframework.security.web.access.intercept.AuthorizationFilter@4d525897]
+2025-03-15T00:20:51.752+08:00  INFO 23068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-15T00:20:51.763+08:00  INFO 23068 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.887 seconds (process running for 5.863)
+2025-03-15T00:21:01.065+08:00  INFO 23068 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:21:01.065+08:00  INFO 23068 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:21:01.067+08:00  INFO 23068 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-15T00:27:54.590+08:00  INFO 14116 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 14116 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-15T00:27:54.593+08:00 DEBUG 14116 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-15T00:27:54.593+08:00  INFO 14116 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:27:56.540+08:00  INFO 14116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:27:56.554+08:00  INFO 14116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:27:56.555+08:00  INFO 14116 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-15T00:27:56.642+08:00  INFO 14116 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:27:56.642+08:00  INFO 14116 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1757 ms
+2025-03-15T00:27:57.125+08:00 DEBUG 14116 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-15T00:27:57.729+08:00  WARN 14116 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 07aab0f6-5c27-48ff-9d22-96ea4b8b75b9
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-03-13T21:55:43.789+08:00  INFO 6444 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d156f8f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@451af781, org.springframework.security.web.context.SecurityContextHolderFilter@54b2d002, org.springframework.security.web.header.HeaderWriterFilter@1d0dad12, org.springframework.web.filter.CorsFilter@3749c2b, org.springframework.security.web.authentication.logout.LogoutFilter@3df3410a, com.zs.security.JwtAuthenticationFilter@36f6d25c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2095c331, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3909a854, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32e65852, org.springframework.security.web.session.SessionManagementFilter@4a5066f5, org.springframework.security.web.access.ExceptionTranslationFilter@3d7b3b18, org.springframework.security.web.access.intercept.AuthorizationFilter@2633d09c]
-2025-03-13T21:55:44.259+08:00  INFO 6444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:55:44.271+08:00  INFO 6444 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.993 seconds (process running for 6.016)
-2025-03-13T21:55:50.800+08:00  INFO 6444 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T21:55:50.800+08:00  INFO 6444 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T21:55:50.801+08:00  INFO 6444 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-03-13T21:56:43.989+08:00  INFO 2780 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 2780 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:56:43.992+08:00 DEBUG 2780 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:56:43.994+08:00  INFO 2780 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:56:47.413+08:00  INFO 2780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:56:47.431+08:00  INFO 2780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:56:47.440+08:00  INFO 2780 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:56:47.541+08:00  INFO 2780 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:56:47.541+08:00  INFO 2780 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3121 ms
-2025-03-13T21:56:48.447+08:00 DEBUG 2780 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:56:49.548+08:00  WARN 2780 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: e669bcdb-90de-404a-a411-465f7895ee4c
+Using generated security password: 7f9dedb9-1149-4b71-acf6-7ba3cfd24d54
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-13T21:56:53.068+08:00  INFO 2780 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cff03cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@924f3f1, org.springframework.security.web.context.SecurityContextHolderFilter@4a2d66e, org.springframework.security.web.header.HeaderWriterFilter@7c0b0bd9, org.springframework.web.filter.CorsFilter@19e2db7c, org.springframework.security.web.authentication.logout.LogoutFilter@1e50eb3f, com.zs.security.JwtAuthenticationFilter@3611153f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2904bc56, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bb25046, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77a4bac, org.springframework.security.web.session.SessionManagementFilter@7f1fec57, org.springframework.security.web.access.ExceptionTranslationFilter@51df2a41, org.springframework.security.web.access.intercept.AuthorizationFilter@1ba7db2a]
-2025-03-13T21:56:53.921+08:00  INFO 2780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:56:53.945+08:00  INFO 2780 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 15.979 seconds (process running for 18.651)
-2025-03-13T21:57:46.335+08:00  INFO 21540 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 21540 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:57:46.337+08:00 DEBUG 21540 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:57:46.338+08:00  INFO 21540 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:57:48.672+08:00  INFO 21540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:57:48.686+08:00  INFO 21540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:57:48.686+08:00  INFO 21540 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:57:48.780+08:00  INFO 21540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:57:48.789+08:00  INFO 21540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2129 ms
-2025-03-13T21:57:49.478+08:00 DEBUG 21540 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T21:57:50.140+08:00  WARN 21540 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-15T00:27:58.077+08:00  INFO 14116 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22002459, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29bd056a, org.springframework.security.web.context.SecurityContextHolderFilter@55f6f965, org.springframework.security.web.header.HeaderWriterFilter@1191029d, org.springframework.web.filter.CorsFilter@21e702b8, org.springframework.security.web.authentication.logout.LogoutFilter@7d156f8f, com.zs.security.JwtAuthenticationFilter@7d522180, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c83ed77, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d271a54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f1fec57, org.springframework.security.web.session.SessionManagementFilter@774c5e5c, org.springframework.security.web.access.ExceptionTranslationFilter@4a5066f5, org.springframework.security.web.access.intercept.AuthorizationFilter@672d8370]
+2025-03-15T00:27:58.491+08:00  INFO 14116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-15T00:27:58.503+08:00  INFO 14116 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.483 seconds (process running for 5.433)
+2025-03-15T00:28:50.455+08:00  INFO 24748 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 24748 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-15T00:28:50.458+08:00 DEBUG 24748 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-15T00:28:50.459+08:00  INFO 24748 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:28:52.406+08:00  INFO 24748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:28:52.423+08:00  INFO 24748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:28:52.423+08:00  INFO 24748 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-15T00:28:52.514+08:00  INFO 24748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:28:52.514+08:00  INFO 24748 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2025-03-15T00:28:52.979+08:00 DEBUG 24748 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-15T00:28:53.550+08:00  WARN 24748 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 0a07951d-bcdd-4bbf-adcf-cc6737c24793
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-03-13T21:57:50.510+08:00  INFO 21540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@64d93096, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76ed7573, org.springframework.security.web.context.SecurityContextHolderFilter@1d1c63af, org.springframework.security.web.header.HeaderWriterFilter@3c6fb501, org.springframework.web.filter.CorsFilter@51df2a41, org.springframework.security.web.authentication.logout.LogoutFilter@670c171c, com.zs.security.JwtAuthenticationFilter@690df641, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3909a854, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b795db7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@517bdce0, org.springframework.security.web.session.SessionManagementFilter@578d472a, org.springframework.security.web.access.ExceptionTranslationFilter@186dcb05, org.springframework.security.web.access.intercept.AuthorizationFilter@451af781]
-2025-03-13T21:57:50.964+08:00  INFO 21540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T21:57:50.976+08:00  INFO 21540 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.238 seconds (process running for 6.23)
-2025-03-13T21:57:59.678+08:00  INFO 21540 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T21:57:59.678+08:00  INFO 21540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T21:57:59.679+08:00  INFO 21540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-03-13T21:59:57.403+08:00  INFO 15008 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 15008 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-13T21:59:57.407+08:00 DEBUG 15008 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-13T21:59:57.408+08:00  INFO 15008 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T21:59:59.470+08:00  INFO 15008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T21:59:59.485+08:00  INFO 15008 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T21:59:59.485+08:00  INFO 15008 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-13T21:59:59.578+08:00  INFO 15008 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T21:59:59.579+08:00  INFO 15008 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1868 ms
-2025-03-13T22:00:00.076+08:00 DEBUG 15008 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-13T22:00:00.690+08:00  WARN 15008 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 94234f28-8428-4705-bd19-c18be60ad5b0
+Using generated security password: ee534cfb-9f0b-4b4c-8ada-a6f094a3bf4d
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-13T22:00:01.191+08:00  INFO 15008 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e171f93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ad3969, org.springframework.security.web.context.SecurityContextHolderFilter@65d6640, org.springframework.security.web.header.HeaderWriterFilter@54f25b42, org.springframework.web.filter.CorsFilter@5d7ff311, org.springframework.security.web.authentication.logout.LogoutFilter@4b56b517, com.zs.security.JwtAuthenticationFilter@77cddc0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13137835, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f82248f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d7aa291, org.springframework.security.web.session.SessionManagementFilter@49f50c8f, org.springframework.security.web.access.ExceptionTranslationFilter@3c826498, org.springframework.security.web.access.intercept.AuthorizationFilter@614d7fbf]
-2025-03-13T22:00:01.799+08:00  INFO 15008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-13T22:00:01.811+08:00  INFO 15008 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.036 seconds (process running for 6.511)
-2025-03-13T22:01:02.494+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T22:01:02.495+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T22:01:02.498+08:00  INFO 15008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-03-14T21:46:38.907+08:00  INFO 701800 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 701800 (D:\Desktop\projet-zs\backend\target\classes started by Administrator in D:\Desktop\projet-zs\backend)
-2025-03-14T21:46:38.909+08:00 DEBUG 701800 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-14T21:46:38.909+08:00  INFO 701800 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-14T21:46:40.278+08:00  INFO 701800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-14T21:46:40.289+08:00  INFO 701800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-14T21:46:40.289+08:00  INFO 701800 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-14T21:46:40.339+08:00  INFO 701800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-14T21:46:40.339+08:00  INFO 701800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1243 ms
-2025-03-14T21:46:40.687+08:00 DEBUG 701800 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-14T21:46:41.105+08:00  WARN 701800 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-15T00:28:53.921+08:00  INFO 24748 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72e49f6a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e4b5da1, org.springframework.security.web.context.SecurityContextHolderFilter@432f4626, org.springframework.security.web.header.HeaderWriterFilter@1dc9f5ad, org.springframework.web.filter.CorsFilter@312819ae, org.springframework.security.web.authentication.logout.LogoutFilter@2cff03cf, com.zs.security.JwtAuthenticationFilter@1d3d76b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c79ca55, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a63d248, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ae2c01b, org.springframework.security.web.session.SessionManagementFilter@7793b55d, org.springframework.security.web.access.ExceptionTranslationFilter@7f1fec57, org.springframework.security.web.access.intercept.AuthorizationFilter@2f0e7fa8]
+2025-03-15T00:28:54.366+08:00  INFO 24748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-15T00:28:54.379+08:00  INFO 24748 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.571 seconds (process running for 6.108)
+2025-03-15T00:45:40.503+08:00  INFO 23756 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 23756 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-15T00:45:40.505+08:00 DEBUG 23756 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-15T00:45:40.506+08:00  INFO 23756 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:45:42.608+08:00  INFO 23756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:45:42.623+08:00  INFO 23756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:45:42.624+08:00  INFO 23756 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-15T00:45:42.716+08:00  INFO 23756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:45:42.717+08:00  INFO 23756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1876 ms
+2025-03-15T00:45:43.217+08:00 DEBUG 23756 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-15T00:45:43.836+08:00  WARN 23756 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 2b0c542b-f8c5-42c2-8123-72667596c6d8
+Using generated security password: 2d268240-11da-4683-9ffa-ca2387d11478
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-14T21:46:41.331+08:00  INFO 701800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@517bdce0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c0b0bd9, org.springframework.security.web.context.SecurityContextHolderFilter@7b795db7, org.springframework.security.web.header.HeaderWriterFilter@5e7e7a7e, org.springframework.web.filter.CorsFilter@6150afc6, org.springframework.security.web.authentication.logout.LogoutFilter@4148ce43, com.zs.security.JwtAuthenticationFilter@7893c715, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b849fa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fbbdd8a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49f50c8f, org.springframework.security.web.session.SessionManagementFilter@1d1c63af, org.springframework.security.web.access.ExceptionTranslationFilter@58a8ea6f, org.springframework.security.web.access.intercept.AuthorizationFilter@64d93096]
-2025-03-14T21:46:41.619+08:00  WARN 701800 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-03-14T21:46:41.630+08:00  INFO 701800 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-03-14T21:46:41.642+08:00 ERROR 701800 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
+2025-03-15T00:45:44.239+08:00  INFO 23756 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21e702b8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f1fec57, org.springframework.security.web.context.SecurityContextHolderFilter@c83ed77, org.springframework.security.web.header.HeaderWriterFilter@1d1c63af, org.springframework.web.filter.CorsFilter@5c9e3d01, org.springframework.security.web.authentication.logout.LogoutFilter@3749c2b, com.zs.security.JwtAuthenticationFilter@790654d5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ff8e744, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@409395b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1dc9f5ad, org.springframework.security.web.session.SessionManagementFilter@57bac3f0, org.springframework.security.web.access.ExceptionTranslationFilter@1191029d, org.springframework.security.web.access.intercept.AuthorizationFilter@4f82248f]
+2025-03-15T00:45:44.670+08:00  INFO 23756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-15T00:45:44.681+08:00  INFO 23756 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 4.757 seconds (process running for 5.823)
+2025-03-15T00:46:09.673+08:00  INFO 23756 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:46:09.685+08:00  INFO 23756 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:46:09.699+08:00  INFO 23756 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-15T00:46:09.957+08:00  INFO 23756 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:46:10.243+08:00  INFO 23756 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cf248fe
+2025-03-15T00:46:10.245+08:00  INFO 23756 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:46:10.256+08:00 DEBUG 23756 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (year = ? AND school_id = ?)
+2025-03-15T00:46:10.285+08:00 DEBUG 23756 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 2024(Integer), 1(Long)
+2025-03-15T00:46:10.338+08:00 DEBUG 23756 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 0
+2025-03-15T00:55:19.618+08:00 DEBUG 23756 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (year = ? AND school_id = ?)
+2025-03-15T00:55:19.620+08:00 DEBUG 23756 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 2024(Integer), 1(Long)
+2025-03-15T00:55:19.653+08:00 DEBUG 23756 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 3
+2025-03-15T00:55:25.723+08:00 DEBUG 23756 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (year = ? AND school_id = ?)
+2025-03-15T00:55:25.726+08:00 DEBUG 23756 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 2023(Integer), 1(Long)
+2025-03-15T00:55:25.730+08:00 DEBUG 23756 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 2

@@ -5,14 +5,17 @@ import com.zs.service.AdmissionPolicyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admission-policy")
 @Tag(name = "招生政策管理接口")
+@PermitAll
 public class AdmissionPolicyController {
 
     @Autowired
@@ -84,5 +87,14 @@ public class AdmissionPolicyController {
             @Parameter(description = "最低分数", required = true) @RequestParam Integer minScore,
             @Parameter(description = "最高分数", required = true) @RequestParam Integer maxScore) {
         return ResponseEntity.ok(admissionPolicyService.getByScoreRange(minScore, maxScore));
+    }
+
+    @GetMapping("/search/major-scores")
+    @Operation(summary = "查询专业分数线数据", description = "根据年份、学校ID和可选的省份查询专业分数线详细数据")
+    public ResponseEntity<List<Map<String, Object>>> getMajorScores(
+            @Parameter(description = "年份", required = true) @RequestParam Integer year,
+            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId,
+            @Parameter(description = "省份", required = false) @RequestParam(required = false) String province) {
+        return ResponseEntity.ok(admissionPolicyService.getMajorScores(year, schoolId, province));
     }
 }
