@@ -102,7 +102,7 @@ export default {
         }
 
         const [err, res] = await uni.request({
-          url: 'http://localhost:8080/api/user/search/username/' + this.form.username,
+          url: 'http://localhost:8080/api/users/search?username=' + this.form.username,
           method: 'GET',
           header: {
             'Authorization': token.startsWith('Bearer ') ? token : 'Bearer ' + token
@@ -134,7 +134,7 @@ export default {
       try {
         const token = uni.getStorageSync('token')
         const [err, res] = await uni.request({
-          url: 'http://localhost:8080/api/user',
+          url: `http://localhost:8080/api/users/${this.form.id}`,
           method: 'PUT',
           header: {
             'Authorization': 'Bearer ' + token,
@@ -174,7 +174,7 @@ export default {
           const tempFilePath = res.tempFilePaths[0]
           
           uni.uploadFile({
-            url: 'http://localhost:8080/api/user/avatar',
+            url: `http://localhost:8080/api/users/${this.form.username}/avatar`,
             filePath: tempFilePath,
             name: 'file',
             formData: {

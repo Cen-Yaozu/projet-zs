@@ -7,6 +7,9 @@ import java.util.List;
 public interface MajorInfoService extends IService<MajorInfo> {
     // 根据学校ID查询专业信息
     List<MajorInfo> getBySchoolId(Long schoolId);
+    
+    // 根据院系ID查询专业信息
+    List<MajorInfo> getByCollegeId(Long collegeId);
 
     // 根据专业名称模糊查询
     List<MajorInfo> searchByName(String name);

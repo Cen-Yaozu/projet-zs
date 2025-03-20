@@ -42,6 +42,12 @@ public interface UserService {
     // 重置管理员密码
     boolean resetAdminPassword();
 
+    // 更新用户状态（启用/禁用）
+    boolean updateUserStatus(Long id, Boolean status);
+
+    // 重置指定用户密码
+    boolean resetUserPassword(Long id);
+
     @Value("${file.upload.path}")
     String getFileUploadPath();
 

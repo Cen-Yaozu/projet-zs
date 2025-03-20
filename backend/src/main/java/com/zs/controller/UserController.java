@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 @Tag(name = "用户管理接口")
 public class UserController {
 
@@ -34,8 +34,7 @@ public class UserController {
     @PostMapping("/login")
     @Operation(summary = "用户登录", description = "用户登录并返回token")
     public ResponseEntity<?> login(@Parameter(description = "登录信息", required = true) @RequestBody LoginRequest loginRequest) {
-        LoginResponse response = userService.login(loginRequest.getUsername(), loginRequest.getPassword(),
-                loginRequest.getRole());
+        LoginResponse response = userService.login(loginRequest.getUsername(), loginRequest.getPassword(), null);
         if (response != null) {
             return ResponseEntity.ok(ApiResponse.success(response));
         }
@@ -49,9 +48,12 @@ public class UserController {
         return success ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    @PutMapping
-    @Operation(summary = "更新用户", description = "更新用户信息")
-    public ResponseEntity<?> updateUser(@Parameter(description = "用户信息", required = true) @RequestBody User user) {
+    @PutMapping("/{id}")
+    @Operation(summary = "更新用户", description = "更新指定ID的用户信息")
+    public ResponseEntity<?> updateUser(
+            @Parameter(description = "用户ID", required = true) @PathVariable Long id,
+            @Parameter(description = "用户信息", required = true) @RequestBody User user) {
+        user.setId(id); // 确保ID一致
         boolean success = userService.updateUser(user);
         return success ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
@@ -70,15 +72,31 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/search/username/{username}")
-    @Operation(summary = "根据用户名查询", description = "根据用户名查询用户信息")
-    public ResponseEntity<User> getUserByUsername(
-            @Parameter(description = "用户名", required = true) @PathVariable String username) {
+    @GetMapping("/search")
+    @Operation(summary = "搜索用户", description = "根据用户名搜索用户")
+    public ResponseEntity<User> searchUserByUsername(
+            @Parameter(description = "用户名", required = true) @RequestParam String username) {
         User user = userService.getUserByUsername(username);
         return user != null ? ResponseEntity.ok(user) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/update-password")
+    @PutMapping("/{id}/status")
+    @Operation(summary = "更新用户状态", description = "启用或禁用用户")
+    public ResponseEntity<?> updateUserStatus(
+            @Parameter(description = "用户ID", required = true) @PathVariable Long id,
+            @Parameter(description = "状态信息", required = true) @RequestBody HashMap<String, Boolean> statusMap) {
+        Boolean status = statusMap.get("status");
+        if (status == null) {
+            return ResponseEntity.badRequest().body(ApiResponse.error("缺少status参数"));
+        }
+        // 此处需要在UserService中添加updateUserStatus方法
+        boolean success = userService.updateUserStatus(id, status);
+        return success ? 
+            ResponseEntity.ok(ApiResponse.success("用户状态已更新")) : 
+            ResponseEntity.badRequest().body(ApiResponse.error("更新用户状态失败"));
+    }
+
+    @PostMapping("/password/update")
     @Operation(summary = "更新密码", description = "根据用户名、旧密码验证并更新新密码")
     public ResponseEntity<?> updatePassword(
             @Parameter(description = "密码更新信息", required = true) @RequestBody PasswordUpdateRequest request) {
@@ -94,8 +112,21 @@ public class UserController {
         }
     }
 
+    @PostMapping("/{id}/password/reset")
+    @Operation(summary = "重置用户密码", description = "管理员重置指定用户的密码")
+    public ResponseEntity<?> resetUserPassword(
+            @Parameter(description = "用户ID", required = true) @PathVariable Long id) {
+        // 此处需要在UserService中添加resetUserPassword方法
+        boolean success = userService.resetUserPassword(id);
+        if (success) {
+            return ResponseEntity.ok(ApiResponse.success("用户密码已重置"));
+        } else {
+            return ResponseEntity.badRequest().body(ApiResponse.error("重置密码失败"));
+        }
+    }
+
     // 临时端点：重置管理员密码
-    @PostMapping("/reset-admin")
+    @PostMapping("/admin/reset-password")
     @Operation(summary = "重置管理员密码", description = "将管理员密码重置为默认密码")
     public ResponseEntity<?> resetAdminPassword() {
         boolean success = userService.resetAdminPassword();
@@ -106,11 +137,11 @@ public class UserController {
         }
     }
 
-    @PostMapping("/avatar")
+    @PostMapping("/{username}/avatar")
     @Operation(summary = "上传头像", description = "上传并更新用户头像")
     public ResponseEntity<?> uploadAvatar(
             @Parameter(description = "头像文件", required = true) @RequestParam("file") MultipartFile file,
-            @Parameter(description = "用户名", required = true) @RequestParam("username") String username) {
+            @Parameter(description = "用户名", required = true) @PathVariable String username) {
         try {
             String avatarUrl = userService.uploadAvatar(file, username);
             return ResponseEntity.ok(ApiResponse.success(new HashMap<String, String>() {{

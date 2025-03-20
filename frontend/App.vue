@@ -50,4 +50,29 @@ button::after {
 .container {
   padding-bottom: 120rpx;
 }
+
+/* 处理图片加载错误 */
+image {
+  will-change: transform;
+}
+
+image[mode="aspectFill"].error,
+image[mode="aspectFit"].error,
+image[mode="scaleToFill"].error {
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+image[mode="aspectFill"].error::before,
+image[mode="aspectFit"].error::before,
+image[mode="scaleToFill"].error::before {
+  content: "\e656";
+  font-family: "iconfont";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40rpx;
+  color: #ccc;
+}
 </style> 

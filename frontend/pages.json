@@ -32,6 +32,70 @@
       }
     },
     {
+      "path": "pages/admin/announcement/index",
+      "style": {
+        "navigationBarTitleText": "公告管理",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/announcement/edit",
+      "style": {
+        "navigationBarTitleText": "公告编辑",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/college/index",
+      "style": {
+        "navigationBarTitleText": "院系管理",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/college/edit",
+      "style": {
+        "navigationBarTitleText": "编辑学院",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/major/index",
+      "style": {
+        "navigationBarTitleText": "专业管理",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/major/edit",
+      "style": {
+        "navigationBarTitleText": "编辑专业",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/user/index",
+      "style": {
+        "navigationBarTitleText": "用户管理",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/admin/system/index",
+      "style": {
+        "navigationBarTitleText": "系统设置",
+        "navigationBarBackgroundColor": "#4aa3ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
       "path": "pages/my/login",
       "style": {
         "navigationBarTitleText": "用户登录",
@@ -101,6 +165,25 @@
       "path": "pages/admission/score",
       "style": {
         "navigationBarTitleText": "历年分数"
+      }
+    },
+    {
+      "path": "pages/announcement/index",
+      "style": {
+        "navigationBarTitleText": "通知公告",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/announcement/detail",
+      "style": {
+        "navigationBarTitleText": "公告详情"
+      }
+    },
+    {
+      "path": "pages/school/college-detail",
+      "style": {
+        "navigationBarTitleText": "学院详情"
       }
     }
   ],

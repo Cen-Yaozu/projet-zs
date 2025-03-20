@@ -34,10 +34,26 @@ CREATE TABLE IF NOT EXISTS `school_info` (
     KEY `idx_province_city` (`province`, `city`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学校信息表';
 
+-- 院系信息表
+CREATE TABLE IF NOT EXISTS `college` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    `name` VARCHAR(100) NOT NULL COMMENT '院系名称',
+    `degree` VARCHAR(50) COMMENT '学历层次（本科、专科等）',
+    `duration` VARCHAR(20) COMMENT '学制（年）',
+    `description` TEXT COMMENT '院系介绍',
+    `school_id` BIGINT NOT NULL COMMENT '所属学校ID',
+    `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    KEY `idx_school_id` (`school_id`),
+    CONSTRAINT `fk_college_school` FOREIGN KEY (`school_id`) REFERENCES `school_info` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='院系信息表';
+
 -- 专业信息表
 CREATE TABLE IF NOT EXISTS `major_info` (
     `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
     `school_id` BIGINT NOT NULL COMMENT '所属学校ID',
+    `college_id` BIGINT COMMENT '所属院系ID',
     `name` VARCHAR(100) NOT NULL COMMENT '专业名称',
     `code` VARCHAR(20) NOT NULL COMMENT '专业代码',
     `degree` VARCHAR(50) COMMENT '学位类型',
@@ -48,7 +64,9 @@ CREATE TABLE IF NOT EXISTS `major_info` (
     `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`),
     KEY `idx_school_id` (`school_id`),
-    CONSTRAINT `fk_major_school` FOREIGN KEY (`school_id`) REFERENCES `school_info` (`id`)
+    KEY `idx_college_id` (`college_id`),
+    CONSTRAINT `fk_major_school` FOREIGN KEY (`school_id`) REFERENCES `school_info` (`id`),
+    CONSTRAINT `fk_major_college` FOREIGN KEY (`college_id`) REFERENCES `college` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='专业信息表';
 
 -- 招生政策表
@@ -79,12 +97,26 @@ INSERT INTO `school_info` (`name`, `code`, `type`, `level`, `province`, `city`, 
 ('北京大学', '10001', '本科', '985,211', '北京市', '北京市', '北京市海淀区颐和园路5号', '北京大学（Peking University）创办于1898年，是中国第一所国立综合性大学。', 'https://www.pku.edu.cn'),
 ('浙江大学', '10335', '本科', '985,211', '浙江省', '杭州市', '浙江省杭州市西湖区余杭塘路866号', '浙江大学（Zhejiang University）是中国著名高等学府，是国家重点建设的综合性、研究型大学。', 'https://www.zju.edu.cn');
 
+-- 插入测试院系数据
+INSERT INTO `college` (`name`, `degree`, `duration`, `description`, `school_id`) VALUES
+('航运学院', '本科', '4', '航运学院致力于培养航运领域的高素质人才，拥有完善的教学设施和优秀的师资力量。', 1),
+('海洋装备工程学院', '本科', '4', '海洋装备工程学院专注于海洋工程装备的研发与应用，培养海洋工程领域的专业人才。', 1),
+('低空装备与智能控制学院', '本科', '4', '低空装备与智能控制学院是新兴交叉学科学院，致力于培养无人机等低空装备研发与应用人才。', 2),
+('智能制造学院', '本科', '4', '智能制造学院聚焦工业4.0和智能制造领域，培养具有创新能力的高级工程技术人才。', 2),
+('智能交通与工程学院', '本科', '4', '智能交通与工程学院立足未来交通发展，培养具备智能交通系统设计与管理能力的专业人才。', 3);
+
 -- 插入测试专业数据
-INSERT INTO `major_info` (`school_id`, `name`, `code`, `degree`, `duration`, `description`, `career_prospects`) VALUES
-(1, '计算机科学与技术', '080901', '工学学士', '4年', '计算机科学与技术专业培养具备计算机硬件、软件与网络系统等方面的知识和能力的高级人才。', '可在IT企业、科研机构、金融机构等从事软件开发、系统架构设计等工作。'),
-(1, '人工智能', '080910', '工学学士', '4年', '人工智能专业培养具备机器学习、深度学习、计算机视觉等方面知识和能力的高级人才。', '可在AI企业、研究所、互联网公司等从事算法研发、AI应用开发等工作。'),
-(2, '金融学', '020301', '经济学学士', '4年', '金融学专业培养具备金融理论、金融市场、投资管理等方面知识和能力的高级人才。', '可在银行、证券公司、基金公司等金融机构从事投资、理财、风控等工作。'),
-(3, '医学', '100201', '医学学士', '5年', '医学专业培养具备基础医学、临床医学等方面知识和能力的医疗人才。', '可在医院、医疗机构、医药企业等从事医疗、研究、管理等工作。');
+INSERT INTO `major_info` (`school_id`, `college_id`, `name`, `code`, `degree`, `duration`, `description`, `career_prospects`) VALUES
+(1, 1, '航海技术', '081901', '工学学士', '4年', '培养具备船舶驾驶、海上运输组织与管理等能力的高级航海人才', '毕业生可在航运公司、港口、海事管理等单位从事船舶驾驶、运输管理等工作'),
+(1, 1, '轮机工程', '081902', '工学学士', '4年', '培养具备船舶动力装置操作、维护与管理等能力的专业人才', '毕业生可在航运公司、船厂、海事管理等单位从事船舶轮机管理等工作'),
+(1, 2, '船舶与海洋工程', '082401', '工学学士', '4年', '培养具备船舶与海洋工程结构物设计、建造与管理能力的专业人才', '毕业生可在船厂、海洋工程公司、科研院所等单位工作'),
+(1, 2, '海洋资源开发技术', '082402', '工学学士', '4年', '培养掌握海洋资源勘探、开发和利用技术的专业人才', '毕业生可在海洋资源开发企业、海洋环境保护等领域工作'),
+(2, 3, '无人机应用技术', '083101', '工学学士', '4年', '培养掌握无人机设计、制造、操控及应用的专业人才', '毕业生可在无人机制造、航拍测绘、物流配送等行业工作'),
+(2, 3, '智能控制技术', '083102', '工学学士', '4年', '培养具备自动控制、智能系统设计与应用能力的专业人才', '毕业生可在智能制造、自动化系统集成等领域工作'),
+(2, 4, '机械设计制造及自动化', '083201', '工学学士', '4年', '培养掌握机械设计、制造及自动化技术的专业人才', '毕业生可在制造业、自动化设备企业等单位工作'),
+(2, 4, '工业机器人技术', '083202', '工学学士', '4年', '培养具备工业机器人应用、维护与管理能力的专业人才', '毕业生可在机器人企业、自动化生产线等领域工作'),
+(3, 5, '智能交通技术', '083301', '工学学士', '4年', '培养掌握交通管理系统设计与应用的专业人才', '毕业生可在智能交通系统开发、交通管理等领域工作'),
+(3, 5, '新能源汽车技术', '083302', '工学学士', '4年', '培养具备新能源汽车设计、制造、维修能力的专业人才', '毕业生可在新能源汽车企业、汽车研发等领域工作');
 
 -- 插入测试招生政策数据
 INSERT INTO `admission_policy` (`school_id`, `year`, `province`, `plan_number`, `min_score`, `category`, `policy_content`) VALUES

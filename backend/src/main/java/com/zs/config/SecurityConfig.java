@@ -50,14 +50,16 @@ public class SecurityConfig {
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/user/login", "/api/user/register", "/api/user/reset-admin").permitAll()
-                .requestMatchers("/api/user/**").authenticated()
+                .requestMatchers("/api/users/login", "/api/users/register", "/api/users/admin/reset-password").permitAll()
+                .requestMatchers("/api/users/**").authenticated()
                 .requestMatchers("/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs/**", "/v3/api-docs/**", "/webjars/**", "/swagger-ui.html", "/doc.html").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/ai-chat/**").permitAll()
                 .requestMatchers("/api/admission-policy/**").permitAll()
                 .requestMatchers("/api/school-info/**").permitAll()
                 .requestMatchers("/api/major-info/**").permitAll()
+                .requestMatchers("/api/college/**").permitAll()
+                .requestMatchers("/api/announcements/**").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

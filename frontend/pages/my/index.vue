@@ -4,7 +4,7 @@
       <text class="title">个人中心</text>
     </view>
     
-    <view class="user-card">
+    <view class="user-card" @tap="handleUserCardClick">
       <image 
         class="avatar" 
         :src="userInfo.avatar || '/static/images/logo5.png'" 
@@ -13,6 +13,40 @@
       <view class="user-info">
         <text class="username">{{ userInfo.username || '未登录' }}</text>
         <text class="role">{{ userInfo.role === 'ROLE_ADMIN' ? '管理员' : '普通用户' }}</text>
+      </view>
+    </view>
+    
+    <!-- 管理员功能区 -->
+    <view class="admin-panel" v-if="userInfo.role === 'ROLE_ADMIN'">
+      <text class="section-title">管理功能</text>
+      <view class="admin-menu">
+        <view class="admin-menu-item" @tap="navigateTo('/pages/admin/college/index')">
+          <view class="admin-menu-icon">
+            <text class="iconfont icon-college"></text>
+          </view>
+          <text class="admin-menu-text">院系管理</text>
+        </view>
+        
+        <view class="admin-menu-item" @tap="navigateTo('/pages/admin/announcement/index')">
+          <view class="admin-menu-icon">
+            <text class="iconfont icon-announcement"></text>
+          </view>
+          <text class="admin-menu-text">公告管理</text>
+        </view>
+        
+        <view class="admin-menu-item" @tap="navigateTo('/pages/admin/user/index')">
+          <view class="admin-menu-icon">
+            <text class="iconfont icon-user"></text>
+          </view>
+          <text class="admin-menu-text">用户管理</text>
+        </view>
+        
+        <view class="admin-menu-item" @tap="navigateTo('/pages/admin/system/index')">
+          <view class="admin-menu-icon">
+            <text class="iconfont icon-setting"></text>
+          </view>
+          <text class="admin-menu-text">系统设置</text>
+        </view>
       </view>
     </view>
     
@@ -91,6 +125,14 @@ export default {
           }
         }
       })
+    },
+    
+    handleUserCardClick() {
+      if (!this.isLoggedIn) {
+        uni.navigateTo({
+          url: '/pages/my/login'
+        })
+      }
     }
   }
 }
@@ -143,6 +185,57 @@ export default {
     .role {
       font-size: 24rpx;
       color: #666;
+    }
+  }
+}
+
+/* 管理员功能区样式 */
+.admin-panel {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  
+  .section-title {
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #333;
+    padding: 10rpx 10rpx 20rpx 10rpx;
+    display: block;
+  }
+  
+  .admin-menu {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .admin-menu-item {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20rpx 0;
+      
+      .admin-menu-icon {
+        width: 80rpx;
+        height: 80rpx;
+        background-color: #eaf4ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12rpx;
+        
+        .iconfont {
+          font-size: 40rpx;
+          color: #3a86ff;
+        }
+      }
+      
+      .admin-menu-text {
+        font-size: 24rpx;
+        color: #666;
+        text-align: center;
+      }
     }
   }
 }

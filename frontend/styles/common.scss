@@ -1,0 +1,312 @@
+/* 主题颜色 */
+$primary-color: #4aa3ff;
+$primary-light-color: rgba(74, 163, 255, 0.1);
+$primary-dark-color: #3a93f0;
+$primary-darker-color: #3183e0;
+
+/* 灰度颜色 */
+$white: #ffffff;
+$gray-100: #f5f7fa;
+$gray-200: #e8eaed;
+$gray-300: #dadddf;
+$gray-400: #c0c0c0;
+$gray-500: #9e9e9e;
+$gray-600: #666666;
+$gray-700: #444444;
+$gray-800: #333333;
+$gray-900: #222222;
+$black: #000000;
+
+/* 功能颜色 */
+$success-color: #2ecc71;
+$warning-color: #f39c12;
+$error-color: #e74c3c;
+$info-color: #3498db;
+
+/* 字体大小 */
+$font-size-mini: 24rpx;
+$font-size-small: 28rpx;
+$font-size-base: 32rpx;
+$font-size-medium: 36rpx;
+$font-size-large: 40rpx;
+$font-size-xlarge: 48rpx;
+$font-size-xxlarge: 64rpx;
+
+/* 间距 */
+$spacing-mini: 8rpx;
+$spacing-small: 16rpx;
+$spacing-base: 24rpx;
+$spacing-medium: 32rpx;
+$spacing-large: 40rpx;
+$spacing-xlarge: 48rpx;
+$spacing-xxlarge: 64rpx;
+
+/* 圆角 */
+$radius-mini: 4rpx;
+$radius-small: 8rpx;
+$radius-base: 12rpx;
+$radius-medium: 16rpx;
+$radius-large: 20rpx;
+$radius-xlarge: 24rpx;
+$radius-circle: 50%;
+
+/* 阴影 */
+$shadow-light: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+$shadow-base: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 6rpx 16rpx rgba(0, 0, 0, 0.15);
+$shadow-large: 0 8rpx 24rpx rgba(0, 0, 0, 0.2);
+$shadow-primary: 0 4rpx 12rpx rgba($primary-color, 0.25);
+
+/* 过渡动画 */
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.2s ease;
+$transition-slow: all 0.5s ease;
+
+/* 通用类 */
+.container {
+  padding: $spacing-base;
+  min-height: 100vh;
+  background-color: $gray-100;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.text-warning {
+  color: $warning-color;
+}
+
+.text-error {
+  color: $error-color;
+}
+
+.text-info {
+  color: $info-color;
+}
+
+.text-light {
+  color: $gray-500;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.bg-light {
+  background-color: $gray-100;
+}
+
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.bg-primary-light {
+  background-color: $primary-light-color;
+}
+
+.card {
+  background-color: $white;
+  border-radius: $radius-medium;
+  padding: $spacing-base;
+  margin-bottom: $spacing-base;
+  box-shadow: $shadow-light;
+  transition: $transition-base;
+  
+  &:active {
+    transform: translateY(2rpx);
+  }
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-circle;
+  object-fit: cover;
+  
+  &.small {
+    width: 60rpx;
+    height: 60rpx;
+  }
+  
+  &.large {
+    width: 120rpx;
+    height: 120rpx;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1rpx;
+  background-color: $gray-200;
+  margin: $spacing-base 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  font-size: $font-size-mini;
+  color: $white;
+  background-color: $primary-color;
+  border-radius: $radius-small;
+  
+  &.warning {
+    background-color: $warning-color;
+  }
+  
+  &.success {
+    background-color: $success-color;
+  }
+  
+  &.error {
+    background-color: $error-color;
+  }
+}
+
+/* 间距工具类 */
+.m-0 { margin: 0; }
+.m-1 { margin: $spacing-mini; }
+.m-2 { margin: $spacing-small; }
+.m-3 { margin: $spacing-base; }
+.m-4 { margin: $spacing-medium; }
+.m-5 { margin: $spacing-large; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacing-mini; }
+.mt-2 { margin-top: $spacing-small; }
+.mt-3 { margin-top: $spacing-base; }
+.mt-4 { margin-top: $spacing-medium; }
+.mt-5 { margin-top: $spacing-large; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacing-mini; }
+.mb-2 { margin-bottom: $spacing-small; }
+.mb-3 { margin-bottom: $spacing-base; }
+.mb-4 { margin-bottom: $spacing-medium; }
+.mb-5 { margin-bottom: $spacing-large; }
+
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: $spacing-mini; }
+.ml-2 { margin-left: $spacing-small; }
+.ml-3 { margin-left: $spacing-base; }
+.ml-4 { margin-left: $spacing-medium; }
+.ml-5 { margin-left: $spacing-large; }
+
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: $spacing-mini; }
+.mr-2 { margin-right: $spacing-small; }
+.mr-3 { margin-right: $spacing-base; }
+.mr-4 { margin-right: $spacing-medium; }
+.mr-5 { margin-right: $spacing-large; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-mini; }
+.p-2 { padding: $spacing-small; }
+.p-3 { padding: $spacing-base; }
+.p-4 { padding: $spacing-medium; }
+.p-5 { padding: $spacing-large; }
+
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: $spacing-mini; }
+.pt-2 { padding-top: $spacing-small; }
+.pt-3 { padding-top: $spacing-base; }
+.pt-4 { padding-top: $spacing-medium; }
+.pt-5 { padding-top: $spacing-large; }
+
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: $spacing-mini; }
+.pb-2 { padding-bottom: $spacing-small; }
+.pb-3 { padding-bottom: $spacing-base; }
+.pb-4 { padding-bottom: $spacing-medium; }
+.pb-5 { padding-bottom: $spacing-large; }
+
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: $spacing-mini; }
+.pl-2 { padding-left: $spacing-small; }
+.pl-3 { padding-left: $spacing-base; }
+.pl-4 { padding-left: $spacing-medium; }
+.pl-5 { padding-left: $spacing-large; }
+
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: $spacing-mini; }
+.pr-2 { padding-right: $spacing-small; }
+.pr-3 { padding-right: $spacing-base; }
+.pr-4 { padding-right: $spacing-medium; }
+.pr-5 { padding-right: $spacing-large; }
+
+/* 响应式隐藏 */
+@media screen and (max-width: 768px) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+/* 暗黑模式适配 */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: $gray-900;
+  }
+  
+  .card {
+    background-color: $gray-800;
+    box-shadow: $shadow-base;
+  }
+  
+  .divider {
+    background-color: $gray-700;
+  }
+  
+  .bg-white {
+    background-color: $gray-800;
+  }
+  
+  .bg-light {
+    background-color: $gray-700;
+  }
+  
+  .text-light {
+    color: $gray-400;
+  }
+} 

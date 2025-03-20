@@ -37,7 +37,7 @@ public class MajorInfoController {
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "获取专业信息", description = "根据专业ID获取专业信息")
+    @Operation(summary = "获取专业信息", description = "根据专业ID获取专业详细信息")
     public ResponseEntity<MajorInfo> getMajorInfoById(@Parameter(description = "专业ID", required = true) @PathVariable Long id) {
         MajorInfo majorInfo = majorInfoService.getById(id);
         return majorInfo != null ? ResponseEntity.ok(majorInfo) : ResponseEntity.notFound().build();
@@ -53,6 +53,12 @@ public class MajorInfoController {
     @Operation(summary = "根据学校ID查询专业", description = "根据学校ID查询相关专业信息")
     public ResponseEntity<List<MajorInfo>> getBySchoolId(@Parameter(description = "学校ID", required = true) @PathVariable Long schoolId) {
         return ResponseEntity.ok(majorInfoService.getBySchoolId(schoolId));
+    }
+    
+    @GetMapping("/college/{collegeId}")
+    @Operation(summary = "根据院系ID查询专业", description = "根据院系ID查询相关专业信息")
+    public ResponseEntity<List<MajorInfo>> getByCollegeId(@Parameter(description = "院系ID", required = true) @PathVariable Long collegeId) {
+        return ResponseEntity.ok(majorInfoService.getByCollegeId(collegeId));
     }
 
     @GetMapping("/search/name/{name}")

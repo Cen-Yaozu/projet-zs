@@ -16,6 +16,12 @@ public class MajorInfoServiceImpl extends ServiceImpl<MajorInfoMapper, MajorInfo
         return list(new LambdaQueryWrapper<MajorInfo>()
                 .eq(MajorInfo::getSchoolId, schoolId));
     }
+    
+    @Override
+    public List<MajorInfo> getByCollegeId(Long collegeId) {
+        return list(new LambdaQueryWrapper<MajorInfo>()
+                .eq(MajorInfo::getCollegeId, collegeId));
+    }
 
     @Override
     public List<MajorInfo> searchByName(String name) {

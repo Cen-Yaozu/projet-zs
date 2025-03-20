@@ -83,7 +83,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public LoginResponse login(String username, String password, String role) {
         System.out.println("=== Login Debug Info ===");
-        System.out.println("Attempting login with - Username: " + username + ", Role: " + role);
+        System.out.println("Attempting login with - Username: " + username);
         
         // 使用 MyBatis-Plus 的 Lambda 查询
         User user = lambdaQuery()
@@ -104,27 +104,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         System.out.println("- Username: " + user.getUsername());
         System.out.println("- Role: " + user.getRole());
         System.out.println("- Status: " + user.getStatus());
-        System.out.println("- Stored password hash: " + user.getPassword());
 
         // 验证密码
         boolean passwordMatch = passwordEncoder.matches(password, user.getPassword());
         System.out.println("Password verification result: " + passwordMatch);
-        System.out.println("Input password: " + password);
         
         if (!passwordMatch) {
             System.out.println("Login failed: Password does not match");
-            return null;
-        }
-
-        // 验证角色
-        boolean roleMatch = user.getRole().equals(role);
-        System.out.println("Role verification:");
-        System.out.println("- Expected role: " + role);
-        System.out.println("- Actual role: " + user.getRole());
-        System.out.println("- Role matches: " + roleMatch);
-        
-        if (!roleMatch) {
-            System.out.println("Login failed: Role does not match");
             return null;
         }
 
@@ -247,5 +233,32 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
 
         return "/static/avatars/" + filename;
+    }
+
+    @Override
+    public boolean updateUserStatus(Long id, Boolean status) {
+        User user = getById(id);
+        if (user == null) {
+            return false;
+        }
+        
+        // 将布尔值转换为整数 (true -> 1, false -> 0)
+        user.setStatus(status ? 1 : 0);
+        return updateById(user);
+    }
+    
+    @Override
+    public boolean resetUserPassword(Long id) {
+        User user = getById(id);
+        if (user == null) {
+            return false;
+        }
+        
+        // 重置为默认密码 "123456"
+        String defaultPassword = "123456";
+        String encodedPassword = passwordEncoder.encode(defaultPassword);
+        user.setPassword(encodedPassword);
+        
+        return updateById(user);
     }
 }

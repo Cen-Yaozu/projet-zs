@@ -7,14 +7,19 @@
     
     <!-- 年份和模式选择器 -->
     <view class="filter-bar">
-      <view class="year-selector">
+      <view class="year-selector" @tap="openYearPopup">
         <uni-icons type="calendar" size="20" color="#0f3c88"></uni-icons>
         <text class="year-text">{{ currentYear }}</text>
       </view>
       
-      <view class="display-mode">
-        <uni-icons type="list" size="20" color="#f89d35"></uni-icons>
-        <text class="mode-text">表格式</text>
+      <view class="school-selector" @tap="openSchoolPopup">
+        <uni-icons type="location" size="20" color="#0f3c88"></uni-icons>
+        <text class="school-text">{{ selectedSchool.name || '全部学校' }}</text>
+      </view>
+      
+      <view class="display-mode" @tap="toggleDisplayMode">
+        <uni-icons :type="displayMode === 'card' ? 'list' : 'grid'" size="20" color="#f89d35"></uni-icons>
+        <text class="mode-text">{{ displayMode === 'card' ? '表格式' : '卡片式' }}</text>
       </view>
     </view>
     
@@ -28,8 +33,8 @@
       <text>暂无数据</text>
     </view>
     
-    <!-- 分数数据展示 -->
-    <view v-else class="score-list">
+    <!-- 卡片式视图 -->
+    <view v-else-if="displayMode === 'card'" class="score-list">
       <!-- 按专业分组展示 -->
       <view 
         class="score-item" 
@@ -87,9 +92,41 @@
       </view>
     </view>
     
-    <!-- 年份选择弹窗 -->
-    <uni-popup ref="yearPopup" type="bottom">
-      <view class="popup-content">
+    <!-- 表格式视图 -->
+    <view v-else class="table-view">
+      <!-- 顶部筛选与模式 -->
+      <view class="table-top-bar">
+        <view class="year-filter">
+          <uni-icons type="calendar" size="20" color="#333"></uni-icons>
+          <text class="year-text">{{ currentYear }}</text>
+        </view>
+        <view class="mode-switch" @tap="toggleDisplayMode">
+          <uni-icons type="grid" size="20" color="#f89d35"></uni-icons>
+          <text class="mode-text">卡片式</text>
+        </view>
+      </view>
+      
+      <!-- 表格头部 -->
+      <view class="table-header">
+        <view class="table-cell">年份</view>
+        <view class="table-cell">科类</view>
+        <view class="table-cell">省份</view>
+        <view class="table-cell">专业名称</view>
+      </view>
+      
+      <!-- 表格数据行 -->
+      <view v-for="(item, index) in tableData" :key="index" class="table-row">
+        <view class="table-cell">{{ item.year }}</view>
+        <view class="table-cell">{{ item.category || '理科' }}</view>
+        <view class="table-cell">{{ item.province }}</view>
+        <view class="table-cell">{{ item.majorName }}</view>
+      </view>
+    </view>
+    
+    <!-- 年份选择弹窗 - 自定义实现，不依赖uni-popup -->
+    <view class="custom-popup" v-if="showYearSelect" @click.stop="closeYearPopup">
+      <view class="popup-mask"></view>
+      <view class="popup-content" @click.stop>
         <view class="popup-title">
           <text>选择年份</text>
         </view>
@@ -104,11 +141,35 @@
             <text>{{ year }}年</text>
           </view>
         </view>
-        <view class="popup-btn" @tap="closeYearPopup">
+        <view class="popup-cancel-btn" @tap="closeYearPopup">
           <text>取消</text>
         </view>
       </view>
-    </uni-popup>
+    </view>
+    
+    <!-- 学校选择弹窗 -->
+    <view class="custom-popup" v-if="showSchoolSelect" @click.stop="closeSchoolPopup">
+      <view class="popup-mask"></view>
+      <view class="popup-content" @click.stop>
+        <view class="popup-title">
+          <text>选择学校</text>
+        </view>
+        <view class="school-list">
+          <view 
+            v-for="(school, index) in schools" 
+            :key="index"
+            class="school-item"
+            :class="{ active: selectedSchool.id === school.id }"
+            @tap="selectSchool(school)"
+          >
+            <text>{{ school.name }}</text>
+          </view>
+        </view>
+        <view class="popup-cancel-btn" @tap="closeSchoolPopup">
+          <text>取消</text>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -124,6 +185,18 @@ export default {
       processedData: [], // 处理后的展示数据
       loading: true,
       schoolId: 1, // 默认学校ID，可从配置或全局状态获取
+      displayMode: 'card', // 显示模式：card-卡片式，table-表格式
+      showYearSelect: false, // 控制年份选择弹窗显示
+      showSchoolSelect: false, // 控制学校选择弹窗显示
+      tableData: [],
+      schools: [
+        { id: 1, name: '广州航海学院' },
+        { id: 2, name: '上海海事大学' },
+        { id: 3, name: '大连海事大学' },
+        { id: 4, name: '武汉理工大学' },
+        { id: 5, name: '集美大学' }
+      ],
+      selectedSchool: { id: 1, name: '广州航海学院' }, // 默认选中的学校
       loadingText: {
         contentdown: '加载更多',
         contentrefresh: '正在加载...',
@@ -139,7 +212,7 @@ export default {
     async initData() {
       this.loading = true;
       try {
-        await this.loadScoreData(this.currentYear);
+        await this.loadScoreData(this.currentYear, this.selectedSchool.id);
       } catch (err) {
         console.error('初始化数据失败:', err);
         uni.showToast({
@@ -151,21 +224,34 @@ export default {
       }
     },
     
-    // 加载指定年份的分数数据
-    async loadScoreData(year) {
-      if (this.scoreData[year]) {
-        this.processedData = this.scoreData[year];
+    // 加载指定年份和学校的分数数据
+    async loadScoreData(year, schoolId) {
+      const cacheKey = `${year}_${schoolId}`;
+      if (this.scoreData[cacheKey]) {
+        this.processedData = this.scoreData[cacheKey];
+        this.tableData = this.processedData.map(item => ({
+          year: item.year,
+          category: item.firstSubject === '物理' ? '理科' : '文科',
+          province: item.province,
+          majorName: item.majorName
+        }));
         return; // 如果数据已加载，直接返回
       }
       
       this.loading = true;
       try {
-        // 使用新的API获取专业分数线数据
-        const res = await admissionApi.getMajorScores(year, this.schoolId);
+        // 使用API获取专业分数线数据
+        const res = await admissionApi.getMajorScores(year, schoolId);
         
-        // 直接使用后端返回的数据，无需额外处理
-        this.scoreData[year] = res;
+        // 使用后端返回的数据
+        this.scoreData[cacheKey] = res;
         this.processedData = res;
+        this.tableData = res.map(item => ({
+          year: item.year,
+          category: item.firstSubject === '物理' ? '理科' : '文科',
+          province: item.province,
+          majorName: item.majorName
+        }));
       } catch (err) {
         console.error('获取分数数据失败:', err);
         uni.showToast({
@@ -174,28 +260,65 @@ export default {
         });
         // 设置默认数据用于展示
         this.processedData = this.getDefaultData();
+        this.tableData = this.processedData.map(item => ({
+          year: item.year,
+          category: item.firstSubject === '物理' ? '理科' : '文科',
+          province: item.province,
+          majorName: item.majorName
+        }));
       } finally {
         this.loading = false;
       }
     },
     
-    // 选择年份
-    selectYear(year) {
-      if (this.currentYear === year) return;
-      
-      this.currentYear = year;
-      this.loadScoreData(year);
-      this.closeYearPopup();
+    // 切换显示模式
+    toggleDisplayMode() {
+      this.displayMode = this.displayMode === 'card' ? 'table' : 'card';
     },
     
     // 打开年份选择弹窗
     openYearPopup() {
-      this.$refs.yearPopup.open();
+      this.showYearSelect = true;
     },
     
     // 关闭年份选择弹窗
     closeYearPopup() {
-      this.$refs.yearPopup.close();
+      console.log('关闭年份选择弹窗');
+      this.showYearSelect = false;
+    },
+    
+    // 选择年份
+    selectYear(year) {
+      if (this.currentYear === year) {
+        this.closeYearPopup();
+        return;
+      }
+      
+      this.currentYear = year;
+      this.loadScoreData(year, this.selectedSchool.id);
+      this.closeYearPopup();
+    },
+    
+    // 打开学校选择弹窗
+    openSchoolPopup() {
+      this.showSchoolSelect = true;
+    },
+    
+    // 关闭学校选择弹窗
+    closeSchoolPopup() {
+      this.showSchoolSelect = false;
+    },
+    
+    // 选择学校
+    selectSchool(school) {
+      if (this.selectedSchool.id === school.id) {
+        this.closeSchoolPopup();
+        return;
+      }
+      
+      this.selectedSchool = school;
+      this.loadScoreData(this.currentYear, this.selectedSchool.id);
+      this.closeSchoolPopup();
     },
     
     // 获取默认数据（用于演示或测试）
@@ -205,9 +328,9 @@ export default {
           majorName: '航海技术',
           year: 2024,
           province: '天津市',
-          planNumber: 1,
+          planNumber: 50,
           minScore: 542,
-          maxScore: 542,
+          maxScore: 550,
           provinceControlLine: 475,
           firstSubject: '物理',
           secondSubject: '化学'
@@ -216,9 +339,9 @@ export default {
           majorName: '轮机工程',
           year: 2024,
           province: '天津市',
-          planNumber: 1,
+          planNumber: 50,
           minScore: 537,
-          maxScore: 537,
+          maxScore: 545,
           provinceControlLine: 475,
           firstSubject: '物理',
           secondSubject: '化学'
@@ -227,10 +350,76 @@ export default {
           majorName: '船舶电子电气工程',
           year: 2024,
           province: '天津市',
-          planNumber: 1,
+          planNumber: 50,
           minScore: 530,
-          maxScore: 530,
+          maxScore: 540,
           provinceControlLine: 475,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '航海技术',
+          year: 2024,
+          province: '河北省',
+          planNumber: 55,
+          minScore: 545,
+          maxScore: 553,
+          provinceControlLine: 480,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '轮机工程',
+          year: 2024,
+          province: '河北省',
+          planNumber: 55,
+          minScore: 540,
+          maxScore: 548,
+          provinceControlLine: 480,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '船舶电子电气工程',
+          year: 2024,
+          province: '河北省',
+          planNumber: 55,
+          minScore: 535,
+          maxScore: 545,
+          provinceControlLine: 480,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '航海技术',
+          year: 2024,
+          province: '山西省',
+          planNumber: 45,
+          minScore: 540,
+          maxScore: 548,
+          provinceControlLine: 470,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '轮机工程',
+          year: 2024,
+          province: '山西省',
+          planNumber: 45,
+          minScore: 535,
+          maxScore: 543,
+          provinceControlLine: 470,
+          firstSubject: '物理',
+          secondSubject: '化学'
+        },
+        {
+          majorName: '船舶电子电气工程',
+          year: 2024,
+          province: '山西省',
+          planNumber: 45,
+          minScore: 530,
+          maxScore: 540,
+          provinceControlLine: 470,
           firstSubject: '物理',
           secondSubject: '化学'
         }
@@ -267,13 +456,13 @@ export default {
   background: #fff;
   margin-bottom: 20rpx;
   
-  .year-selector, .display-mode {
+  .year-selector, .school-selector, .display-mode {
     display: flex;
     align-items: center;
     gap: 10rpx;
   }
   
-  .year-text, .mode-text {
+  .year-text, .school-text, .mode-text {
     font-size: 30rpx;
   }
 }
@@ -332,6 +521,77 @@ export default {
   }
 }
 
+/* 表格式视图样式 */
+.table-view {
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  
+  .table-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    border-bottom: 2rpx solid #f1f1f1;
+    
+    .year-filter {
+      display: flex;
+      align-items: center;
+      gap: 10rpx;
+    }
+    
+    .year-text {
+      font-size: 30rpx;
+      font-weight: bold;
+    }
+    
+    .mode-switch {
+      display: flex;
+      align-items: center;
+      gap: 8rpx;
+      color: #f89d35;
+    }
+    
+    .mode-text {
+      font-size: 28rpx;
+    }
+  }
+  
+  .table-header {
+    display: flex;
+    background: #f8f8f8;
+    font-size: 28rpx;
+    color: #666;
+    padding: 25rpx 0;
+    font-weight: normal;
+    border-bottom: 2rpx solid #eee;
+  }
+  
+  .table-row {
+    display: flex;
+    font-size: 28rpx;
+    color: #333;
+    border-bottom: 2rpx solid #f5f5f5;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .table-cell {
+    flex: 1;
+    padding: 25rpx 10rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+}
+
 .loading, .empty-data {
   height: 300rpx;
   display: flex;
@@ -341,43 +601,86 @@ export default {
   font-size: 28rpx;
 }
 
-.popup-content {
-  background: #fff;
-  border-radius: 20rpx 20rpx 0 0;
-  padding-bottom: env(safe-area-inset-bottom);
+/* 自定义弹窗样式 */
+.custom-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
   
-  .popup-title {
-    padding: 30rpx;
-    text-align: center;
-    font-size: 32rpx;
-    font-weight: bold;
-    border-bottom: 1rpx solid #f0f0f0;
+  .popup-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .year-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20rpx;
+  .popup-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
     
-    .year-item {
-      width: 25%;
-      padding: 20rpx 0;
+    .popup-title {
+      padding: 30rpx;
       text-align: center;
-      font-size: 28rpx;
+      font-size: 32rpx;
+      font-weight: bold;
+      border-bottom: 1rpx solid #f0f0f0;
+    }
+    
+    .year-list, .school-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20rpx;
       
-      &.active {
-        color: #4a7bff;
-        font-weight: bold;
+      .year-item, .school-item {
+        width: 25%;
+        padding: 20rpx 0;
+        text-align: center;
+        font-size: 28rpx;
+        
+        &.active {
+          color: #4a7bff;
+          font-weight: bold;
+        }
       }
     }
-  }
-  
-  .popup-btn {
-    padding: 30rpx;
-    text-align: center;
-    font-size: 32rpx;
-    color: #999;
-    border-top: 1rpx solid #f0f0f0;
+    
+    .school-list {
+      .school-item {
+        width: 100%;
+        text-align: left;
+        padding: 25rpx 30rpx;
+        border-bottom: 1rpx solid #f0f0f0;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    
+    .popup-cancel-btn {
+      padding: 30rpx;
+      text-align: center;
+      font-size: 32rpx;
+      color: #333;
+      border-top: 1rpx solid #f0f0f0;
+      background-color: #fff;
+      font-weight: 500;
+      
+      &:active {
+        background-color: #f5f5f5;
+      }
+    }
   }
 }
 </style> 
