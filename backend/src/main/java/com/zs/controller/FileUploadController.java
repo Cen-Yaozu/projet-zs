@@ -23,7 +23,7 @@ import java.util.Map;
 
 /**
  * 通用文件上传控制器
- * 提供统一的文件上传、批量上传和删除功能
+ * 提供统一的文件上传、批量上传功能
  */
 @RestController
 @RequestMapping("/api/upload")
@@ -94,29 +94,6 @@ public class FileUploadController {
             return ResponseEntity.badRequest().body(ApiResponse.error("文件批量上传失败: " + e.getMessage()));
         }
     }
-
-    /**
-     * 删除文件
-     * @param url 文件URL
-     * @return 删除操作结果
-     */
-    @DeleteMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    @Operation(summary = "删除文件", description = "根据文件URL删除已上传的文件")
-    public ResponseEntity<?> delete(
-            @Parameter(description = "文件URL", required = true) 
-            @RequestParam("url") String url) {
-        try {
-            boolean deleted = fileUploadService.deleteImage(url);
-            if (deleted) {
-                return ResponseEntity.ok(ApiResponse.success("文件删除成功"));
-            } else {
-                return ResponseEntity.badRequest().body(ApiResponse.error("文件删除失败"));
-            }
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(ApiResponse.error("文件删除异常: " + e.getMessage()));
-        }
-    }
     
     // ======== 专业图片上传接口 ========
     
@@ -136,19 +113,14 @@ public class FileUploadController {
                 return ResponseEntity.badRequest().body(ApiResponse.error("专业不存在"));
             }
 
-            // 2. 删除旧图标
-            if (majorInfo.getIconUrl() != null) {
-                fileUploadService.deleteImage(majorInfo.getIconUrl());
-            }
-
-            // 3. 上传新图标
+            // 2. 上传新图标
             String iconUrl = fileUploadService.uploadImage(file, "major/icon");
             
-            // 4. 更新专业信息
+            // 3. 更新专业信息
             majorInfo.setIconUrl(iconUrl);
             majorInfoService.updateById(majorInfo);
 
-            // 5. 返回结果
+            // 4. 返回结果
             Map<String, String> result = new HashMap<>();
             result.put("iconUrl", iconUrl);
             return ResponseEntity.ok(ApiResponse.success(result));
@@ -201,7 +173,7 @@ public class FileUploadController {
      */
     @DeleteMapping("/major/image/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    @Operation(summary = "删除专业图片", description = "删除专业的某张图片，需要管理员权限")
+    @Operation(summary = "删除专业图片", description = "从专业图片列表中移除某张图片，需要管理员权限")
     public ResponseEntity<?> deleteMajorImage(
             @Parameter(description = "专业ID", required = true) @PathVariable Long id,
             @Parameter(description = "图片URL", required = true) @RequestParam("imageUrl") String imageUrl) {
@@ -218,18 +190,12 @@ public class FileUploadController {
                 return ResponseEntity.badRequest().body(ApiResponse.error("该图片不存在"));
             }
 
-            // 3. 删除图片文件
-            boolean deleted = fileUploadService.deleteImage(imageUrl);
-            if (!deleted) {
-                return ResponseEntity.badRequest().body(ApiResponse.error("图片删除失败"));
-            }
-
-            // 4. 更新专业信息
+            // 3. 更新专业信息（只从列表中移除，不删除文件）
             images.remove(imageUrl);
             majorInfo.setImages(images);
             majorInfoService.updateById(majorInfo);
 
-            // 5. 返回结果
+            // 4. 返回结果
             Map<String, List<String>> result = new HashMap<>();
             result.put("images", images);
             return ResponseEntity.ok(ApiResponse.success(result));
@@ -256,19 +222,14 @@ public class FileUploadController {
                 return ResponseEntity.badRequest().body(ApiResponse.error("学院不存在"));
             }
 
-            // 2. 删除旧Logo
-            if (college.getLogoUrl() != null) {
-                fileUploadService.deleteImage(college.getLogoUrl());
-            }
-
-            // 3. 上传新Logo
+            // 2. 上传新Logo
             String logoUrl = fileUploadService.uploadImage(file, "college/logo");
             
-            // 4. 更新学院信息
+            // 3. 更新学院信息
             college.setLogoUrl(logoUrl);
             collegeService.updateById(college);
 
-            // 5. 返回结果
+            // 4. 返回结果
             Map<String, String> result = new HashMap<>();
             result.put("logoUrl", logoUrl);
             return ResponseEntity.ok(ApiResponse.success(result));
@@ -293,19 +254,14 @@ public class FileUploadController {
                 return ResponseEntity.badRequest().body(ApiResponse.error("学院不存在"));
             }
 
-            // 2. 删除旧横幅
-            if (college.getBannerUrl() != null) {
-                fileUploadService.deleteImage(college.getBannerUrl());
-            }
-
-            // 3. 上传新横幅
+            // 2. 上传新横幅
             String bannerUrl = fileUploadService.uploadImage(file, "college/banner");
             
-            // 4. 更新学院信息
+            // 3. 更新学院信息
             college.setBannerUrl(bannerUrl);
             collegeService.updateById(college);
 
-            // 5. 返回结果
+            // 4. 返回结果
             Map<String, String> result = new HashMap<>();
             result.put("bannerUrl", bannerUrl);
             return ResponseEntity.ok(ApiResponse.success(result));

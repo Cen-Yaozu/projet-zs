@@ -28,11 +28,6 @@ public interface AdmissionPolicyService extends IService<AdmissionPolicy> {
      * 根据年份、学校ID和省份查询招生政策
      */
     List<AdmissionPolicy> getByYearAndSchoolIdAndProvince(Integer year, Long schoolId, String province);
-
-    /**
-     * 根据分数范围查询招生政策
-     */
-    List<AdmissionPolicy> getByScoreRange(Integer minScore, Integer maxScore);
     
     /**
      * 查询专业分数线数据

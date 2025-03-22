@@ -1,7 +1,9 @@
 package com.zs.controller;
 
 import com.zs.entity.AdmissionPolicy;
+import com.zs.entity.MajorScore;
 import com.zs.service.AdmissionPolicyService;
+import com.zs.service.MajorScoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,6 +22,9 @@ public class AdmissionPolicyController {
 
     @Autowired
     private AdmissionPolicyService admissionPolicyService;
+    
+    @Autowired
+    private MajorScoreService majorScoreService;
 
     @PostMapping("/create")
     @Operation(summary = "添加招生政策", description = "添加新的招生政策")
@@ -47,23 +52,25 @@ public class AdmissionPolicyController {
     }
 
     @GetMapping("/list")
-    @Operation(summary = "获取所有招生政策", description = "获取系统中所有招生政策")
+    @Operation(summary = "获取所有招生政策", description = "获取所有招生政策")
     public ResponseEntity<List<AdmissionPolicy>> getAllAdmissionPolicies() {
         return ResponseEntity.ok(admissionPolicyService.list());
     }
 
-    @GetMapping("/school/{schoolId}")
-    @Operation(summary = "根据学校ID查询招生政策", description = "查询指定学校的招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getBySchoolId(@Parameter(description = "学校ID", required = true) @PathVariable Long schoolId) {
-        return ResponseEntity.ok(admissionPolicyService.getBySchoolId(schoolId));
+    @GetMapping("/years")
+    @Operation(summary = "获取所有年份", description = "获取所有招生年份")
+    public ResponseEntity<List<AdmissionPolicy>> getAvailableYears() {
+        return ResponseEntity.ok(admissionPolicyService.list());
     }
 
-    @GetMapping("/search/year-school")
-    @Operation(summary = "根据年份和学校ID查询招生政策", description = "查询指定年份和学校的招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getByYearAndSchoolId(
-            @Parameter(description = "年份", required = true) @RequestParam Integer year,
-            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId) {
-        return ResponseEntity.ok(admissionPolicyService.getByYearAndSchoolId(year, schoolId));
+    @GetMapping("/search/year")
+    @Operation(summary = "根据年份查询招生政策", description = "查询指定年份的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByYear(
+            @Parameter(description = "年份", required = true) @RequestParam Integer year) {
+        List<AdmissionPolicy> policies = admissionPolicyService.list().stream()
+                .filter(policy -> year.equals(policy.getYear()))
+                .toList();
+        return ResponseEntity.ok(policies);
     }
 
     @GetMapping("/search/province/{province}")
@@ -72,29 +79,32 @@ public class AdmissionPolicyController {
         return ResponseEntity.ok(admissionPolicyService.getByProvince(province));
     }
 
-    @GetMapping("/search/year-school-province")
-    @Operation(summary = "根据年份、学校ID和省份查询招生政策", description = "查询指定年份、学校和省份的招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getByYearAndSchoolIdAndProvince(
+    @GetMapping("/search/year-province")
+    @Operation(summary = "根据年份和省份查询招生政策", description = "查询指定年份和省份的招生政策")
+    public ResponseEntity<List<AdmissionPolicy>> getByYearAndProvince(
             @Parameter(description = "年份", required = true) @RequestParam Integer year,
-            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId,
             @Parameter(description = "省份", required = true) @RequestParam String province) {
-        return ResponseEntity.ok(admissionPolicyService.getByYearAndSchoolIdAndProvince(year, schoolId, province));
-    }
-
-    @GetMapping("/search/score-range")
-    @Operation(summary = "根据分数范围查询招生政策", description = "查询指定分数范围内的招生政策")
-    public ResponseEntity<List<AdmissionPolicy>> getByScoreRange(
-            @Parameter(description = "最低分数", required = true) @RequestParam Integer minScore,
-            @Parameter(description = "最高分数", required = true) @RequestParam Integer maxScore) {
-        return ResponseEntity.ok(admissionPolicyService.getByScoreRange(minScore, maxScore));
+        List<AdmissionPolicy> policies = admissionPolicyService.getByProvince(province).stream()
+                .filter(policy -> year.equals(policy.getYear()))
+                .toList();
+        return ResponseEntity.ok(policies);
     }
 
     @GetMapping("/search/major-scores")
-    @Operation(summary = "查询专业分数线数据", description = "根据年份、学校ID和可选的省份查询专业分数线详细数据")
-    public ResponseEntity<List<Map<String, Object>>> getMajorScores(
+    @Operation(summary = "查询专业分数线数据", description = "查询指定年份的专业分数线详细数据")
+    public ResponseEntity<List<MajorScore>> getMajorScores(
             @Parameter(description = "年份", required = true) @RequestParam Integer year,
-            @Parameter(description = "学校ID", required = true) @RequestParam Long schoolId,
             @Parameter(description = "省份", required = false) @RequestParam(required = false) String province) {
-        return ResponseEntity.ok(admissionPolicyService.getMajorScores(year, schoolId, province));
+        if (province != null && !province.isEmpty()) {
+            List<MajorScore> scores = majorScoreService.list().stream()
+                    .filter(score -> year.equals(score.getYear()) && province.equals(score.getProvince()))
+                    .toList();
+            return ResponseEntity.ok(scores);
+        } else {
+            List<MajorScore> scores = majorScoreService.list().stream()
+                    .filter(score -> year.equals(score.getYear()))
+                    .toList();
+            return ResponseEntity.ok(scores);
+        }
     }
 }

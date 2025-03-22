@@ -48,8 +48,5 @@ public interface UserService {
     // 重置指定用户密码
     boolean resetUserPassword(Long id);
 
-    @Value("${file.upload.path}")
-    String getFileUploadPath();
-
     String uploadAvatar(MultipartFile file, String username) throws IOException;
 }

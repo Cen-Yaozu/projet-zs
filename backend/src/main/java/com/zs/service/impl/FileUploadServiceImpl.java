@@ -74,28 +74,4 @@ public class FileUploadServiceImpl implements FileUploadService {
         }
         return urls.toArray(new String[0]);
     }
-
-    /**
-     * 删除图片文件
-     * @param imageUrl 图片访问URL
-     * @return 是否删除成功
-     */
-    @Override
-    public boolean deleteImage(String imageUrl) {
-        // 1. 如果是默认图片，不删除
-        if (imageUrl.contains("default") || !imageUrl.startsWith("/static/")) {
-            return true;
-        }
-
-        // 2. 获取文件路径
-        String filePath = fileUploadPath + imageUrl.replace("/static", "");
-
-        // 3. 删除文件
-        try {
-            return Files.deleteIfExists(Paths.get(filePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 } 

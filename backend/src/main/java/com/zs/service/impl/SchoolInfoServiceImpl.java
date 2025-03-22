@@ -28,17 +28,4 @@ public class SchoolInfoServiceImpl extends ServiceImpl<SchoolInfoMapper, SchoolI
         return list(new LambdaQueryWrapper<SchoolInfo>()
                 .eq(SchoolInfo::getType, type));
     }
-
-    @Override
-    public List<SchoolInfo> getByProvinceAndCity(String province, String city) {
-        return list(new LambdaQueryWrapper<SchoolInfo>()
-                .eq(SchoolInfo::getProvince, province)
-                .eq(SchoolInfo::getCity, city));
-    }
-
-    @Override
-    public List<SchoolInfo> getByLevel(String level) {
-        return list(new LambdaQueryWrapper<SchoolInfo>()
-                .like(SchoolInfo::getLevel, level));
-    }
 }

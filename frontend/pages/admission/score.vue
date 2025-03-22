@@ -2,19 +2,14 @@
   <view class="container">
     <!-- 顶部导航栏 -->
     <view class="header">
-      <text class="title">历年分数</text>
+      <text class="title">广州航海学院历年分数</text>
     </view>
     
     <!-- 年份和模式选择器 -->
     <view class="filter-bar">
       <view class="year-selector" @tap="openYearPopup">
         <uni-icons type="calendar" size="20" color="#0f3c88"></uni-icons>
-        <text class="year-text">{{ currentYear }}</text>
-      </view>
-      
-      <view class="school-selector" @tap="openSchoolPopup">
-        <uni-icons type="location" size="20" color="#0f3c88"></uni-icons>
-        <text class="school-text">{{ selectedSchool.name || '全部学校' }}</text>
+        <text class="year-text">{{ currentYear || '选择年份' }}</text>
       </view>
       
       <view class="display-mode" @tap="toggleDisplayMode">
@@ -23,8 +18,13 @@
       </view>
     </view>
     
+    <!-- 指引提示 -->
+    <view v-if="!currentYear" class="guide-tips">
+      <text>请选择年份查看分数数据</text>
+    </view>
+    
     <!-- 加载中提示 -->
-    <view v-if="loading" class="loading">
+    <view v-else-if="loading" class="loading">
       <uni-load-more status="loading" :content-text="loadingText"></uni-load-more>
     </view>
     
@@ -146,57 +146,25 @@
         </view>
       </view>
     </view>
-    
-    <!-- 学校选择弹窗 -->
-    <view class="custom-popup" v-if="showSchoolSelect" @click.stop="closeSchoolPopup">
-      <view class="popup-mask"></view>
-      <view class="popup-content" @click.stop>
-        <view class="popup-title">
-          <text>选择学校</text>
-        </view>
-        <view class="school-list">
-          <view 
-            v-for="(school, index) in schools" 
-            :key="index"
-            class="school-item"
-            :class="{ active: selectedSchool.id === school.id }"
-            @tap="selectSchool(school)"
-          >
-            <text>{{ school.name }}</text>
-          </view>
-        </view>
-        <view class="popup-cancel-btn" @tap="closeSchoolPopup">
-          <text>取消</text>
-        </view>
-      </view>
-    </view>
   </view>
 </template>
 
 <script>
 import admissionApi from '@/api/admission';
+import request from '@/api/request';
 
 export default {
   data() {
     return {
-      years: [2024, 2023, 2022, 2021, 2020], // 默认可用年份
-      currentYear: 2024, // 默认当前年份
-      scoreData: {},
+      years: [], // 可用年份列表
+      currentYear: null, // 当前选中年份
+      scoreData: {}, // 缓存的分数数据
       processedData: [], // 处理后的展示数据
-      loading: true,
-      schoolId: 1, // 默认学校ID，可从配置或全局状态获取
+      loading: true, // 加载状态
       displayMode: 'card', // 显示模式：card-卡片式，table-表格式
       showYearSelect: false, // 控制年份选择弹窗显示
-      showSchoolSelect: false, // 控制学校选择弹窗显示
-      tableData: [],
-      schools: [
-        { id: 1, name: '广州航海学院' },
-        { id: 2, name: '上海海事大学' },
-        { id: 3, name: '大连海事大学' },
-        { id: 4, name: '武汉理工大学' },
-        { id: 5, name: '集美大学' }
-      ],
-      selectedSchool: { id: 1, name: '广州航海学院' }, // 默认选中的学校
+      tableData: [], // 表格数据
+      majorMap: {}, // 专业ID到名称的映射
       loadingText: {
         contentdown: '加载更多',
         contentrefresh: '正在加载...',
@@ -212,7 +180,16 @@ export default {
     async initData() {
       this.loading = true;
       try {
-        await this.loadScoreData(this.currentYear, this.selectedSchool.id);
+        // 1. 先获取专业列表和映射
+        await this.fetchMajorMap();
+        
+        // 2. 获取年份列表
+        await this.fetchYears();
+        
+        // 3. 如果有年份数据，加载第一个年份的数据
+        if (this.years.length > 0 && this.currentYear) {
+          await this.loadScoreData(this.currentYear);
+        }
       } catch (err) {
         console.error('初始化数据失败:', err);
         uni.showToast({
@@ -224,51 +201,149 @@ export default {
       }
     },
     
-    // 加载指定年份和学校的分数数据
-    async loadScoreData(year, schoolId) {
-      const cacheKey = `${year}_${schoolId}`;
+    // 获取专业映射
+    async fetchMajorMap() {
+      try {
+        // 获取所有专业信息
+        const res = await request.get('/api/major-info/list');
+        if (res && Array.isArray(res)) {
+          // 创建ID到名称的映射
+          const map = {};
+          res.forEach(major => {
+            map[major.id] = major.name;
+          });
+          this.majorMap = map;
+          console.log('专业映射数据:', map);
+        } else {
+          console.error('获取专业数据格式错误', res);
+        }
+      } catch (err) {
+        console.error('获取专业映射失败:', err);
+        uni.showToast({
+          title: '专业数据加载失败',
+          icon: 'none'
+        });
+      }
+    },
+    
+    // 确保数据源已初始化
+    async ensureDataSource() {
+      // 先检查专业分数表是否有数据
+      try {
+        const scores = await admissionApi.getAllMajorScores();
+        if (!scores || scores.length === 0) {
+          // 如果没有数据，尝试填充历史数据
+          console.log('正在初始化专业分数数据源...');
+          await admissionApi.fillHistoricalScoreData();
+          console.log('专业分数数据源初始化完成');
+        }
+      } catch (err) {
+        console.error('检查数据源失败:', err);
+      }
+    },
+    
+    // 获取年份列表
+    async fetchYears() {
+      try {
+        // 使用API获取招生政策数据，不再需要传入学校ID
+        const res = await admissionApi.getAvailableYears();
+        if (res && res.length > 0) {
+          // 提取所有年份并去重
+          const availableYears = [...new Set(res.map(item => item.year))].sort((a, b) => b - a);
+          if (availableYears.length > 0) {
+            this.years = availableYears;
+            this.currentYear = availableYears[0]; // 默认选中最新的年份
+            return;
+          }
+        }
+        // 如果没有获取到数据，显示提示
+        this.years = [];
+        this.currentYear = null;
+        uni.showToast({
+          title: '暂无年份数据',
+          icon: 'none'
+        });
+      } catch (err) {
+        console.error('获取年份数据失败:', err);
+        this.years = [];
+        this.currentYear = null;
+        uni.showToast({
+          title: '年份数据加载失败',
+          icon: 'none'
+        });
+      }
+    },
+    
+    // 加载指定年份的分数数据
+    async loadScoreData(year) {
+      if (!year) {
+        uni.showToast({
+          title: '请选择年份',
+          icon: 'none'
+        });
+        return;
+      }
+      
+      const cacheKey = `${year}`;
       if (this.scoreData[cacheKey]) {
         this.processedData = this.scoreData[cacheKey];
-        this.tableData = this.processedData.map(item => ({
-          year: item.year,
-          category: item.firstSubject === '物理' ? '理科' : '文科',
-          province: item.province,
-          majorName: item.majorName
-        }));
+        this.updateTableData();
         return; // 如果数据已加载，直接返回
       }
       
       this.loading = true;
       try {
-        // 使用API获取专业分数线数据
-        const res = await admissionApi.getMajorScores(year, schoolId);
+        // 使用API获取专业分数线数据，不再需要传入学校ID
+        const res = await admissionApi.getMajorScores(year);
+        console.log('API返回的原始数据:', JSON.stringify(res));
         
-        // 使用后端返回的数据
-        this.scoreData[cacheKey] = res;
-        this.processedData = res;
-        this.tableData = res.map(item => ({
-          year: item.year,
-          category: item.firstSubject === '物理' ? '理科' : '文科',
-          province: item.province,
-          majorName: item.majorName
-        }));
+        // 检查返回的数据格式并进行处理
+        if (res && Array.isArray(res)) {
+          // 添加专业名称信息
+          const processedData = res.map(item => {
+            // 添加专业名称
+            return {
+              ...item,
+              majorName: this.getMajorNameById(item.majorId)
+            };
+          });
+          
+          console.log('处理后的前端显示数据:', JSON.stringify(processedData));
+          this.scoreData[cacheKey] = processedData;
+          this.processedData = processedData;
+          
+          // 更新表格数据
+          this.updateTableData();
+        } else {
+          console.error('API返回的数据格式不是数组', res);
+          this.processedData = [];
+          this.tableData = [];
+          uni.showToast({
+            title: '暂无分数数据',
+            icon: 'none'
+          });
+        }
       } catch (err) {
         console.error('获取分数数据失败:', err);
+        this.processedData = [];
+        this.tableData = [];
         uni.showToast({
           title: '分数数据加载失败',
           icon: 'none'
         });
-        // 设置默认数据用于展示
-        this.processedData = this.getDefaultData();
-        this.tableData = this.processedData.map(item => ({
-          year: item.year,
-          category: item.firstSubject === '物理' ? '理科' : '文科',
-          province: item.province,
-          majorName: item.majorName
-        }));
       } finally {
         this.loading = false;
       }
+    },
+    
+    // 更新表格数据
+    updateTableData() {
+      this.tableData = this.processedData.map(item => ({
+        year: item.year,
+        category: item.firstSubject === '物理' ? '理科' : '文科',
+        province: item.province,
+        majorName: item.majorName
+      }));
     },
     
     // 切换显示模式
@@ -295,135 +370,14 @@ export default {
       }
       
       this.currentYear = year;
-      this.loadScoreData(year, this.selectedSchool.id);
+      this.loadScoreData(year);
       this.closeYearPopup();
     },
     
-    // 打开学校选择弹窗
-    openSchoolPopup() {
-      this.showSchoolSelect = true;
-    },
-    
-    // 关闭学校选择弹窗
-    closeSchoolPopup() {
-      this.showSchoolSelect = false;
-    },
-    
-    // 选择学校
-    selectSchool(school) {
-      if (this.selectedSchool.id === school.id) {
-        this.closeSchoolPopup();
-        return;
-      }
-      
-      this.selectedSchool = school;
-      this.loadScoreData(this.currentYear, this.selectedSchool.id);
-      this.closeSchoolPopup();
-    },
-    
-    // 获取默认数据（用于演示或测试）
-    getDefaultData() {
-      return [
-        {
-          majorName: '航海技术',
-          year: 2024,
-          province: '天津市',
-          planNumber: 50,
-          minScore: 542,
-          maxScore: 550,
-          provinceControlLine: 475,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '轮机工程',
-          year: 2024,
-          province: '天津市',
-          planNumber: 50,
-          minScore: 537,
-          maxScore: 545,
-          provinceControlLine: 475,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '船舶电子电气工程',
-          year: 2024,
-          province: '天津市',
-          planNumber: 50,
-          minScore: 530,
-          maxScore: 540,
-          provinceControlLine: 475,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '航海技术',
-          year: 2024,
-          province: '河北省',
-          planNumber: 55,
-          minScore: 545,
-          maxScore: 553,
-          provinceControlLine: 480,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '轮机工程',
-          year: 2024,
-          province: '河北省',
-          planNumber: 55,
-          minScore: 540,
-          maxScore: 548,
-          provinceControlLine: 480,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '船舶电子电气工程',
-          year: 2024,
-          province: '河北省',
-          planNumber: 55,
-          minScore: 535,
-          maxScore: 545,
-          provinceControlLine: 480,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '航海技术',
-          year: 2024,
-          province: '山西省',
-          planNumber: 45,
-          minScore: 540,
-          maxScore: 548,
-          provinceControlLine: 470,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '轮机工程',
-          year: 2024,
-          province: '山西省',
-          planNumber: 45,
-          minScore: 535,
-          maxScore: 543,
-          provinceControlLine: 470,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        },
-        {
-          majorName: '船舶电子电气工程',
-          year: 2024,
-          province: '山西省',
-          planNumber: 45,
-          minScore: 530,
-          maxScore: 540,
-          provinceControlLine: 470,
-          firstSubject: '物理',
-          secondSubject: '化学'
-        }
-      ];
+    // 根据ID获取专业名称
+    getMajorNameById(majorId) {
+      // 使用从数据库获取的映射
+      return this.majorMap[majorId] || `专业ID:${majorId}`;
     }
   }
 }
@@ -434,6 +388,14 @@ export default {
   min-height: 100vh;
   background-color: #f5f5f5;
   padding-bottom: 40rpx;
+}
+
+// 添加指引提示样式
+.guide-tips {
+  text-align: center;
+  padding: 80rpx 30rpx;
+  color: #999;
+  font-size: 28rpx;
 }
 
 .header {
@@ -456,13 +418,13 @@ export default {
   background: #fff;
   margin-bottom: 20rpx;
   
-  .year-selector, .school-selector, .display-mode {
+  .year-selector, .display-mode {
     display: flex;
     align-items: center;
     gap: 10rpx;
   }
   
-  .year-text, .school-text, .mode-text {
+  .year-text, .mode-text {
     font-size: 30rpx;
   }
 }
@@ -637,12 +599,12 @@ export default {
       border-bottom: 1rpx solid #f0f0f0;
     }
     
-    .year-list, .school-list {
+    .year-list {
       display: flex;
       flex-wrap: wrap;
       padding: 20rpx;
       
-      .year-item, .school-item {
+      .year-item {
         width: 25%;
         padding: 20rpx 0;
         text-align: center;
@@ -651,19 +613,6 @@ export default {
         &.active {
           color: #4a7bff;
           font-weight: bold;
-        }
-      }
-    }
-    
-    .school-list {
-      .school-item {
-        width: 100%;
-        text-align: left;
-        padding: 25rpx 30rpx;
-        border-bottom: 1rpx solid #f0f0f0;
-        
-        &:last-child {
-          border-bottom: none;
         }
       }
     }

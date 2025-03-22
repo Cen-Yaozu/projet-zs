@@ -13,10 +13,4 @@ public interface SchoolInfoService extends IService<SchoolInfo> {
 
     // 根据学校类型查询
     List<SchoolInfo> getByType(String type);
-
-    // 根据省份和城市查询学校
-    List<SchoolInfo> getByProvinceAndCity(String province, String city);
-
-    // 根据学校层次查询（985、211等）
-    List<SchoolInfo> getByLevel(String level);
 }

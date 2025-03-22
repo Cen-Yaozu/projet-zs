@@ -1,388 +1,215 @@
-2025-03-21T00:00:08.594+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:00:08.602+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:00:08.609+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:07:32.822+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:07:32.823+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:07:32.828+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:07:54.052+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:07:54.052+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:07:54.062+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:07:56.071+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
-2025-03-21T00:07:56.071+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
-2025-03-21T00:07:56.085+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
-2025-03-21T00:08:01.625+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:08:01.626+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:08:01.633+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:08:02.768+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
-2025-03-21T00:08:02.768+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
-2025-03-21T00:08:02.771+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
-2025-03-21T00:08:08.748+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:08:08.748+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:08:08.755+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:08:10.281+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
-2025-03-21T00:08:10.281+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 2(Long)
-2025-03-21T00:08:10.283+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
-2025-03-21T00:08:27.827+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:08:27.829+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:08:27.844+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:08:29.398+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
-2025-03-21T00:08:29.398+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 3(Long)
-2025-03-21T00:08:29.404+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 2
-2025-03-21T00:08:36.362+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:08:36.363+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:08:36.363+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectById   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE id=?
-2025-03-21T00:08:36.364+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectById   : ==> Parameters: 3(Long)
-2025-03-21T00:08:36.384+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:08:36.395+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectById   : <==      Total: 1
-2025-03-21T00:08:46.057+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:08:46.057+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectById   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE id=?
-2025-03-21T00:08:46.057+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:08:46.057+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectById   : ==> Parameters: 3(Long)
-2025-03-21T00:08:46.099+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectById   : <==      Total: 1
-2025-03-21T00:08:46.109+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:12:06.637+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:12:06.638+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:12:06.641+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:12:06.649+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectById   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE id=?
-2025-03-21T00:12:06.649+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectById   : ==> Parameters: 3(Long)
-2025-03-21T00:12:06.653+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectById   : <==      Total: 1
-2025-03-21T00:12:17.537+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:12:17.537+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:12:17.543+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:12:39.220+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:12:39.220+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:12:39.223+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:12:39.235+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.MajorInfoMapper.selectById   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE id=?
-2025-03-21T00:12:39.235+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.MajorInfoMapper.selectById   : ==> Parameters: 3(Long)
-2025-03-21T00:12:39.240+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.MajorInfoMapper.selectById   : <==      Total: 1
-2025-03-21T00:13:38.632+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T00:13:38.634+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T00:13:38.665+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T00:13:41.017+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:13:41.017+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:13:41.024+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:13:42.452+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
-2025-03-21T00:13:42.453+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
-2025-03-21T00:13:42.456+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
-2025-03-21T00:13:43.780+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:13:43.781+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:13:43.809+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:13:44.802+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
-2025-03-21T00:13:44.802+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
-2025-03-21T00:13:44.821+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
-2025-03-21T00:13:46.274+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:13:46.274+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:13:46.299+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:13:47.391+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
-2025-03-21T00:13:47.391+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 3(Long)
-2025-03-21T00:13:47.403+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 2
-2025-03-21T00:13:48.746+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectById   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE id=?
-2025-03-21T00:13:48.746+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectById   : ==> Parameters: 3(Long)
-2025-03-21T00:13:48.749+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:13:48.749+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:13:48.755+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:13:48.770+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectById   : <==      Total: 1
-2025-03-21T00:13:54.346+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:13:54.347+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:13:54.359+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:41:50.070+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T00:41:50.074+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T00:41:50.404+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T00:41:56.694+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:41:56.695+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:41:56.738+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:42:29.059+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:42:29.059+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:42:29.114+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:43:17.348+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:43:17.348+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:43:17.352+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:43:38.250+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T00:43:38.250+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T00:43:38.503+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T00:43:42.254+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T00:43:42.255+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T00:43:42.269+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T00:59:28.112+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T00:59:28.114+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T00:59:28.197+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:02:12.243+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:02:12.243+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:02:12.245+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:06:10.254+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:06:10.255+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:06:10.264+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:06:12.472+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:06:12.472+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:06:12.484+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:06:19.630+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:06:19.630+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:06:19.651+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:06:39.015+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:06:39.016+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:06:39.045+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:11:16.874+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:11:16.875+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:11:16.896+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:11:30.960+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:11:30.960+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:11:30.998+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:16:07.797+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:16:07.798+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:16:07.803+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:16:35.673+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:16:35.674+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:16:35.700+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:16:45.525+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T01:16:45.525+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T01:16:45.993+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T01:16:48.203+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:16:48.203+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:16:48.266+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:17:28.547+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:17:28.548+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:17:28.657+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:17:33.930+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:17:33.931+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:17:33.990+08:00 DEBUG 10212 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:20:43.361+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:20:43.362+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:20:43.377+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:20:46.979+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findById  : ==>  Preparing: SELECT * FROM announcement WHERE id = ?
-2025-03-21T01:20:46.981+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findById  : ==> Parameters: 1(Long)
-2025-03-21T01:20:47.057+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findById  : <==      Total: 1
-2025-03-21T01:20:58.709+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:20:58.710+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:20:58.718+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:28:34.795+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:28:34.795+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:28:34.861+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:33:28.484+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:33:28.485+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:33:28.500+08:00 DEBUG 10212 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:38:03.951+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T01:38:03.951+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T01:38:03.971+08:00 DEBUG 10212 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T01:38:06.470+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
-2025-03-21T01:38:06.471+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
-2025-03-21T01:38:06.480+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
-2025-03-21T01:38:07.826+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T01:38:07.827+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T01:38:07.838+08:00 DEBUG 10212 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T01:38:10.174+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:38:10.174+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:38:10.181+08:00 DEBUG 10212 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:38:12.865+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findById  : ==>  Preparing: SELECT * FROM announcement WHERE id = ?
-2025-03-21T01:38:12.867+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findById  : ==> Parameters: 1(Long)
-2025-03-21T01:38:12.922+08:00 DEBUG 10212 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findById  : <==      Total: 1
-2025-03-21T01:38:14.167+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:38:14.167+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:38:14.275+08:00 DEBUG 10212 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:38:18.403+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T01:38:18.403+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T01:38:18.456+08:00 DEBUG 10212 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T01:54:19.704+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T01:54:19.704+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T01:54:19.710+08:00 DEBUG 10212 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T01:54:27.284+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T01:54:27.284+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T01:54:27.310+08:00 DEBUG 10212 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T01:54:38.942+08:00  INFO 10212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-21T01:54:38.956+08:00  INFO 10212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-21T01:54:51.101+08:00  INFO 10568 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 10568 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-21T01:54:51.103+08:00 DEBUG 10568 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-21T01:54:51.104+08:00  INFO 10568 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-21T01:54:54.270+08:00  INFO 10568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-21T01:54:54.289+08:00  INFO 10568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-21T01:54:54.289+08:00  INFO 10568 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-21T01:54:54.414+08:00  INFO 10568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-21T01:54:54.415+08:00  INFO 10568 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2914 ms
-2025-03-21T01:54:55.041+08:00 DEBUG 10568 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-21T01:54:55.905+08:00  WARN 10568 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-22T01:03:41.969+08:00  INFO 29876 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 29876 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-22T01:03:41.972+08:00 DEBUG 29876 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-22T01:03:41.973+08:00  INFO 29876 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-22T01:03:44.874+08:00  INFO 29876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-22T01:03:44.892+08:00  INFO 29876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-22T01:03:44.895+08:00  INFO 29876 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-22T01:03:45.068+08:00  INFO 29876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-22T01:03:45.069+08:00  INFO 29876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2797 ms
+2025-03-22T01:03:45.672+08:00 DEBUG 29876 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-22T01:03:46.540+08:00  WARN 29876 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 5baa32cd-e945-4246-a7e7-1a0e6c19b1f3
+Using generated security password: e4afc5d7-4164-4538-97c4-9d5ec39c9611
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-21T01:54:56.540+08:00  INFO 10568 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b81938d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@278cb145, org.springframework.security.web.context.SecurityContextHolderFilter@4888425d, org.springframework.security.web.header.HeaderWriterFilter@c6c84fa, org.springframework.web.filter.CorsFilter@2aa0feb2, org.springframework.security.web.authentication.logout.LogoutFilter@6c6919ff, com.zs.security.JwtAuthenticationFilter@379f9555, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@166ddfb7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5da3f32a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@351c6341, org.springframework.security.web.session.SessionManagementFilter@3278d065, org.springframework.security.web.access.ExceptionTranslationFilter@12a0d249, org.springframework.security.web.access.intercept.AuthorizationFilter@ab4d2ba]
-2025-03-21T01:54:57.308+08:00  INFO 10568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-21T01:54:57.323+08:00  INFO 10568 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 6.906 seconds (process running for 8.312)
-2025-03-21T01:54:59.648+08:00  INFO 10568 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-21T01:54:59.659+08:00  INFO 10568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-21T01:54:59.664+08:00  INFO 10568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2025-03-21T01:55:05.393+08:00  INFO 10568 --- [http-nio-8080-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-21T01:55:06.048+08:00  INFO 10568 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@598bdb29
-2025-03-21T01:55:06.051+08:00  INFO 10568 --- [http-nio-8080-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-21T01:55:06.061+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T01:55:06.164+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T01:55:06.229+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T01:55:11.733+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user WHERE (username = ?)
-2025-03-21T01:55:11.734+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
-2025-03-21T01:55:11.748+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
-2025-03-21T01:56:11.070+08:00 DEBUG 10568 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:56:11.073+08:00 DEBUG 10568 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:56:11.098+08:00 DEBUG 10568 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:56:36.960+08:00 DEBUG 10568 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:56:36.961+08:00 DEBUG 10568 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:56:36.972+08:00 DEBUG 10568 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:57:19.238+08:00 DEBUG 10568 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:57:19.243+08:00 DEBUG 10568 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:57:19.301+08:00 DEBUG 10568 --- [http-nio-8080-exec-9] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:57:59.601+08:00 DEBUG 10568 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:57:59.602+08:00 DEBUG 10568 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:57:59.643+08:00 DEBUG 10568 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:58:29.785+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:58:29.785+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:58:29.815+08:00 DEBUG 10568 --- [http-nio-8080-exec-7] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:58:48.418+08:00 DEBUG 10568 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:58:48.419+08:00 DEBUG 10568 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:58:48.422+08:00 DEBUG 10568 --- [http-nio-8080-exec-4] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T01:59:14.346+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T01:59:14.346+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T01:59:14.358+08:00 DEBUG 10568 --- [http-nio-8080-exec-5] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T02:00:00.445+08:00  INFO 10568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-21T02:00:00.463+08:00  INFO 10568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-21T02:00:07.112+08:00  INFO 15428 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 15428 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-21T02:00:07.115+08:00 DEBUG 15428 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-21T02:00:07.116+08:00  INFO 15428 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-21T02:00:09.634+08:00  INFO 15428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-21T02:00:09.652+08:00  INFO 15428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-21T02:00:09.652+08:00  INFO 15428 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-21T02:00:09.753+08:00  INFO 15428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-21T02:00:09.754+08:00  INFO 15428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2253 ms
-2025-03-21T02:00:10.365+08:00 DEBUG 15428 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-21T02:00:11.149+08:00  WARN 15428 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-22T01:03:46.977+08:00  INFO 29876 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c5ac0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23d978b, org.springframework.security.web.context.SecurityContextHolderFilter@7323c38c, org.springframework.security.web.header.HeaderWriterFilter@737ff5c4, org.springframework.web.filter.CorsFilter@3cf70afa, org.springframework.security.web.authentication.logout.LogoutFilter@51f4439e, com.zs.security.JwtAuthenticationFilter@9e62fb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63a72cc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61bd0845, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66dd04e2, org.springframework.security.web.session.SessionManagementFilter@50e1f3fc, org.springframework.security.web.access.ExceptionTranslationFilter@5018b56b, org.springframework.security.web.access.intercept.AuthorizationFilter@8315e4a]
+2025-03-22T01:03:47.544+08:00  INFO 29876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-22T01:03:47.559+08:00  INFO 29876 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 6.222 seconds (process running for 7.535)
+2025-03-22T01:06:47.854+08:00  INFO 29876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22T01:06:47.856+08:00  INFO 29876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-22T01:06:47.863+08:00  INFO 29876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2025-03-22T01:06:47.996+08:00  INFO 29876 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-22T01:06:48.248+08:00  INFO 29876 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44d4daa
+2025-03-22T01:06:48.250+08:00  INFO 29876 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-22T01:06:48.261+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
+2025-03-22T01:06:48.307+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
+2025-03-22T01:06:48.345+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
+2025-03-22T01:08:31.293+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:08:31.294+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:08:31.305+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:08:31.347+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.SchoolInfoMapper.selectList  : ==>  Preparing: SELECT id,name,code,type,level,province,city,address,description,website,create_time,update_time FROM school_info
+2025-03-22T01:08:31.348+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.SchoolInfoMapper.selectList  : ==> Parameters: 
+2025-03-22T01:08:31.354+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.SchoolInfoMapper.selectList  : <==      Total: 3
+2025-03-22T01:08:35.059+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:08:35.060+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T01:08:35.066+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 5
+2025-03-22T01:08:35.096+08:00 DEBUG 29876 --- [http-nio-8080-exec-10] c.zs.mapper.MajorScoreMapper.selectList  : ==>  Preparing: SELECT id,school_id,major_id,year,province,plan_number,min_score,max_score,province_control_line,first_subject,second_subject,create_time,update_time FROM major_score WHERE (year = ? AND school_id = ?)
+2025-03-22T01:08:35.097+08:00 DEBUG 29876 --- [http-nio-8080-exec-10] c.zs.mapper.MajorScoreMapper.selectList  : ==> Parameters: 2024(Integer), 1(Long)
+2025-03-22T01:08:35.110+08:00 DEBUG 29876 --- [http-nio-8080-exec-10] c.zs.mapper.MajorScoreMapper.selectList  : <==      Total: 6
+2025-03-22T01:08:37.028+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:08:37.028+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 2(Long)
+2025-03-22T01:08:37.046+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 5
+2025-03-22T01:08:37.127+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorScoreMapper.selectList  : ==>  Preparing: SELECT id,school_id,major_id,year,province,plan_number,min_score,max_score,province_control_line,first_subject,second_subject,create_time,update_time FROM major_score WHERE (year = ? AND school_id = ?)
+2025-03-22T01:08:37.128+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorScoreMapper.selectList  : ==> Parameters: 2024(Integer), 2(Long)
+2025-03-22T01:08:37.133+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorScoreMapper.selectList  : <==      Total: 3
+2025-03-22T01:08:38.530+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:08:38.531+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 3(Long)
+2025-03-22T01:08:38.535+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 3
+2025-03-22T01:08:38.660+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorScoreMapper.selectList  : ==>  Preparing: SELECT id,school_id,major_id,year,province,plan_number,min_score,max_score,province_control_line,first_subject,second_subject,create_time,update_time FROM major_score WHERE (year = ? AND school_id = ?)
+2025-03-22T01:08:38.661+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorScoreMapper.selectList  : ==> Parameters: 2024(Integer), 3(Long)
+2025-03-22T01:08:38.664+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorScoreMapper.selectList  : <==      Total: 2
+2025-03-22T01:08:40.548+08:00 DEBUG 29876 --- [http-nio-8080-exec-9] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:08:40.549+08:00 DEBUG 29876 --- [http-nio-8080-exec-9] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T01:08:40.594+08:00 DEBUG 29876 --- [http-nio-8080-exec-9] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 5
+2025-03-22T01:11:26.297+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:11:26.298+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:11:26.304+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:11:26.522+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.zs.mapper.SchoolInfoMapper.selectList  : ==>  Preparing: SELECT id,name,code,type,level,province,city,address,description,website,create_time,update_time FROM school_info
+2025-03-22T01:11:26.523+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.zs.mapper.SchoolInfoMapper.selectList  : ==> Parameters: 
+2025-03-22T01:11:26.532+08:00 DEBUG 29876 --- [http-nio-8080-exec-2] c.zs.mapper.SchoolInfoMapper.selectList  : <==      Total: 3
+2025-03-22T01:12:53.976+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:12:53.977+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:12:53.980+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:12:53.992+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:12:53.993+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T01:12:53.996+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 5
+2025-03-22T01:12:54.013+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.MajorScoreMapper.selectList  : ==>  Preparing: SELECT id,school_id,major_id,year,province,plan_number,min_score,max_score,province_control_line,first_subject,second_subject,create_time,update_time FROM major_score WHERE (year = ? AND school_id = ?)
+2025-03-22T01:12:54.014+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.MajorScoreMapper.selectList  : ==> Parameters: 2024(Integer), 1(Long)
+2025-03-22T01:12:54.027+08:00 DEBUG 29876 --- [http-nio-8080-exec-6] c.zs.mapper.MajorScoreMapper.selectList  : <==      Total: 6
+2025-03-22T01:18:19.445+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:18:19.449+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:18:19.489+08:00 DEBUG 29876 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:18:19.542+08:00  WARN 29876 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "undefined"]
+2025-03-22T01:18:37.592+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:18:37.592+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:18:37.595+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:18:37.625+08:00  WARN 29876 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "undefined"]
+2025-03-22T01:19:13.844+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:19:13.844+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:19:13.846+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:19:13.862+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (school_id = ?)
+2025-03-22T01:19:13.863+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T01:19:13.867+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 5
+2025-03-22T01:19:13.895+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.zs.mapper.MajorScoreMapper.selectList  : ==>  Preparing: SELECT id,school_id,major_id,year,province,plan_number,min_score,max_score,province_control_line,first_subject,second_subject,create_time,update_time FROM major_score WHERE (year = ? AND school_id = ?)
+2025-03-22T01:19:13.896+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.zs.mapper.MajorScoreMapper.selectList  : ==> Parameters: 2024(Integer), 1(Long)
+2025-03-22T01:19:13.900+08:00 DEBUG 29876 --- [http-nio-8080-exec-5] c.zs.mapper.MajorScoreMapper.selectList  : <==      Total: 6
+2025-03-22T01:29:46.510+08:00 DEBUG 29876 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info
+2025-03-22T01:29:46.511+08:00 DEBUG 29876 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 
+2025-03-22T01:29:46.529+08:00 DEBUG 29876 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 4
+2025-03-22T01:29:46.622+08:00  WARN 29876 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "years"]
+2025-03-22T01:40:06.242+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
+2025-03-22T01:40:06.242+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
+2025-03-22T01:40:06.352+08:00 DEBUG 29876 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
+2025-03-22T01:40:11.708+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
+2025-03-22T01:40:11.708+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
+2025-03-22T01:40:11.714+08:00 DEBUG 29876 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
+2025-03-22T01:40:14.653+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T01:40:14.654+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T01:40:14.667+08:00 DEBUG 29876 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:20:46.657+08:00  INFO 29876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-22T15:20:46.680+08:00  INFO 29876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-22T15:23:13.011+08:00  INFO 28932 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 28932 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
+2025-03-22T15:23:13.013+08:00 DEBUG 28932 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
+2025-03-22T15:23:13.014+08:00  INFO 28932 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-03-22T15:23:16.267+08:00  INFO 28932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-22T15:23:16.287+08:00  INFO 28932 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-22T15:23:16.288+08:00  INFO 28932 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-03-22T15:23:16.396+08:00  INFO 28932 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-22T15:23:16.396+08:00  INFO 28932 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2982 ms
+2025-03-22T15:23:17.057+08:00 DEBUG 28932 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2025-03-22T15:23:17.873+08:00  WARN 28932 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 2b19c4cf-e07a-4ecc-a26c-89050ffcd847
+Using generated security password: 21256d1d-c189-40b8-8cfb-aa3b8fce81a2
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-21T02:00:12.149+08:00  INFO 15428 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c6c84fa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70ce2fb2, org.springframework.security.web.context.SecurityContextHolderFilter@6585df70, org.springframework.security.web.header.HeaderWriterFilter@2d2a8819, org.springframework.web.filter.CorsFilter@64688978, org.springframework.security.web.authentication.logout.LogoutFilter@543ac221, com.zs.security.JwtAuthenticationFilter@54b44879, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51fb5fe6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ca4c88a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d525897, org.springframework.security.web.session.SessionManagementFilter@70f91ae3, org.springframework.security.web.access.ExceptionTranslationFilter@fb2c2f3, org.springframework.security.web.access.intercept.AuthorizationFilter@33fec21]
-2025-03-21T02:00:15.620+08:00  INFO 15428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-21T02:00:15.704+08:00  INFO 15428 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 9.302 seconds (process running for 10.54)
-2025-03-21T02:00:18.361+08:00  INFO 15428 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-21T02:00:18.362+08:00  INFO 15428 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-21T02:00:18.372+08:00  INFO 15428 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2025-03-21T02:17:42.305+08:00  INFO 22028 --- [main] com.zs.ProjectZsApplication              : Starting ProjectZsApplication using Java 17.0.14 with PID 22028 (D:\Users\Merri\Desktop\projet-zs\backend\target\classes started by Merri in D:\Users\Merri\Desktop\projet-zs\backend)
-2025-03-21T02:17:42.307+08:00 DEBUG 22028 --- [main] com.zs.ProjectZsApplication              : Running with Spring Boot v3.2.7, Spring v6.1.4
-2025-03-21T02:17:42.308+08:00  INFO 22028 --- [main] com.zs.ProjectZsApplication              : No active profile set, falling back to 1 default profile: "default"
-2025-03-21T02:17:44.821+08:00  INFO 22028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-21T02:17:44.837+08:00  INFO 22028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-21T02:17:44.838+08:00  INFO 22028 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2025-03-21T02:17:44.959+08:00  INFO 22028 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-21T02:17:44.960+08:00  INFO 22028 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2276 ms
-2025-03-21T02:17:45.541+08:00 DEBUG 22028 --- [main] c.zs.security.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
-2025-03-21T02:17:46.325+08:00  WARN 22028 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 5d97f211-488a-421c-b72a-a1612a3cfe11
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-03-21T02:17:46.773+08:00  INFO 22028 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70ce2fb2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64688978, org.springframework.security.web.context.SecurityContextHolderFilter@5d93ff21, org.springframework.security.web.header.HeaderWriterFilter@72585e83, org.springframework.web.filter.CorsFilter@4d525897, org.springframework.security.web.authentication.logout.LogoutFilter@2270f58d, com.zs.security.JwtAuthenticationFilter@54b44879, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ca4c88a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1791e231, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25f14e93, org.springframework.security.web.session.SessionManagementFilter@601d9f3a, org.springframework.security.web.access.ExceptionTranslationFilter@148fca83, org.springframework.security.web.access.intercept.AuthorizationFilter@12a0d249]
-2025-03-21T02:17:47.297+08:00  INFO 22028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2025-03-21T02:17:47.311+08:00  INFO 22028 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 5.768 seconds (process running for 7.112)
-2025-03-21T02:18:24.929+08:00  INFO 22028 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-21T02:18:24.953+08:00  INFO 22028 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-21T02:18:24.978+08:00  INFO 22028 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
-2025-03-21T02:18:29.041+08:00  INFO 22028 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-21T02:18:29.704+08:00  INFO 22028 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4adeb152
-2025-03-21T02:18:29.708+08:00  INFO 22028 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-21T02:18:29.722+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:18:29.775+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:18:29.818+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:19:21.924+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:19:21.925+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:19:21.934+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:19:25.764+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:19:25.765+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:19:25.787+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:19:28.808+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user WHERE (username = ?)
-2025-03-21T02:19:28.809+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : ==> Parameters: admin(String)
-2025-03-21T02:19:28.815+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] com.zs.mapper.UserMapper.selectList      : <==      Total: 1
-2025-03-21T02:19:35.100+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T02:19:35.102+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T02:19:35.108+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T02:20:33.227+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T02:20:33.228+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T02:20:33.235+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T02:21:17.184+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T02:21:17.184+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T02:21:17.287+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
-2025-03-21T02:21:39.476+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:21:39.477+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:21:39.617+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:21:43.028+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:21:43.029+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:21:43.038+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:21:45.241+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : ==>  Preparing: SELECT * FROM announcement WHERE id = ?
-2025-03-21T02:21:45.241+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : ==> Parameters: 1(Long)
-2025-03-21T02:21:45.278+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : <==      Total: 1
-2025-03-21T02:21:50.018+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:21:50.018+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:21:50.083+08:00 DEBUG 22028 --- [http-nio-8080-exec-8] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:22:40.608+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:22:40.609+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:22:40.623+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:22:42.124+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:22:42.134+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:22:42.138+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:23:54.210+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:23:54.210+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:23:54.217+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:24:05.802+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:24:05.803+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:24:05.942+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:24:12.275+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:24:12.276+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:24:12.289+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:24:52.556+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:24:52.556+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:24:52.579+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:24:56.217+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:24:56.218+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:24:56.221+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:25:03.769+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:25:03.770+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:25:03.782+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:25:03.922+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:25:03.923+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:25:03.927+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:25:15.869+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:25:15.869+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:25:15.906+08:00 DEBUG 22028 --- [http-nio-8080-exec-5] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:54:34.064+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:54:34.071+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:54:34.229+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:57:26.715+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:57:26.716+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:57:26.725+08:00 DEBUG 22028 --- [http-nio-8080-exec-9] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:58:22.565+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:58:22.566+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:58:22.571+08:00 DEBUG 22028 --- [http-nio-8080-exec-10] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:58:33.477+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:58:33.478+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:58:33.615+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:58:49.051+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T02:58:49.052+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T02:58:49.062+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T02:58:51.687+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy
-2025-03-21T02:58:51.688+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 
-2025-03-21T02:58:51.725+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 13
-2025-03-21T02:58:59.978+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==>  Preparing: SELECT id,school_id,year,province,plan_number,min_score,category,policy_content,create_time,update_time FROM admission_policy WHERE (year = ? AND school_id = ?)
-2025-03-21T02:58:59.979+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : ==> Parameters: 2024(Integer), 1(Long)
-2025-03-21T02:59:00.019+08:00 DEBUG 22028 --- [http-nio-8080-exec-4] c.z.m.AdmissionPolicyMapper.selectList   : <==      Total: 3
-2025-03-21T02:59:13.631+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
-2025-03-21T02:59:13.631+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
-2025-03-21T02:59:13.651+08:00 DEBUG 22028 --- [http-nio-8080-exec-6] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
-2025-03-21T02:59:15.649+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : ==>  Preparing: SELECT * FROM announcement WHERE id = ?
-2025-03-21T02:59:15.650+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : ==> Parameters: 1(Long)
-2025-03-21T02:59:15.657+08:00 DEBUG 22028 --- [http-nio-8080-exec-7] c.zs.mapper.AnnouncementMapper.findById  : <==      Total: 1
-2025-03-21T02:59:29.558+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
-2025-03-21T02:59:29.560+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
-2025-03-21T02:59:29.582+08:00 DEBUG 22028 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
-2025-03-21T02:59:31.794+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==>  Preparing: SELECT * FROM announcement ORDER BY publish_time DESC
-2025-03-21T02:59:31.798+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : ==> Parameters: 
-2025-03-21T02:59:31.803+08:00 DEBUG 22028 --- [http-nio-8080-exec-1] c.zs.mapper.AnnouncementMapper.findAll   : <==      Total: 3
-2025-03-21T02:59:33.321+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==>  Preparing: SELECT id,username,password,nickname,phone,email,avatar,status,role,create_time,update_time FROM user
-2025-03-21T02:59:33.321+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : ==> Parameters: 
-2025-03-21T02:59:33.338+08:00 DEBUG 22028 --- [http-nio-8080-exec-3] com.zs.mapper.UserMapper.selectList      : <==      Total: 6
+2025-03-22T15:23:18.276+08:00  INFO 28932 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@77a85e76, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cebf82f, org.springframework.security.web.context.SecurityContextHolderFilter@2d2f09a4, org.springframework.security.web.header.HeaderWriterFilter@3cf70afa, org.springframework.web.filter.CorsFilter@34fc315d, org.springframework.security.web.authentication.logout.LogoutFilter@5f82209e, com.zs.security.JwtAuthenticationFilter@45e11627, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@215a0264, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45832b85, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34f48d1, org.springframework.security.web.session.SessionManagementFilter@74eab077, org.springframework.security.web.access.ExceptionTranslationFilter@7c5ac0, org.springframework.security.web.access.intercept.AuthorizationFilter@399c408c]
+2025-03-22T15:23:18.785+08:00  INFO 28932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-22T15:23:18.797+08:00  INFO 28932 --- [main] com.zs.ProjectZsApplication              : Started ProjectZsApplication in 6.808 seconds (process running for 8.566)
+2025-03-22T15:25:42.990+08:00  INFO 28932 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22T15:25:42.991+08:00  INFO 28932 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-22T15:25:42.993+08:00  INFO 28932 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-22T15:25:43.352+08:00  INFO 28932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-22T15:25:43.589+08:00  INFO 28932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47cdf6ed
+2025-03-22T15:25:43.591+08:00  INFO 28932 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-22T15:25:43.601+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
+2025-03-22T15:25:43.647+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
+2025-03-22T15:25:43.685+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
+2025-03-22T15:25:45.946+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
+2025-03-22T15:25:45.947+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
+2025-03-22T15:25:45.989+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
+2025-03-22T15:25:50.766+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:25:50.768+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:25:50.785+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:25:52.238+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
+2025-03-22T15:25:52.238+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
+2025-03-22T15:25:52.298+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
+2025-03-22T15:25:53.566+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:25:53.567+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:25:53.574+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:34:02.949+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:34:02.950+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:34:02.956+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:35:55.884+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:35:55.884+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:35:55.966+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:40:06.116+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:40:06.116+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:40:06.149+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:40:09.601+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:40:09.601+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:40:09.606+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:43:51.399+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:43:51.400+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T15:43:51.414+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
+2025-03-22T15:44:02.899+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:44:02.899+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T15:44:02.901+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
+2025-03-22T15:46:15.952+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:46:15.952+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T15:46:15.979+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
+2025-03-22T15:46:19.732+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : ==>  Preparing: SELECT * FROM announcement WHERE status = 1 AND (end_time IS NULL OR end_time >= NOW()) ORDER BY type = 'IMPORTANT' DESC, publish_time DESC
+2025-03-22T15:46:19.732+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : ==> Parameters: 
+2025-03-22T15:46:19.886+08:00 DEBUG 28932 --- [http-nio-8080-exec-4] c.z.m.AnnouncementMapper.findActive      : <==      Total: 3
+2025-03-22T15:46:23.451+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:46:23.452+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:46:23.455+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:46:25.379+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:46:25.379+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 2(Long)
+2025-03-22T15:46:25.434+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
+2025-03-22T15:46:27.191+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:46:27.193+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:46:27.226+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:46:28.705+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:46:28.705+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T15:46:28.707+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 0
+2025-03-22T15:47:21.841+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:47:21.841+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:47:21.872+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T15:47:24.086+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T15:47:24.086+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 4(Long)
+2025-03-22T15:47:24.092+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 2
+2025-03-22T15:47:27.696+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T15:47:27.697+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T15:47:27.700+08:00 DEBUG 28932 --- [http-nio-8080-exec-3] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T16:19:47.681+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T16:19:47.681+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T16:19:47.697+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T16:19:48.722+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
+2025-03-22T16:19:48.723+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
+2025-03-22T16:19:48.731+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
+2025-03-22T16:19:50.044+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T16:19:50.044+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T16:19:50.048+08:00 DEBUG 28932 --- [http-nio-8080-exec-7] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T16:19:51.046+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T16:19:51.046+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 1(Long)
+2025-03-22T16:19:51.054+08:00 DEBUG 28932 --- [http-nio-8080-exec-8] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 2
+2025-03-22T16:19:52.436+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T16:19:52.437+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T16:19:52.451+08:00 DEBUG 28932 --- [http-nio-8080-exec-9] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T16:19:53.162+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==>  Preparing: SELECT id,school_id,college_id,name,code,degree,duration,description,training_objectives,main_courses,career_prospects,icon_url,images,create_time,update_time FROM major_info WHERE (college_id = ?)
+2025-03-22T16:19:53.163+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : ==> Parameters: 2(Long)
+2025-03-22T16:19:53.167+08:00 DEBUG 28932 --- [http-nio-8080-exec-10] c.zs.mapper.MajorInfoMapper.selectList   : <==      Total: 2
+2025-03-22T16:19:54.349+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T16:19:54.349+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T16:19:54.353+08:00 DEBUG 28932 --- [http-nio-8080-exec-2] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5
+2025-03-22T16:19:55.233+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college WHERE id=?
+2025-03-22T16:19:55.234+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : ==> Parameters: 1(Long)
+2025-03-22T16:19:55.237+08:00 DEBUG 28932 --- [http-nio-8080-exec-1] com.zs.mapper.CollegeMapper.selectById   : <==      Total: 1
+2025-03-22T16:22:12.692+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.updateById   : ==>  Preparing: UPDATE college SET name=?, degree=?, duration=?, description=?, school_id=?, logo_url=?, create_time=?, update_time=? WHERE id=?
+2025-03-22T16:22:12.695+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.updateById   : ==> Parameters: 航运学院(String), 本科(String), 4(String), 航运学院致力于培养航运领域的高素质人才，拥有完善的教学设施和优秀的师资力量。(String), 1(Long), blob:http://localhost:8082/9bf16681-e5b2-4b3c-bb14-1d92988a4fb0(String), 2025-03-20T02:09:49(LocalDateTime), 2025-03-20T02:09:49(LocalDateTime), 1(Long)
+2025-03-22T16:22:12.719+08:00 DEBUG 28932 --- [http-nio-8080-exec-5] com.zs.mapper.CollegeMapper.updateById   : <==    Updates: 1
+2025-03-22T16:22:14.334+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : ==>  Preparing: SELECT id,name,degree,duration,description,school_id,logo_url,banner_url,create_time,update_time FROM college
+2025-03-22T16:22:14.334+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : ==> Parameters: 
+2025-03-22T16:22:14.344+08:00 DEBUG 28932 --- [http-nio-8080-exec-6] com.zs.mapper.CollegeMapper.selectList   : <==      Total: 5

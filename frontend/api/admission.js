@@ -7,23 +7,21 @@ export default {
   /**
    * 获取历年分数数据
    * @param {Number} year - 年份
-   * @param {Number} schoolId - 学校ID
    * @returns {Promise} - 返回Promise对象
    */
-  getScoresByYear(year, schoolId) {
-    return request.get('/api/admission-policy/search/year-school', {
-      year: year,
-      schoolId: schoolId
+  getScoresByYear(year) {
+    return request.get('/api/admission-policy/search/year', {
+      year: year
     });
   },
   
   /**
    * 获取所有可用年份列表
-   * @param {Number} schoolId - 学校ID
    * @returns {Promise} - 返回Promise对象
    */
-  getAvailableYears(schoolId) {
-    return request.get('/api/admission-policy/school/' + schoolId);
+  getAvailableYears() {
+    // 使用新的专用年份接口
+    return request.get('/api/admission-policy/years');
   },
 
   /**
@@ -46,14 +44,12 @@ export default {
   /**
    * 获取专业分数线数据
    * @param {Number} year - 年份
-   * @param {Number} schoolId - 学校ID
    * @param {String} province - 省份(可选)
    * @returns {Promise} - 返回Promise对象
    */
-  getMajorScores(year, schoolId, province) {
+  getMajorScores(year, province) {
     const params = {
-      year: year,
-      schoolId: schoolId
+      year: year
     };
     
     if (province) {
@@ -61,5 +57,30 @@ export default {
     }
     
     return request.get('/api/admission-policy/search/major-scores', params);
+  },
+  
+  /**
+   * 获取所有专业分数线数据
+   * @returns {Promise} - 返回Promise对象
+   */
+  getAllMajorScores() {
+    return request.get('/api/major-score/list');
+  },
+  
+  /**
+   * 根据专业名称获取分数线数据
+   * @param {String} majorName - 专业名称
+   * @returns {Promise} - 返回Promise对象
+   */
+  getMajorScoresByName(majorName) {
+    return request.get('/api/major-score/search/major/' + encodeURIComponent(majorName));
+  },
+  
+  /**
+   * 填充历史分数数据（将招生政策数据转换为专业分数数据）
+   * @returns {Promise} - 返回Promise对象
+   */
+  fillHistoricalScoreData() {
+    return request.post('/api/major-score/fill-data');
   }
 } 

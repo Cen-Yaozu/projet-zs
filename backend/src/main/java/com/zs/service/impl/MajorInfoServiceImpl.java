@@ -28,10 +28,4 @@ public class MajorInfoServiceImpl extends ServiceImpl<MajorInfoMapper, MajorInfo
         return list(new LambdaQueryWrapper<MajorInfo>()
                 .like(MajorInfo::getName, name));
     }
-
-    @Override
-    public List<MajorInfo> getByDegree(String degree) {
-        return list(new LambdaQueryWrapper<MajorInfo>()
-                .eq(MajorInfo::getDegree, degree));
-    }
 }

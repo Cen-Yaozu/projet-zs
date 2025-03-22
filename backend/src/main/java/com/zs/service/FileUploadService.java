@@ -25,11 +25,4 @@ public interface FileUploadService {
      * @throws IOException 如果上传过程中发生IO异常
      */
     String[] uploadMultipleImages(MultipartFile[] files, String directory) throws IOException;
-    
-    /**
-     * 删除图片文件
-     * @param imageUrl 图片访问URL
-     * @return 是否删除成功
-     */
-    boolean deleteImage(String imageUrl);
 } 

@@ -66,10 +66,4 @@ public class MajorInfoController {
     public ResponseEntity<List<MajorInfo>> searchByName(@Parameter(description = "专业名称", required = true) @PathVariable String name) {
         return ResponseEntity.ok(majorInfoService.searchByName(name));
     }
-
-    @GetMapping("/search/degree/{degree}")
-    @Operation(summary = "根据学位类型查询专业", description = "根据学位类型查询专业信息")
-    public ResponseEntity<List<MajorInfo>> getByDegree(@Parameter(description = "学位类型", required = true) @PathVariable String degree) {
-        return ResponseEntity.ok(majorInfoService.getByDegree(degree));
-    }
 }

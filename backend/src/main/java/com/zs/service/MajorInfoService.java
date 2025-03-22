@@ -13,7 +13,4 @@ public interface MajorInfoService extends IService<MajorInfo> {
 
     // 根据专业名称模糊查询
     List<MajorInfo> searchByName(String name);
-
-    // 根据学位类型查询
-    List<MajorInfo> getByDegree(String degree);
 }

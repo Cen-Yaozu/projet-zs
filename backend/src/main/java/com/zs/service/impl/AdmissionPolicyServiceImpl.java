@@ -42,13 +42,6 @@ public class AdmissionPolicyServiceImpl extends ServiceImpl<AdmissionPolicyMappe
                 .eq(AdmissionPolicy::getSchoolId, schoolId)
                 .eq(AdmissionPolicy::getProvince, province));
     }
-
-    @Override
-    public List<AdmissionPolicy> getByScoreRange(Integer minScore, Integer maxScore) {
-        return list(new LambdaQueryWrapper<AdmissionPolicy>()
-                .ge(AdmissionPolicy::getMinScore, minScore)
-                .le(AdmissionPolicy::getMinScore, maxScore));
-    }
     
     @Override
     public List<Map<String, Object>> getMajorScores(Integer year, Long schoolId, String province) {

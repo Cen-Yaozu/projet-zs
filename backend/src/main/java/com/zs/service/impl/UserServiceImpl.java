@@ -45,12 +45,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private UserMapper userMapper;
 
     @Override
-    public String getFileUploadPath() {
-        return fileUploadPath;
-    }
-
-    // 临时方法：重置管理员密码
-    @Override
     public boolean resetAdminPassword() {
         User admin = lambdaQuery()
                 .eq(User::getUsername, "admin")
