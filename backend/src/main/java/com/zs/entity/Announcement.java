@@ -53,6 +53,11 @@ public class Announcement {
     private String type;
     
     /**
+     * 公告类别：GENERAL_NOTICE-招生公告，ADMISSION_RULES-招生章程，ADMISSION_POLICY-招生政策，HISTORICAL_REFERENCE-往年参考
+     */
+    private String category = "GENERAL_NOTICE";
+    
+    /**
      * 创建人ID
      */
     private Long createUserId;

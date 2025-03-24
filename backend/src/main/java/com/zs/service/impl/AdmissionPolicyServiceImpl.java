@@ -23,23 +23,8 @@ public class AdmissionPolicyServiceImpl extends ServiceImpl<AdmissionPolicyMappe
     }
 
     @Override
-    public List<AdmissionPolicy> getByYearAndSchoolId(Integer year, Long schoolId) {
-        return list(new LambdaQueryWrapper<AdmissionPolicy>()
-                .eq(AdmissionPolicy::getYear, year)
-                .eq(AdmissionPolicy::getSchoolId, schoolId));
-    }
-
-    @Override
     public List<AdmissionPolicy> getByProvince(String province) {
         return list(new LambdaQueryWrapper<AdmissionPolicy>()
-                .eq(AdmissionPolicy::getProvince, province));
-    }
-
-    @Override
-    public List<AdmissionPolicy> getByYearAndSchoolIdAndProvince(Integer year, Long schoolId, String province) {
-        return list(new LambdaQueryWrapper<AdmissionPolicy>()
-                .eq(AdmissionPolicy::getYear, year)
-                .eq(AdmissionPolicy::getSchoolId, schoolId)
                 .eq(AdmissionPolicy::getProvince, province));
     }
     

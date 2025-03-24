@@ -67,17 +67,37 @@
             </picker>
           </view>
           
+          <view class="form-item">
+            <text class="label">类别</text>
+            <view class="category-selector">
+              <view 
+                class="category-option" :class="{ active: form.category === 'GENERAL_NOTICE' }"
+                @tap="form.category = 'GENERAL_NOTICE'"
+              >招生公告</view>
+              <view 
+                class="category-option" :class="{ active: form.category === 'ADMISSION_RULES' }"
+                @tap="form.category = 'ADMISSION_RULES'"
+              >招生章程</view>
+              <view 
+                class="category-option" :class="{ active: form.category === 'ADMISSION_POLICY' }"
+                @tap="form.category = 'ADMISSION_POLICY'"
+              >招生政策</view>
+              <view 
+                class="category-option" :class="{ active: form.category === 'HISTORICAL_REFERENCE' }"
+                @tap="form.category = 'HISTORICAL_REFERENCE'"
+              >往年参考</view>
+            </view>
+          </view>
+          
           <view class="form-item" v-if="isEdit">
             <text class="label">状态</text>
             <view class="status-selector">
               <view 
-                class="status-option" 
-                :class="{ active: form.status === false }"
+                class="status-option" :class="{ active: form.status === false }"
                 @tap="form.status = false"
               >草稿</view>
               <view 
-                class="status-option" 
-                :class="{ active: form.status === true }"
+                class="status-option" :class="{ active: form.status === true }"
                 @tap="form.status = true"
               >已发布</view>
             </view>
@@ -138,7 +158,8 @@ export default {
         content: '',
         type: 'NOTICE',
         status: false,
-        coverImage: ''
+        coverImage: '',
+        category: 'GENERAL_NOTICE'
       },
       typeOptions: ['通知公告', '招生信息', '新闻动态'],
       typeIndex: 0,
@@ -184,7 +205,8 @@ export default {
             content: announcement.content || '',
             type: announcement.type || 'NOTICE',
             status: announcement.status !== undefined ? announcement.status : false,
-            coverImage: announcement.coverImage || ''
+            coverImage: announcement.coverImage || '',
+            category: announcement.category || 'GENERAL_NOTICE'
           }
           this.typeIndex = this.typeValues.indexOf(this.form.type)
           if (this.typeIndex === -1) this.typeIndex = 0
@@ -755,6 +777,34 @@ export default {
       line-height: 1.8;
       text-align: justify;
       white-space: pre-wrap;
+    }
+  }
+}
+
+.category-selector {
+  display: flex;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background-color: #f6f8fa;
+  box-shadow: inset 0 2rpx 6rpx rgba(0,0,0,0.03);
+  
+  .category-option {
+    flex: 1;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+    transition: all 0.3s;
+    
+    &.active {
+      background-color: #4aa3ff;
+      color: #fff;
+      font-weight: 500;
+    }
+    
+    &:active {
+      opacity: 0.8;
     }
   }
 }

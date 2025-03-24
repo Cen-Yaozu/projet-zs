@@ -1,0 +1,281 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #4aa3ff 0%, #3a93f0 100%);
+  color: #fff;
+  padding: 20rpx 30rpx;
+  height: 90rpx;
+  box-shadow: 0 4rpx 16rpx rgba(74, 163, 255, 0.2);
+  position: relative;
+  z-index: 10;
+}
+.header .back-button {
+  font-size: 40rpx;
+  width: 60rpx;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+.header .back-button:active {
+  opacity: 0.7;
+}
+.header .title {
+  font-size: 36rpx;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+.filter-bar {
+  padding: 30rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rpx;
+}
+.filter-bar .picker {
+  background-color: #f6f8fa;
+  border-radius: 12rpx;
+  height: 76rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
+}
+.filter-bar .picker:active {
+  background-color: #eef6ff;
+  border-color: #4aa3ff;
+}
+.filter-bar .picker .iconfont {
+  font-size: 24rpx;
+  color: #999;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.filter-bar .picker:active .iconfont {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.action-bar {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+}
+.action-bar .add-btn {
+  background: linear-gradient(135deg, #4aa3ff 0%, #3a93f0 100%);
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 35rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 40rpx;
+  border: none;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  box-shadow: 0 4rpx 12rpx rgba(74, 163, 255, 0.2);
+}
+.action-bar .add-btn:active {
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+  box-shadow: 0 2rpx 6rpx rgba(74, 163, 255, 0.15);
+}
+.action-bar .add-btn:disabled {
+  background: #cccccc;
+  box-shadow: none;
+}
+.action-bar .search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #f6f8fa;
+  border-radius: 35rpx;
+  padding: 0 30rpx;
+  height: 70rpx;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: inset 0 2rpx 6rpx rgba(0, 0, 0, 0.03);
+  border: 2rpx solid transparent;
+}
+.action-bar .search-box:focus-within {
+  background-color: #fff;
+  border-color: #4aa3ff;
+  box-shadow: 0 0 0 3rpx rgba(74, 163, 255, 0.1);
+}
+.action-bar .search-box input {
+  flex: 1;
+  height: 100%;
+  font-size: 28rpx;
+  padding-right: 60rpx;
+}
+.action-bar .search-box .iconfont {
+  position: absolute;
+  right: 30rpx;
+  font-size: 32rpx;
+  color: #999;
+  transition: color 0.3s;
+}
+.action-bar .search-box:focus-within .iconfont {
+  color: #4aa3ff;
+}
+.major-list {
+  flex: 1;
+  padding: 0 30rpx;
+}
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding: 100rpx 0;
+  font-size: 28rpx;
+}
+.major-item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, -webkit-transform 0.3s;
+}
+.major-item:active {
+  -webkit-transform: translateY(-2rpx);
+          transform: translateY(-2rpx);
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+.major-item .major-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+.major-item .major-info .major-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  margin-right: 24rpx;
+  background-color: #f6f8fa;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+.major-item .major-info .major-detail .major-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+.major-item .major-info .major-detail .major-meta {
+  font-size: 26rpx;
+  color: #999;
+}
+.major-item .major-actions {
+  display: flex;
+}
+.major-item .major-actions .action-btn {
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  margin-left: 16rpx;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.major-item .major-actions .action-btn.edit {
+  background-color: #e6f7ff;
+  color: #4aa3ff;
+}
+.major-item .major-actions .action-btn.edit:active {
+  background-color: #d0edff;
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+}
+.major-item .major-actions .action-btn.delete {
+  background-color: #fff2f0;
+  color: #ff4d4f;
+}
+.major-item .major-actions .action-btn.delete:active {
+  background-color: #ffded9;
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  margin: 20rpx 30rpx 0;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+.pagination .page-info {
+  font-size: 26rpx;
+  color: #666;
+}
+.pagination .page-btns {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+.pagination .page-btns button {
+  font-size: 26rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  background: linear-gradient(135deg, #4aa3ff 0%, #3a93f0 100%);
+  color: #fff;
+  transition: all 0.3s;
+  box-shadow: 0 4rpx 12rpx rgba(74, 163, 255, 0.2);
+}
+.pagination .page-btns button:active {
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+  box-shadow: 0 2rpx 6rpx rgba(74, 163, 255, 0.15);
+}
+.pagination .page-btns button:disabled {
+  background: #ccc;
+  box-shadow: none;
+}
+.pagination .page-btns .page-num {
+  font-size: 26rpx;
+  color: #666;
+  min-width: 100rpx;
+  text-align: center;
+}

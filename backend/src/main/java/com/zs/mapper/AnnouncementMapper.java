@@ -42,12 +42,20 @@ public interface AnnouncementMapper {
     List<Announcement> findByType(String type);
     
     /**
+     * 根据类别获取通知公告
+     * @param category 通知公告类别
+     * @return 通知公告列表
+     */
+    @Select("SELECT * FROM announcement WHERE category = #{category} AND status = 1 ORDER BY publish_time DESC")
+    List<Announcement> findByCategory(String category);
+    
+    /**
      * 添加通知公告
      * @param announcement 通知公告对象
      * @return 影响的行数
      */
-    @Insert("INSERT INTO announcement(title, content, image_url, publish_time, end_time, status, type, create_user_id) " +
-            "VALUES(#{title}, #{content}, #{imageUrl}, #{publishTime}, #{endTime}, #{status}, #{type}, #{createUserId})")
+    @Insert("INSERT INTO announcement(title, content, image_url, publish_time, end_time, status, type, create_user_id, category) " +
+            "VALUES(#{title}, #{content}, #{imageUrl}, #{publishTime}, #{endTime}, #{status}, #{type}, #{createUserId}, #{category})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(Announcement announcement);
     
@@ -57,7 +65,8 @@ public interface AnnouncementMapper {
      * @return 影响的行数
      */
     @Update("UPDATE announcement SET title = #{title}, content = #{content}, image_url = #{imageUrl}, " +
-            "publish_time = #{publishTime}, end_time = #{endTime}, status = #{status}, type = #{type} WHERE id = #{id}")
+            "publish_time = #{publishTime}, end_time = #{endTime}, status = #{status}, type = #{type}, " +
+            "category = #{category} WHERE id = #{id}")
     int update(Announcement announcement);
     
     /**

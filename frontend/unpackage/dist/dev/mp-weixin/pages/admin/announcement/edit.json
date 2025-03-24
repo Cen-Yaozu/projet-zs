@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "公告编辑",
+  "navigationBarBackgroundColor": "#4aa3ff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup"
+  }
+}

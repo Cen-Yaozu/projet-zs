@@ -36,16 +36,14 @@
         <view class="form-label">公告状态</view>
         <view class="form-radio-group">
           <view 
-            class="form-radio-item"
-            :class="{'form-radio-item--active': form.status === 1}"
+            class="form-radio-item" :class="{'form-radio-item--active': form.status === 1}"
             @tap="form.status = 1"
           >
             <view class="form-radio"></view>
             <text>已发布</text>
           </view>
           <view 
-            class="form-radio-item"
-            :class="{'form-radio-item--active': form.status === 0}"
+            class="form-radio-item" :class="{'form-radio-item--active': form.status === 0}"
             @tap="form.status = 0"
           >
             <view class="form-radio"></view>
@@ -111,10 +109,9 @@
         </view>
         <view class="type-selector__body">
           <view 
-            class="type-selector__item"
+            class="type-selector__item" :class="{'type-selector__item--active': form.type === type.value}"
             v-for="(type, index) in typeOptions" 
             :key="index"
-            :class="{'type-selector__item--active': form.type === type.value}"
             @tap="selectType(type.value)"
           >
             <text>{{ type.label }}</text>

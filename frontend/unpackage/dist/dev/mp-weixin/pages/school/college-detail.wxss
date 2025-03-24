@@ -1,0 +1,280 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #3a86ff;
+  color: #fff;
+  padding: 20rpx 30rpx;
+  position: relative;
+  height: 80rpx;
+}
+.nav-header .back-button {
+  font-size: 40rpx;
+  width: 60rpx;
+}
+.nav-header .nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+.nav-header .right-icons {
+  display: flex;
+  justify-content: flex-end;
+  width: 160rpx;
+}
+.nav-header .right-icons .iconfont {
+  margin-left: 30rpx;
+  font-size: 36rpx;
+}
+.college-header {
+  background-color: #eef7ff;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.college-header .college-logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.college-header .college-logo image {
+  width: 100%;
+  height: 100%;
+}
+.college-header .college-logo .upload-btn {
+  position: absolute;
+  right: -10rpx;
+  bottom: -10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  background-color: rgba(58, 134, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24rpx;
+}
+.college-header .college-basic-info {
+  flex: 1;
+}
+.college-header .college-basic-info .college-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.college-header .college-basic-info .college-meta {
+  display: flex;
+  align-items: center;
+}
+.college-header .college-basic-info .college-meta .meta-item {
+  font-size: 28rpx;
+  color: #3a86ff;
+  font-weight: 500;
+}
+.college-header .college-basic-info .college-meta .meta-divider {
+  margin: 0 10rpx;
+  color: #3a86ff;
+}
+.loading-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+.loading-container .loading {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #3399cc;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+.loading-container .loading-text {
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+@-webkit-keyframes spin {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@keyframes spin {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+.college-detail-content {
+  flex: 1;
+}
+.college-detail-content .college-brochure {
+  background-color: #fff;
+}
+.college-detail-content .college-brochure .banner-container {
+  position: relative;
+}
+.college-detail-content .college-brochure .banner-container .college-banner {
+  width: 100%;
+}
+.college-detail-content .college-brochure .banner-container .upload-banner-btn {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.college-detail-content .college-brochure .banner-container .upload-banner-btn .iconfont {
+  margin-right: 10rpx;
+}
+.college-detail-content .college-brochure .major-section {
+  padding-bottom: 20rpx;
+}
+.college-detail-content .college-brochure .major-section .major-header {
+  padding: 20rpx 30rpx;
+  background-color: #3a86ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.college-detail-content .college-brochure .major-section .major-header .major-title-box {
+  display: flex;
+  align-items: center;
+}
+.college-detail-content .college-brochure .major-section .major-header .major-title-box .college-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+.college-detail-content .college-brochure .major-section .major-header .major-title-box .major-title {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.college-detail-content .college-brochure .major-section .major-header .upload-icon-btn {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content {
+  padding: 20rpx 30rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content .intro-item {
+  margin-bottom: 20rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content .intro-item .intro-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content .intro-item .intro-text {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  text-align: justify;
+}
+.college-detail-content .college-brochure .major-section .major-content .major-images-container {
+  position: relative;
+}
+.college-detail-content .college-brochure .major-section .major-content .major-images-container .major-images {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+  justify-content: space-between;
+}
+.college-detail-content .college-brochure .major-section .major-content .major-images-container .major-images .major-image {
+  width: 31%;
+  height: 180rpx;
+  margin-bottom: 10rpx;
+  border-radius: 6rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content .major-images-container .upload-major-img-btn {
+  margin-top: 10rpx;
+  padding: 15rpx;
+  background-color: #f5f5f5;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3a86ff;
+  font-size: 26rpx;
+}
+.college-detail-content .college-brochure .major-section .major-content .major-images-container .upload-major-img-btn .iconfont {
+  margin-right: 10rpx;
+}
+.college-detail-content .other-colleges {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+}
+.college-detail-content .other-colleges .other-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.college-detail-content .other-colleges .other-list .other-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 28rpx;
+  color: #333;
+}
+.college-detail-content .other-colleges .other-list .other-item:last-child {
+  border-bottom: none;
+}

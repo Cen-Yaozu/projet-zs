@@ -20,8 +20,7 @@
       <view 
         v-for="(item, index) in announcements" 
         :key="index" 
-        class="announcement-item"
-        :class="{ 'important': item.type === 'IMPORTANT' }"
+        class="announcement-item" :class="{ 'important': item.type === 'IMPORTANT' }"
         @click="viewDetail(item.id)"
       >
         <view class="announcement-tag" v-if="item.type === 'IMPORTANT'">
@@ -56,12 +55,13 @@ export default {
       this.loading = true;
       // 直接使用uni.request避开认证
       uni.request({
-        url: 'http://localhost:8080/api/announcements/active',
+        url: this.$baseUrl + '/api/announcements/active',
         method: 'GET',
         success: (res) => {
           if (res.data && res.data.code === 200) {
             this.announcements = res.data.data || [];
           } else {
+            this.announcements = [];
             uni.showToast({
               title: '获取通知公告失败',
               icon: 'none'
@@ -70,6 +70,7 @@ export default {
         },
         fail: (err) => {
           console.error('获取通知公告失败:', err);
+          this.announcements = [];
           uni.showToast({
             title: '网络异常，请稍后重试',
             icon: 'none'

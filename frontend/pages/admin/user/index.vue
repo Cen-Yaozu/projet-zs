@@ -51,7 +51,7 @@
           <view class="user-info">
             <view class="avatar-box">
               <image class="avatar" :src="item.avatar || '/static/images/default-avatar.png'" mode="aspectFill"></image>
-              <view class="role-tag" :class="getRoleClass(item.role)">{{getRoleText(item.role)}}</view>
+              <view class="role-tag" :class="roleClassMap[item.role] || ''">{{getRoleText(item.role)}}</view>
             </view>
             <view class="user-detail">
               <view class="user-name-row">
@@ -88,8 +88,7 @@
               @tap="handleResetPassword(item)"
             >重置密码</button>
             <button 
-              class="action-button toggle-btn" 
-              :class="item.status ? 'disable-btn' : 'enable-btn'"
+              class="action-button toggle-btn" :class="item.status ? 'disable-btn' : 'enable-btn'"
               @tap="handleToggleStatus(item)"
             >{{item.status ? '禁用' : '启用'}}</button>
             <button class="action-button delete-btn" @tap="handleDelete(item)">删除</button>
@@ -99,20 +98,17 @@
       
       <view class="pagination" v-if="hasPermission && users.length > 0">
         <button 
-          class="page-btn prev-btn" 
-          :class="{ disabled: currentPage === 1 }" 
+          class="page-btn prev-btn" :class="{ disabled: currentPage === 1 }"
           @tap="handlePageChange(currentPage - 1)"
         >上一页</button>
         <button 
           v-for="page in Math.min(5, totalPages)" 
           :key="page"
-          class="page-btn" 
-          :class="{ active: page === currentPage }"
+          class="page-btn" :class="{ active: page === currentPage }"
           @tap="handlePageChange(page)"
         >{{ page }}</button>
         <button 
-          class="page-btn next-btn" 
-          :class="{ disabled: currentPage === totalPages }" 
+          class="page-btn next-btn" :class="{ disabled: currentPage === totalPages }"
           @tap="handlePageChange(currentPage + 1)"
         >下一页</button>
         <text class="page-text">共 {{total}} 条</text>
@@ -242,7 +238,12 @@ export default {
       editingUser: null,
       roleOptions: ['学生', '教师', '管理员'],
       roleIndex: 0,
-      roleValues: ['STUDENT', 'TEACHER', 'ADMIN']
+      roleValues: ['STUDENT', 'TEACHER', 'ADMIN'],
+      roleClassMap: {
+        'STUDENT': 'student',
+        'TEACHER': 'teacher',
+        'ADMIN': 'admin'
+      }
     }
   },
   computed: {

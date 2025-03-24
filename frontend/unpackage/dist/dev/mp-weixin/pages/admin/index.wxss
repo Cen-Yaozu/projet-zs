@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.admin-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 30rpx;
+}
+.admin-container .header {
+  background: linear-gradient(135deg, #4aa3ff, #3a8fe0);
+  padding: 40rpx 30rpx;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(74, 163, 255, 0.2);
+}
+.admin-container .header .title {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16rpx;
+  display: block;
+}
+.admin-container .header .welcome {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+.admin-container .menu-list .menu-item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.admin-container .menu-list .menu-item .menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(74, 163, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.admin-container .menu-list .menu-item .menu-content {
+  flex: 1;
+}
+.admin-container .menu-list .menu-item .menu-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+.admin-container .menu-list .menu-item .menu-desc {
+  font-size: 26rpx;
+  color: #666;
+}
+.admin-container .menu-list .menu-item:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  opacity: 0.9;
+}

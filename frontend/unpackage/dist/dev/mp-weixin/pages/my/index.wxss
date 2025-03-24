@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}
+.header {
+  padding: 20rpx;
+  text-align: center;
+}
+.header .title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+.user-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.user-card .avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 30rpx;
+}
+.user-card .user-info {
+  flex: 1;
+}
+.user-card .user-info .username {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+.user-card .user-info .role {
+  font-size: 24rpx;
+  color: #666;
+}
+/* 管理员功能区样式 */
+.admin-panel {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.admin-panel .section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  padding: 10rpx 10rpx 20rpx 10rpx;
+  display: block;
+}
+.admin-panel .admin-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin-panel .admin-menu .admin-menu-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.admin-panel .admin-menu .admin-menu-item .admin-menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #eaf4ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+}
+.admin-panel .admin-menu .admin-menu-item .admin-menu-icon .iconfont {
+  font-size: 40rpx;
+  color: #3a86ff;
+}
+.admin-panel .admin-menu .admin-menu-item .admin-menu-text {
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+.menu-list {
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.menu-list .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.menu-list .menu-item:last-child {
+  border-bottom: none;
+}
+.menu-list .menu-item .menu-text {
+  font-size: 28rpx;
+  color: #333;
+}
+.menu-list .menu-item .arrow {
+  font-size: 28rpx;
+  color: #999;
+}
+.logout-btn {
+  margin-top: 40rpx;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 32rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

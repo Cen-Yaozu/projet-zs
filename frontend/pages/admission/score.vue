@@ -134,8 +134,7 @@
           <view 
             v-for="year in years" 
             :key="year"
-            class="year-item"
-            :class="{ active: currentYear === year }"
+            class="year-item" :class="{ active: currentYear === year }"
             @tap="selectYear(year)"
           >
             <text>{{ year }}年</text>

@@ -70,20 +70,17 @@
       <!-- 分页 -->
       <view class="pagination" v-if="announcements.length > 0">
         <button 
-          class="page-btn prev-btn" 
-          :class="{ disabled: currentPage === 1 }" 
+          class="page-btn prev-btn" :class="{ disabled: currentPage === 1 }"
           @tap="handlePageChange(currentPage - 1)"
         >上一页</button>
         <button 
           v-for="page in Math.min(5, totalPages)" 
           :key="page"
-          class="page-btn" 
-          :class="{ active: page === currentPage }"
+          class="page-btn" :class="{ active: page === currentPage }"
           @tap="handlePageChange(page)"
         >{{ page }}</button>
         <button 
-          class="page-btn next-btn" 
-          :class="{ disabled: currentPage === totalPages }" 
+          class="page-btn next-btn" :class="{ disabled: currentPage === totalPages }"
           @tap="handlePageChange(currentPage + 1)"
         >下一页</button>
         <text class="page-text">共 {{total}} 条</text>

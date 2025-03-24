@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+.guide-tips {
+  text-align: center;
+  padding: 80rpx 30rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.header {
+  background: #3399cc;
+  padding: 30rpx;
+  color: white;
+  text-align: center;
+}
+.header .title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.filter-bar .year-selector, .filter-bar .display-mode {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+.filter-bar .year-text, .filter-bar .mode-text {
+  font-size: 30rpx;
+}
+.score-list {
+  padding: 0 20rpx;
+}
+.score-item {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.score-item .major-name {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.score-item .major-name .major-indicator {
+  width: 8rpx;
+  height: 36rpx;
+  background: #4a7bff;
+  margin-right: 20rpx;
+  border-radius: 4rpx;
+}
+.score-item .score-details {
+  display: flex;
+  padding: 0 20rpx 20rpx;
+}
+.score-item .score-details .detail-col {
+  flex: 1;
+}
+.score-item .score-details .detail-row {
+  margin: 16rpx 0;
+}
+.score-item .score-details .detail-row .label {
+  font-size: 28rpx;
+  color: #666;
+}
+.score-item .score-details .detail-row .value {
+  font-size: 28rpx;
+}
+.score-item .score-details .detail-row .value.blue {
+  color: #4a7bff;
+}
+/* 表格式视图样式 */
+.table-view {
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.table-view .table-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.table-view .table-top-bar .year-filter {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+.table-view .table-top-bar .year-text {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.table-view .table-top-bar .mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  color: #f89d35;
+}
+.table-view .table-top-bar .mode-text {
+  font-size: 28rpx;
+}
+.table-view .table-header {
+  display: flex;
+  background: #f8f8f8;
+  font-size: 28rpx;
+  color: #666;
+  padding: 25rpx 0;
+  font-weight: normal;
+  border-bottom: 2rpx solid #eee;
+}
+.table-view .table-row {
+  display: flex;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.table-view .table-row:last-child {
+  border-bottom: none;
+}
+.table-view .table-cell {
+  flex: 1;
+  padding: 25rpx 10rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  line-height: 1.4;
+}
+.loading, .empty-data {
+  height: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 28rpx;
+}
+/* 自定义弹窗样式 */
+.custom-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.custom-popup .popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.custom-popup .popup-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.custom-popup .popup-content .popup-title {
+  padding: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.custom-popup .popup-content .year-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+}
+.custom-popup .popup-content .year-list .year-item {
+  width: 25%;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+}
+.custom-popup .popup-content .year-list .year-item.active {
+  color: #4a7bff;
+  font-weight: bold;
+}
+.custom-popup .popup-content .popup-cancel-btn {
+  padding: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  border-top: 1rpx solid #f0f0f0;
+  background-color: #fff;
+  font-weight: 500;
+}
+.custom-popup .popup-content .popup-cancel-btn:active {
+  background-color: #f5f5f5;
+}

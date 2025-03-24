@@ -1,0 +1,607 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 主题颜色 */
+/* 灰度颜色 */
+/* 功能颜色 */
+/* 字体大小 */
+/* 间距 */
+/* 圆角 */
+/* 阴影 */
+/* 过渡动画 */
+/* 通用类 */
+.container {
+  padding: 24rpx;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-1 {
+  flex: 1;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-primary {
+  color: #4aa3ff;
+}
+.text-success {
+  color: #2ecc71;
+}
+.text-warning {
+  color: #f39c12;
+}
+.text-error {
+  color: #e74c3c;
+}
+.text-info {
+  color: #3498db;
+}
+.text-light {
+  color: #9e9e9e;
+}
+.bg-white {
+  background-color: #ffffff;
+}
+.bg-light {
+  background-color: #f5f7fa;
+}
+.bg-primary {
+  background-color: #4aa3ff;
+}
+.bg-primary-light {
+  background-color: rgba(74, 163, 255, 0.1);
+}
+.card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+.card:active {
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avatar.small {
+  width: 60rpx;
+  height: 60rpx;
+}
+.avatar.large {
+  width: 120rpx;
+  height: 120rpx;
+}
+.divider {
+  width: 100%;
+  height: 1rpx;
+  background-color: #e8eaed;
+  margin: 24rpx 0;
+}
+.badge {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  background-color: #4aa3ff;
+  border-radius: 8rpx;
+}
+.badge.warning {
+  background-color: #f39c12;
+}
+.badge.success {
+  background-color: #2ecc71;
+}
+.badge.error {
+  background-color: #e74c3c;
+}
+/* 间距工具类 */
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 8rpx;
+}
+.m-2 {
+  margin: 16rpx;
+}
+.m-3 {
+  margin: 24rpx;
+}
+.m-4 {
+  margin: 32rpx;
+}
+.m-5 {
+  margin: 40rpx;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: 8rpx;
+}
+.mt-2 {
+  margin-top: 16rpx;
+}
+.mt-3 {
+  margin-top: 24rpx;
+}
+.mt-4 {
+  margin-top: 32rpx;
+}
+.mt-5 {
+  margin-top: 40rpx;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 8rpx;
+}
+.mb-2 {
+  margin-bottom: 16rpx;
+}
+.mb-3 {
+  margin-bottom: 24rpx;
+}
+.mb-4 {
+  margin-bottom: 32rpx;
+}
+.mb-5 {
+  margin-bottom: 40rpx;
+}
+.ml-0 {
+  margin-left: 0;
+}
+.ml-1 {
+  margin-left: 8rpx;
+}
+.ml-2 {
+  margin-left: 16rpx;
+}
+.ml-3 {
+  margin-left: 24rpx;
+}
+.ml-4 {
+  margin-left: 32rpx;
+}
+.ml-5 {
+  margin-left: 40rpx;
+}
+.mr-0 {
+  margin-right: 0;
+}
+.mr-1 {
+  margin-right: 8rpx;
+}
+.mr-2 {
+  margin-right: 16rpx;
+}
+.mr-3 {
+  margin-right: 24rpx;
+}
+.mr-4 {
+  margin-right: 32rpx;
+}
+.mr-5 {
+  margin-right: 40rpx;
+}
+.p-0 {
+  padding: 0;
+}
+.p-1 {
+  padding: 8rpx;
+}
+.p-2 {
+  padding: 16rpx;
+}
+.p-3 {
+  padding: 24rpx;
+}
+.p-4 {
+  padding: 32rpx;
+}
+.p-5 {
+  padding: 40rpx;
+}
+.pt-0 {
+  padding-top: 0;
+}
+.pt-1 {
+  padding-top: 8rpx;
+}
+.pt-2 {
+  padding-top: 16rpx;
+}
+.pt-3 {
+  padding-top: 24rpx;
+}
+.pt-4 {
+  padding-top: 32rpx;
+}
+.pt-5 {
+  padding-top: 40rpx;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.pb-1 {
+  padding-bottom: 8rpx;
+}
+.pb-2 {
+  padding-bottom: 16rpx;
+}
+.pb-3 {
+  padding-bottom: 24rpx;
+}
+.pb-4 {
+  padding-bottom: 32rpx;
+}
+.pb-5 {
+  padding-bottom: 40rpx;
+}
+.pl-0 {
+  padding-left: 0;
+}
+.pl-1 {
+  padding-left: 8rpx;
+}
+.pl-2 {
+  padding-left: 16rpx;
+}
+.pl-3 {
+  padding-left: 24rpx;
+}
+.pl-4 {
+  padding-left: 32rpx;
+}
+.pl-5 {
+  padding-left: 40rpx;
+}
+.pr-0 {
+  padding-right: 0;
+}
+.pr-1 {
+  padding-right: 8rpx;
+}
+.pr-2 {
+  padding-right: 16rpx;
+}
+.pr-3 {
+  padding-right: 24rpx;
+}
+.pr-4 {
+  padding-right: 32rpx;
+}
+.pr-5 {
+  padding-right: 40rpx;
+}
+/* 响应式隐藏 */
+@media screen and (max-width: 768px) {
+.hide-sm {
+    display: none !important;
+}
+}
+/* 暗黑模式适配 */
+@media (prefers-color-scheme: dark) {
+.container {
+    background-color: #222222;
+}
+.card {
+    background-color: #333333;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+.divider {
+    background-color: #444444;
+}
+.bg-white {
+    background-color: #333333;
+}
+.bg-light {
+    background-color: #444444;
+}
+.text-light {
+    color: #c0c0c0;
+}
+}
+.login-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40rpx;
+  overflow: hidden;
+}
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.login-shape {
+  position: absolute;
+  border-radius: 50%;
+}
+.login-shape--1 {
+  width: 500rpx;
+  height: 500rpx;
+  background: linear-gradient(135deg, rgba(74, 163, 255, 0.1), rgba(74, 163, 255, 0.05));
+  top: -200rpx;
+  right: -100rpx;
+}
+.login-shape--2 {
+  width: 600rpx;
+  height: 600rpx;
+  background: linear-gradient(135deg, rgba(49, 131, 224, 0.12), rgba(74, 163, 255, 0.06));
+  bottom: -300rpx;
+  left: -200rpx;
+}
+.login-shape--3 {
+  width: 300rpx;
+  height: 300rpx;
+  background: linear-gradient(135deg, rgba(74, 163, 255, 0.07), rgba(49, 131, 224, 0.03));
+  top: 30%;
+  left: -150rpx;
+}
+.login-box {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 600rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.2);
+  padding: 50rpx 40rpx;
+  -webkit-animation: fadeInUp 0.5s ease-out;
+          animation: fadeInUp 0.5s ease-out;
+}
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+.login-header .login-logo {
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 20rpx;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+}
+.login-header .login-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 16rpx;
+}
+.login-header .login-subtitle {
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+}
+.login-form .login-input-group {
+  position: relative;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  background-color: #f5f7fa;
+  border-radius: 20rpx;
+  border: 1px solid #e8eaed;
+  transition: all 0.3s;
+}
+.login-form .login-input-group:focus-within {
+  border-color: #4aa3ff;
+  background-color: #ffffff;
+  box-shadow: 0 4rpx 12rpx rgba(74, 163, 255, 0.25);
+}
+.login-form .login-input-group .login-input-icon {
+  width: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+  font-size: 36rpx;
+}
+.login-form .login-input-group .login-input {
+  flex: 1;
+  height: 90rpx;
+  font-size: 32rpx;
+  color: #222222;
+  background-color: transparent;
+  padding: 0 10rpx;
+}
+.login-form .login-input-group .login-input-action {
+  width: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9e9e9e;
+}
+.login-form .login-remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+.login-form .login-remember .login-remember-checkbox {
+  position: relative;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 8rpx;
+  border: 1px solid #c0c0c0;
+  margin-right: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.login-form .login-remember .login-remember-checkbox--active {
+  background-color: #4aa3ff;
+  border-color: #4aa3ff;
+}
+.login-form .login-remember .login-remember-checkbox--active:after {
+  content: "";
+  position: absolute;
+  width: 16rpx;
+  height: 8rpx;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.login-form .login-button-group {
+  margin-bottom: 30rpx;
+}
+.login-form .login-button-group .login-button {
+  position: relative;
+  width: 100%;
+  height: 90rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.login-form .login-button-group .login-button--primary {
+  background: linear-gradient(135deg, #4aa3ff, #3183e0);
+  color: #ffffff;
+  box-shadow: 0 4rpx 12rpx rgba(74, 163, 255, 0.25);
+}
+.login-form .login-button-group .login-button--primary:active {
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(74, 163, 255, 0.2);
+}
+.login-form .login-button-group .login-button--default {
+  background-color: #ffffff;
+  color: #4aa3ff;
+  border: 1px solid #4aa3ff;
+}
+.login-form .login-button-group .login-button--default:active {
+  background-color: rgba(74, 163, 255, 0.1);
+  -webkit-transform: translateY(2rpx);
+          transform: translateY(2rpx);
+}
+.login-form .login-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.login-form .login-actions text {
+  color: #4aa3ff;
+  padding: 10rpx;
+}
+.login-form .login-actions text:active {
+  opacity: 0.8;
+}
+@-webkit-keyframes fadeInUp {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(30rpx);
+            transform: translateY(30rpx);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+@keyframes fadeInUp {
+from {
+    opacity: 0;
+    -webkit-transform: translateY(30rpx);
+            transform: translateY(30rpx);
+}
+to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+@-webkit-keyframes pulse {
+0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+@keyframes pulse {
+0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}

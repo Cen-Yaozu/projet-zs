@@ -31,23 +31,8 @@ public class MajorScoreServiceImpl extends ServiceImpl<MajorScoreMapper, MajorSc
     }
 
     @Override
-    public List<MajorScore> getByYearAndSchoolId(Integer year, Long schoolId) {
-        return list(new LambdaQueryWrapper<MajorScore>()
-                .eq(MajorScore::getYear, year)
-                .eq(MajorScore::getSchoolId, schoolId));
-    }
-
-    @Override
     public List<MajorScore> getByProvince(String province) {
         return list(new LambdaQueryWrapper<MajorScore>()
-                .eq(MajorScore::getProvince, province));
-    }
-
-    @Override
-    public List<MajorScore> getByYearAndSchoolIdAndProvince(Integer year, Long schoolId, String province) {
-        return list(new LambdaQueryWrapper<MajorScore>()
-                .eq(MajorScore::getYear, year)
-                .eq(MajorScore::getSchoolId, schoolId)
                 .eq(MajorScore::getProvince, province));
     }
 

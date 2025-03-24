@@ -1,0 +1,264 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #4aa3ff 0%, #3a93f0 100%);
+  color: #fff;
+  padding: 20rpx 30rpx;
+  height: 90rpx;
+  box-shadow: 0 4rpx 16rpx rgba(74, 163, 255, 0.2);
+  position: relative;
+  z-index: 10;
+}
+.header .back-button {
+  font-size: 40rpx;
+  width: 60rpx;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+.header .back-button:active {
+  opacity: 0.7;
+}
+.header .title {
+  font-size: 36rpx;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+.filter-bar {
+  margin: 20rpx 30rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+.filter-bar .picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background-color: #f6f8fa;
+  border-radius: 8rpx;
+}
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20rpx 30rpx;
+}
+.action-bar .add-btn {
+  background: linear-gradient(135deg, #4aa3ff 0%, #3a93f0 100%);
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 12rpx 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 2rpx 8rpx rgba(74, 163, 255, 0.3);
+}
+.action-bar .add-btn:disabled {
+  background: #ccc;
+  box-shadow: none;
+}
+.action-bar .search-box {
+  flex: 1;
+  max-width: 400rpx;
+  margin-left: 20rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+.action-bar .search-box input {
+  flex: 1;
+  height: 70rpx;
+  padding-right: 60rpx;
+}
+.action-bar .search-box .icon-search {
+  position: absolute;
+  right: 20rpx;
+  font-size: 32rpx;
+  color: #999;
+}
+.major-list {
+  flex: 1;
+  padding: 0 30rpx;
+}
+.major-list .loading, .major-list .empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+.major-list .major-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+.major-list .major-item:hover {
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+.major-list .major-item .major-info {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+.major-list .major-item .major-info .major-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+}
+.major-list .major-item .major-info .major-detail {
+  flex: 1;
+}
+.major-list .major-item .major-info .major-detail .major-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  color: #333;
+}
+.major-list .major-item .major-info .major-detail .major-meta {
+  font-size: 24rpx;
+  color: #666;
+}
+.major-list .major-item .major-actions {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #eee;
+  padding-top: 20rpx;
+}
+.major-list .major-item .major-actions .action-btn {
+  margin-left: 20rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+}
+.major-list .major-item .major-actions .action-btn.edit {
+  background-color: #f0f9ff;
+  color: #4aa3ff;
+}
+.major-list .major-item .major-actions .action-btn.delete {
+  background-color: #fff0f0;
+  color: #ff6b6b;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+.pagination .page-info {
+  font-size: 24rpx;
+  color: #666;
+}
+.pagination .page-btns {
+  display: flex;
+  align-items: center;
+}
+.pagination .page-btns button {
+  background-color: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  color: #666;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  margin: 0 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.pagination .page-btns button:disabled {
+  color: #ccc;
+  background-color: #f8f8f8;
+}
+.pagination .page-btns .page-num {
+  margin: 0 20rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.confirm-modal .modal-content {
+  width: 600rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.confirm-modal .modal-content .modal-header {
+  padding: 30rpx;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.confirm-modal .modal-content .modal-header .modal-title {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.confirm-modal .modal-content .modal-body {
+  padding: 40rpx 30rpx;
+}
+.confirm-modal .modal-content .modal-body .modal-message {
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333;
+}
+.confirm-modal .modal-content .modal-footer {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+.confirm-modal .modal-content .modal-footer .modal-btn {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+}
+.confirm-modal .modal-content .modal-footer .modal-btn.cancel-btn {
+  color: #666;
+  background-color: #f5f7fa;
+}
+.confirm-modal .modal-content .modal-footer .modal-btn.confirm-btn {
+  color: #ff6b6b;
+  background-color: #fff0f0;
+}

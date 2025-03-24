@@ -1,0 +1,191 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 全局变量 */
+/* 多行文本省略 */
+/* 基础样式重置 */
+page {
+  font-size: 28rpx;
+  color: #333333;
+  background-color: #f5f7fa;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+/* 通用样式类 */
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-primary {
+  color: #007AFF;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 8rpx solid #007AFF;
+}
+/* 引入默认样式 */
+/* 全局颜色变量 */
+/* 文字颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 阴影 */
+/* 圆角 */
+/* 字体大小 */
+/* 间距 */
+/* 动画 */
+@-webkit-keyframes fade-in {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+@keyframes fade-in {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+@-webkit-keyframes slide-up {
+from {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+}
+to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+@keyframes slide-up {
+from {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+}
+to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+}
+/* 混入 */
+/* 全局通用类 */
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-1 {
+  flex: 1;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.bg-white {
+  background-color: #ffffff;
+}
+.rounded {
+  border-radius: 8rpx;
+}
+.shadow {
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+/* 全局样式 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  background-color: #f7f7f7;
+}
+/* 去除按钮默认边框 */
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+/* 去除按钮默认边框 */
+button::after {
+  border: none;
+}
+/* 在这里添加其他全局样式 */
+.container {
+  padding-bottom: 120rpx;
+}
+/* 处理图片加载错误 */
+image {
+  will-change: transform;
+}
+image[mode=aspectFill].error,
+image[mode=aspectFit].error,
+image[mode=scaleToFill].error {
+  background-color: #f8f8f8;
+  position: relative;
+}
+image[mode=aspectFill].error::before,
+image[mode=aspectFit].error::before,
+image[mode=scaleToFill].error::before {
+  content: "\e656";
+  font-family: "iconfont";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 40rpx;
+  color: #ccc;
+}

@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），
+ * 方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #3a86ff;
+  color: #fff;
+  padding: 20rpx 30rpx;
+  position: relative;
+  height: 80rpx;
+}
+.nav-header .back-button {
+  font-size: 40rpx;
+  width: 60rpx;
+}
+.nav-header .nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+.nav-header .right-icons {
+  display: flex;
+  justify-content: flex-end;
+  width: 160rpx;
+}
+.nav-header .right-icons .iconfont {
+  margin-left: 30rpx;
+  font-size: 36rpx;
+}
+.page-header {
+  padding: 30rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header .page-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.page-header .icon-arrow-right {
+  color: #999;
+  font-size: 30rpx;
+}
+.section-title {
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+.loading-container .loading {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #3399cc;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+.loading-container .loading-text {
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+@-webkit-keyframes spin {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@keyframes spin {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+.college-list {
+  padding: 0 20rpx;
+}
+.college-list .college-item {
+  margin-bottom: 20rpx;
+}
+.college-list .college-item .college-card {
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.college-list .college-item .college-card .college-left {
+  flex: 1;
+}
+.college-list .college-item .college-card .college-left .college-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.college-list .college-item .college-card .college-left .college-name .orange-bar {
+  width: 6rpx;
+  height: 30rpx;
+  background: #ff9900;
+  margin-right: 15rpx;
+}
+.college-list .college-item .college-card .college-left .college-name text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+.college-list .college-item .college-card .college-left .college-info {
+  display: flex;
+}
+.college-list .college-item .college-card .college-left .college-info .info-item {
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.college-list .college-item .college-card .college-left .college-info .info-item .label {
+  font-size: 26rpx;
+  color: #666;
+}
+.college-list .college-item .college-card .college-left .college-info .info-item .value {
+  font-size: 26rpx;
+  color: #ff9900;
+  font-weight: 500;
+}
+.college-list .college-item .college-card .college-right {
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 26rpx;
+}
+.college-list .college-item .college-card .college-right .iconfont {
+  margin-left: 10rpx;
+}

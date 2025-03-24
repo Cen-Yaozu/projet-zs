@@ -48,8 +48,7 @@
           <view 
             v-for="(tab, index) in tabs" 
             :key="index"
-            class="home-tabs__item"
-            :class="{ 'home-tabs__item--active': currentTab === index }"
+            class="home-tabs__item" :class="{ 'home-tabs__item--active': currentTab === index }"
             @tap="switchTab(index)"
           >
             <text class="home-tabs__text">{{ tab }}</text>
@@ -84,37 +83,6 @@
             </scroll-view>
           </swiper-item>
         </swiper>
-      </view>
-    </view>
-    
-    <!-- 招生快捷入口 -->
-    <view class="home-quick-access">
-      <view class="home-quick-access__title">快速访问</view>
-      <view class="home-quick-access__grid">
-        <view class="home-quick-access__item" @tap="navigateTo('/pages/admission/score')">
-          <view class="home-quick-access__icon-wrapper">
-            <text class="iconfont icon-chart"></text>
-          </view>
-          <text class="home-quick-access__text">分数线查询</text>
-        </view>
-        <view class="home-quick-access__item" @tap="navigateTo('/pages/admission/plan')">
-          <view class="home-quick-access__icon-wrapper">
-            <text class="iconfont icon-document"></text>
-          </view>
-          <text class="home-quick-access__text">招生计划</text>
-        </view>
-        <view class="home-quick-access__item" @tap="navigateTo('/pages/school/major')">
-          <view class="home-quick-access__icon-wrapper">
-            <text class="iconfont icon-graduation"></text>
-          </view>
-          <text class="home-quick-access__text">专业介绍</text>
-        </view>
-        <view class="home-quick-access__item" @tap="navigateTo('/pages/school/faq')">
-          <view class="home-quick-access__icon-wrapper">
-            <text class="iconfont icon-question"></text>
-          </view>
-          <text class="home-quick-access__text">常见问题</text>
-        </view>
       </view>
     </view>
   </view>
@@ -185,14 +153,20 @@ export default {
             announcements.forEach(item => {
               let tabIndex = 0; // 默认为招生公告
               
-              // 根据公告内容或标题判断分类
-              if (item.title.includes('章程') || (item.content && item.content.includes('章程'))) {
-                tabIndex = 1; // 招生章程
-              } else if (item.title.includes('政策') || (item.content && item.content.includes('政策'))) {
-                tabIndex = 2; // 招生政策
-              } else if (item.title.includes('往年') || (item.content && item.content.includes('往年')) || 
-                          item.title.includes('参考') || (item.content && item.content.includes('参考'))) {
-                tabIndex = 3; // 往年参考
+              // 根据类别分类
+              switch(item.category) {
+                case 'GENERAL_NOTICE':
+                  tabIndex = 0; // 招生公告
+                  break;
+                case 'ADMISSION_RULES':
+                  tabIndex = 1; // 招生章程
+                  break;
+                case 'ADMISSION_POLICY':
+                  tabIndex = 2; // 招生政策
+                  break;
+                case 'HISTORICAL_REFERENCE':
+                  tabIndex = 3; // 往年参考
+                  break;
               }
               
               // 添加到对应分类
@@ -204,72 +178,26 @@ export default {
               });
             });
           } else {
-            // 加载示例数据（实际项目中应该显示错误提示）
-            this.loadSampleData();
+            // 如果后端返回错误，显示空数据
+            this.newsLists = [[], [], [], []];
+            uni.showToast({
+              title: '获取公告失败',
+              icon: 'none'
+            });
           }
         },
         fail: () => {
+          // API请求失败，显示空数据
+          this.newsLists = [[], [], [], []];
           uni.showToast({
             title: '获取公告失败',
             icon: 'none'
           });
-          // 加载示例数据
-          this.loadSampleData();
         },
         complete: () => {
           uni.hideLoading();
         }
       });
-    },
-    
-    // 加载示例数据（当API请求失败时使用）
-    loadSampleData() {
-      this.newsLists = [
-        [
-          { 
-            title: '广航召开2024年招生工作总结暨2025年招生工作动员会议',
-            date: '2024-10-23',
-            image: '/static/images/news1.jpg',
-            url: '/pages/announcement/detail?id=1'
-          },
-          { 
-            title: '梦想启航！广州航海学院2024年录取通知书已全部寄出！',
-            date: '2024-08-01',
-            image: '/static/images/news2.jpg',
-            url: '/pages/announcement/detail?id=2'
-          },
-          { 
-            title: '广州航海学院2024年夏季高考录取结果最新发布',
-            date: '2024-07-08',
-            image: '/static/images/news3.jpg',
-            url: '/pages/announcement/detail?id=3'
-          }
-        ],
-        [
-          { 
-            title: '广州航海学院2024年招生章程正式发布',
-            date: '2024-05-15',
-            image: '/static/images/news4.jpg',
-            url: '/pages/announcement/detail?id=4'
-          }
-        ], // 招生章程列表
-        [
-          { 
-            title: '2024年广东省高考招生政策重大调整解读',
-            date: '2024-04-20',
-            image: '/static/images/news5.jpg',
-            url: '/pages/announcement/detail?id=5'
-          }
-        ], // 招生政策列表
-        [
-          { 
-            title: '广州航海学院近三年各省份录取分数线汇总',
-            date: '2024-03-10',
-            image: '/static/images/news6.jpg',
-            url: '/pages/announcement/detail?id=6'
-          }
-        ]  // 往年参考列表
-      ];
     },
     
     // 格式化日期
@@ -589,66 +517,6 @@ export default {
     height: 120rpx;
     border-radius: $radius-medium;
     object-fit: cover;
-  }
-}
-
-// 快速访问区域
-.home-quick-access {
-  margin: 20rpx;
-  padding: 30rpx;
-  background-color: $white;
-  border-radius: $radius-large;
-  box-shadow: $shadow-light;
-  margin-bottom: 40rpx;
-  
-  &__title {
-    font-size: $font-size-medium;
-    font-weight: 500;
-    color: $gray-800;
-    margin-bottom: 24rpx;
-  }
-  
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20rpx;
-  }
-  
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: $transition-base;
-    
-    &:active {
-      transform: translateY(-5rpx);
-    }
-  }
-  
-  &__icon-wrapper {
-    width: 90rpx;
-    height: 90rpx;
-    border-radius: $radius-circle;
-    background-color: $primary-light-color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $primary-color;
-    font-size: $font-size-large;
-    margin-bottom: 12rpx;
-    transition: $transition-base;
-    
-    .home-quick-access__item:active & {
-      background-color: $primary-color;
-      color: $white;
-    }
-  }
-  
-  &__text {
-    font-size: $font-size-small;
-    color: $gray-700;
-    line-height: 1.4;
-    text-align: center;
   }
 }
 

@@ -36,6 +36,13 @@ public interface AnnouncementService {
     List<Announcement> findByType(String type);
     
     /**
+     * 根据类别获取通知公告
+     * @param category 通知公告类别
+     * @return 通知公告列表
+     */
+    List<Announcement> findByCategory(String category);
+    
+    /**
      * 添加通知公告
      * @param announcement 通知公告对象
      * @return 添加后的通知公告对象

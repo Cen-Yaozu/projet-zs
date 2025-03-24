@@ -1,0 +1,122 @@
+/* 全局颜色变量 */
+$primary-color: #4aa3ff;
+$success-color: #3cc51f;
+$warning-color: #ff976a;
+$error-color: #fa3534;
+$link-color: #007aff;
+
+/* 文字颜色 */
+$text-main: #333333;
+$text-regular: #666666;
+$text-minor: #999999;
+
+/* 背景颜色 */
+$bg-color: #f8f8f8;
+$bg-white: #ffffff;
+
+/* 边框颜色 */
+$border-color: #eeeeee;
+
+/* 阴影 */
+$box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+
+/* 圆角 */
+$border-radius-sm: 4rpx;
+$border-radius-base: 8rpx;
+$border-radius-lg: 12rpx;
+$border-radius-circle: 50%;
+
+/* 字体大小 */
+$font-size-xs: 20rpx;
+$font-size-sm: 24rpx;
+$font-size-base: 28rpx;
+$font-size-lg: 32rpx;
+$font-size-xl: 36rpx;
+
+/* 间距 */
+$spacing-xs: 10rpx;
+$spacing-sm: 20rpx;
+$spacing-base: 30rpx;
+$spacing-lg: 40rpx;
+$spacing-xl: 50rpx;
+
+/* 动画 */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 混入 */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin multi-ellipsis($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+/* 全局通用类 */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-ellipsis {
+  @include text-ellipsis;
+}
+
+.bg-white {
+  background-color: $bg-white;
+}
+
+.rounded {
+  border-radius: $border-radius-base;
+}
+
+.shadow {
+  box-shadow: $box-shadow;
+} 

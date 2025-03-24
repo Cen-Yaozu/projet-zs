@@ -40,6 +40,11 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     }
 
     @Override
+    public List<Announcement> findByCategory(String category) {
+        return announcementMapper.findByCategory(category);
+    }
+
+    @Override
     @Transactional
     public Announcement add(Announcement announcement) {
         // 设置默认值
@@ -48,6 +53,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         }
         if (announcement.getType() == null || announcement.getType().isEmpty()) {
             announcement.setType("GENERAL");
+        }
+        if (announcement.getCategory() == null || announcement.getCategory().isEmpty()) {
+            announcement.setCategory("GENERAL_NOTICE");
         }
         if (announcement.getPublishTime() == null) {
             announcement.setPublishTime(LocalDateTime.now());

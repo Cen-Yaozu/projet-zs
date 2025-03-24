@@ -88,6 +88,22 @@ public class AnnouncementController {
     }
 
     /**
+     * 根据类别获取通知公告
+     */
+    @GetMapping("/category/{category}")
+    @Operation(summary = "根据类别获取通知公告", description = "获取特定类别的通知公告，如招生公告、招生章程等，按发布时间降序排列")
+    public ResponseEntity<?> getAnnouncementsByCategory(
+            @Parameter(description = "通知公告类别", required = true) 
+            @PathVariable String category) {
+        try {
+            List<Announcement> announcements = announcementService.findByCategory(category);
+            return ResponseEntity.ok(ApiResponse.success(announcements));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error("获取通知公告失败: " + e.getMessage()));
+        }
+    }
+
+    /**
      * 添加通知公告
      */
     @PostMapping
